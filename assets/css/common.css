@@ -786,3 +786,18 @@ a {
     padding: 6px 10px;
   }
 }
+
+/* Ensure inline SVGs inside footer and contact social links match Font Awesome sizing */
+.footer-social-link svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  display: block;
+}
+
+.contact-direct-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex-shrink: 0;
+}

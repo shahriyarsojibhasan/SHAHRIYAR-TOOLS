@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | SHAHRIYAR TOOLS</title>
+  
+  <meta name="description" content="Oops! The page or tool you are looking for does not exist on SHAHRIYAR TOOLS. Explore 16+ free client-side developer, design, and utility web tools.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/404.html">
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23dc2626'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="404 - Page Not Found | SHAHRIYAR TOOLS">
+  <meta property="og:description" content="Explore 16+ free client-side developer, design, and document web utilities.">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/404.html">
+  <meta property="og:site_name" content="SHAHRIYAR TOOLS">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="404 - Page Not Found | SHAHRIYAR TOOLS">
+  <meta name="twitter:description" content="Explore 16+ free client-side developer, design, and document web utilities.">
+  <meta name="twitter:site" content="@shahriyarsojib_">
+  <meta name="twitter:creator" content="@shahriyarsojib_">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+
+  <style>
+    .error-hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin: 2.5rem 0 3.5rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #dc2626, #f97316, #2563eb);
+    }
+
+    .error-giant-code {
+      font-size: clamp(4.5rem, 12vw, 8rem);
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, #0f172a 30%, #dc2626 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .error-headline {
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+
+    .error-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .error-search-box {
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .error-search-input {
+      width: 100%;
+      padding: 14px 48px 14px 20px;
+      font-size: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      background: var(--bg-main);
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+      outline: none;
+    }
+
+    .error-search-input:focus {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
+      background: white;
+    }
+
+    .error-search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .error-search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 6px;
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      z-index: 50;
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+      text-align: left;
+    }
+
+    .error-search-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-color);
+      transition: background var(--transition-fast);
+    }
+
+    .error-search-item:last-child {
+      border-bottom: none;
+    }
+
+    .error-search-item:hover {
+      background: var(--bg-muted);
+    }
+
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .popular-tools-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "404 - Page Not Found | SHAHRIYAR TOOLS",
+    "description": "Page not found error page on SHAHRIYAR TOOLS.",
+    "url": "https://tools.shahriyarsojibhasan.top/404.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SHAHRIYAR TOOLS",
+      "url": "https://tools.shahriyarsojibhasan.top/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="./" class="brand" aria-label="SHAHRIYAR TOOLS Home">
+        <svg class="brand-logo" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#dc2626"/>
+          <path d="M9 10L16 6L23 10V22L16 26L9 22V10Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M16 6V26M9 10L23 22M23 10L9 22" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
+        </svg>
+        <span class="brand-name">SHAHRIYAR <span style="color: #ef4444;">TOOLS</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="./" class="nav-link"><i class="fas fa-th"></i> All Tools</a>
+        <a href="docs/" class="nav-link"><i class="fas fa-book"></i> Documentation</a>
+        <a href="about/" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact/" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="brand-name">SHAHRIYAR <span style="color: #ef4444;">TOOLS</span></span>
+      <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="./" class="mobile-nav-link"><i class="fas fa-th"></i> All Tools (16)</a>
+      <a href="docs/" class="mobile-nav-link"><i class="fas fa-book"></i> Documentation</a>
+      <a href="about/" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About Platform</a>
+      <a href="contact/" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact & Support</a>
+      <a href="privacy/" class="mobile-nav-link"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+      <a href="terms/" class="mobile-nav-link"><i class="fas fa-file-contract"></i> Terms of Service</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- 404 Hero Card -->
+    <section class="error-hero-card" aria-label="Page Not Found Message">
+      <span class="tool-tag-pill" style="color: #dc2626; background: #fee2e2; font-weight: 700; margin-bottom: 1rem; display: inline-block;">
+        <i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i> Error 404: Page Not Found
+      </span>
+
+      <div class="error-giant-code">404</div>
+      <h1 class="error-headline">We Couldn't Find That Utility or Page</h1>
+      <p class="error-desc">
+        The link you followed may be misspelled, or the tool may have been moved. All 16+ privacy-first web utilities are active, running 100% in your browser below.
+      </p>
+
+      <!-- Instant Tool Search -->
+      <div class="error-search-box">
+        <input type="text" id="errorSearchInput" class="error-search-input" placeholder="Search 16+ utilities (e.g. compress, pdf, qr, password)..." aria-label="Search all utilities">
+        <i class="fas fa-search error-search-icon"></i>
+        <div id="errorSearchResults" class="error-search-results"></div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="error-actions">
+        <a href="./" class="btn-tool btn-tool-primary" style="padding: 12px 24px; font-weight: 700;">
+          <i class="fas fa-home"></i> Back to Homepage
+        </a>
+        <a href="./#tools-directory" class="btn-tool" style="padding: 12px 24px;">
+          <i class="fas fa-th"></i> Browse All 16+ Tools
+        </a>
+        <a href="docs/" class="btn-tool" style="padding: 12px 24px;">
+          <i class="fas fa-book"></i> Documentation Hub
+        </a>
+        <a href="contact/" class="btn-tool" style="padding: 12px 24px;">
+          <i class="fas fa-envelope"></i> Contact Support
+        </a>
+      </div>
+    </section>
+
+    <!-- Popular Tools Directory Grid -->
+    <section aria-label="Popular Tools">
+      <h2 class="popular-tools-title">
+        <i class="fas fa-fire" style="color: #f97316;"></i> Popular Utilities You Might Need
+      </h2>
+
+      <div class="directory-grid" style="margin-bottom: 4rem;">
+        <!-- DuoVista PDF Studio -->
+        <a href="duovista-pdf/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #eff6ff; color: #2563eb;">
+              <i class="fas fa-columns"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">DuoVista PDF Studio</h3>
+              <span class="tool-tag-pill" style="color: #2563eb; background: #eff6ff;">Dual Split & IELTS</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Dual split-screen PDF reader. Read 1 PDF in Up-Down panes or compare 2 different PDFs side-by-side with annotations and timer.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">Split Screen</span>
+            <span class="tool-launch-arrow">Open Studio <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- PDF Toolkit -->
+        <a href="pdf-tools/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #fee2e2; color: #dc2626;">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">PDF Toolkit</h3>
+              <span class="tool-tag-pill" style="color: #dc2626; background: #fee2e2;">Documents</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Merge multiple PDFs, split page ranges, rotate orientations, and extract pages 100% in-browser with zero uploads.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">100% Private</span>
+            <span class="tool-launch-arrow">Open Toolkit <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Image Compressor -->
+        <a href="image-compressor/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #fef3c7; color: #d97706;">
+              <i class="fas fa-compress-arrows-alt"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">Image Compressor</h3>
+              <span class="tool-tag-pill" style="color: #d97706; background: #fef3c7;">Image & Media</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Reduce JPG, PNG, and WebP file sizes up to 90% in your browser with interactive before/after split comparison.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">No Quality Loss</span>
+            <span class="tool-launch-arrow">Compress <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- QR Code Studio -->
+        <a href="qr-code-generator/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #d1fae5; color: #059669;">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">QR Code Studio</h3>
+              <span class="tool-tag-pill" style="color: #059669; background: #d1fae5;">Vector & QR</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Generate custom branded QR codes for URLs, Wi-Fi credentials, contact vCards, and emails with logos and high-res PNG/SVG export.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">PNG & SVG</span>
+            <span class="tool-launch-arrow">Create QR <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Passbook Studio -->
+        <a href="passbook/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #e0f2fe; color: #0284c7;">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">বাকির পাস বই (Passbook Studio)</h3>
+              <span class="tool-tag-pill" style="color: #0284c7; background: #e0f2fe;">Finance & Print</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Bengali customer ledger & passbook creator with 12 bank-grade security themes, duplex booklet printing, and vector export.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">Bangla Ledger</span>
+            <span class="tool-launch-arrow">Open Studio <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <!-- Password Generator -->
+        <a href="password-generator/" class="tool-grid-card">
+          <div class="tool-card-header">
+            <div class="tool-card-icon" style="background: #ede9fe; color: #7c3aed;">
+              <i class="fas fa-key"></i>
+            </div>
+            <div>
+              <h3 class="tool-card-title">Password Vault</h3>
+              <span class="tool-tag-pill" style="color: #7c3aed; background: #ede9fe;">Security</span>
+            </div>
+          </div>
+          <p class="tool-card-desc">
+            Generate cryptographically secure passwords and passphrases with entropy metrics and estimated crack-time gauges.
+          </p>
+          <div class="tool-card-footer">
+            <span class="tool-tag-pill">Web Crypto API</span>
+            <span class="tool-launch-arrow">Generate <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col footer-brand-col">
+        <a href="./" class="brand" aria-label="SHAHRIYAR TOOLS Home">
+          <svg class="brand-logo" width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#dc2626"/>
+            <path d="M9 10L16 6L23 10V22L16 26L9 22V10Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M16 6V26M9 10L23 22M23 10L9 22" stroke="white" stroke-width="1.5" stroke-opacity="0.6"/>
+          </svg>
+          <span class="brand-name">SHAHRIYAR <span style="color: #ef4444;">TOOLS</span></span>
+        </a>
+        <p>An independent developer ecosystem of free, privacy-first web utilities created by Shahriyar Sojib Hasan.</p>
+        <div class="footer-social-links">
+          <a href="https://github.com/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/shahriyarsojib_" target="_blank" rel="noopener" class="footer-social-link" aria-label="X Twitter">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Personal Portfolio"><i class="fas fa-globe"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Media &amp; Documents</h4>
+        <ul>
+          <li><a href="image-compressor/">Image Compressor</a></li>
+          <li><a href="image-converter/">Batch Image Converter</a></li>
+          <li><a href="pdf-tools/">PDF Toolkit</a></li>
+          <li><a href="duovista-pdf/">DuoVista PDF Studio</a></li>
+          <li><a href="reunionposter/">Reunion Poster Studio</a></li>
+          <li><a href="passbook/">Bangla Passbook Studio</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Developer &amp; Security</h4>
+        <ul>
+          <li><a href="json-formatter/">JSON Formatter</a></li>
+          <li><a href="password-generator/">Password Generator</a></li>
+          <li><a href="qr-code-generator/">QR Code Studio</a></li>
+          <li><a href="markdown-editor/">Markdown Editor</a></li>
+          <li><a href="text-case-converter/">Text Case Converter</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="docs/">Documentation</a></li>
+          <li><a href="about/">About Platform</a></li>
+          <li><a href="contact/">Contact &amp; Feedback</a></li>
+          <li><a href="privacy/">Privacy Policy</a></li>
+          <li><a href="terms/">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>100% Client-Side In-Browser Processing.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    // Tool search index for 404 page
+    const tools = [
+      { name: "DuoVista PDF Studio", url: "duovista-pdf/", desc: "Dual split-screen PDF reader and IELTS companion", icon: "fa-columns" },
+      { name: "PDF Toolkit", url: "pdf-tools/", desc: "Merge, split, rotate, and extract PDF pages", icon: "fa-file-pdf" },
+      { name: "Image Compressor", url: "image-compressor/", desc: "Compress JPG, PNG, and WebP in browser", icon: "fa-compress-arrows-alt" },
+      { name: "Batch Image Converter", url: "image-converter/", desc: "Convert images to JPG, PNG, WebP, GIF", icon: "fa-exchange-alt" },
+      { name: "QR Code Studio", url: "qr-code-generator/", desc: "Custom QR codes with logos and SVG export", icon: "fa-qrcode" },
+      { name: "Word Counter & Text Analyzer", url: "word-counter/", desc: "Live word count, reading time, keyword density", icon: "fa-file-alt" },
+      { name: "JSON Formatter & Validator", url: "json-formatter/", desc: "Beautify, validate, and minify JSON data", icon: "fa-code" },
+      { name: "Password Generator", url: "password-generator/", desc: "Cryptographically secure random password vault", icon: "fa-key" },
+      { name: "Color Palette Studio", url: "color-palette/", desc: "Harmonic palettes, contrast checker & gradients", icon: "fa-palette" },
+      { name: "Unit Converter", url: "unit-converter/", desc: "Convert length, mass, temperature, area, volume", icon: "fa-balance-scale" },
+      { name: "Age Calculator", url: "age-calculator/", desc: "Exact age in years, months, days & live seconds", icon: "fa-calendar-alt" },
+      { name: "Invoice Generator", url: "invoice-generator/", desc: "Create and print professional business invoices", icon: "fa-file-invoice-dollar" },
+      { name: "Markdown Editor", url: "markdown-editor/", desc: "Split-screen live Markdown preview and export", icon: "fa-edit" },
+      { name: "Text Case Converter", url: "text-case-converter/", desc: "UPPERCASE, lowercase, Title Case, camelCase", icon: "fa-font" },
+      { name: "Passbook Studio (বাকির খাতা)", url: "passbook/", desc: "Bengali customer ledger & duplex passbook maker", icon: "fa-book-open" },
+      { name: "Reunion Poster Studio", url: "reunionposter/", desc: "Create high-resolution batch reunion posters", icon: "fa-paint-brush" }
+    ];
+
+    const input = document.getElementById('errorSearchInput');
+    const results = document.getElementById('errorSearchResults');
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) {
+        results.style.display = 'none';
+        results.innerHTML = '';
+        return;
+      }
+
+      const matches = tools.filter(t => 
+        t.name.toLowerCase().includes(q) || 
+        t.desc.toLowerCase().includes(q)
+      );
+
+      if (matches.length === 0) {
+        results.innerHTML = '<div style="padding: 12px 16px; color: var(--text-muted); font-size: 0.9rem;">No matching tools found. Try "pdf", "image", or "qr".</div>';
+        results.style.display = 'block';
+        return;
+      }
+
+      results.innerHTML = matches.map(m => `
+        <a href="${m.url}" class="error-search-item">
+          <i class="fas ${m.icon}" style="color: var(--brand-primary); font-size: 1.1rem; width: 20px; text-align: center;"></i>
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem;">${m.name}</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">${m.desc}</div>
+          </div>
+        </a>
+      `).join('');
+      results.style.display = 'block';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!input.contains(e.target) && !results.contains(e.target)) {
+        results.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

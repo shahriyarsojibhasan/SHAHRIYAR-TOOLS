@@ -26,6 +26,7 @@ const endpoints = [
   '/text-case-converter/',
   '/duovista-pdf/',
   '/pdf-viewer/',
+  '/404.html',
   '/sitemap.xml',
   '/robots.txt',
   '/llms.txt',

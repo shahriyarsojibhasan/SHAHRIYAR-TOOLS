@@ -31,7 +31,8 @@ const filesToAudit = [
   'invoice-generator/index.html',
   'markdown-editor/index.html',
   'text-case-converter/index.html',
-  'duovista-pdf/index.html'
+  'duovista-pdf/index.html',
+  '404.html'
 ];
 
 let errors = [];
@@ -150,6 +151,7 @@ if (!fs.existsSync(sitemapPath)) {
     errors.push('sitemap.xml is missing XML declaration or urlset');
   }
   filesToAudit.forEach(file => {
+    if (file === '404.html') return; // 404 pages must not be included in sitemap.xml
     let expectedUrl = canonicalBase + '/' + (file === 'index.html' ? '' : file.replace('/index.html', '/'));
     if (!sitemapContent.includes(expectedUrl)) {
       warnings.push(`sitemap.xml missing entry for: ${expectedUrl}`);
