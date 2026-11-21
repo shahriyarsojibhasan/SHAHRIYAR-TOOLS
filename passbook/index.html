@@ -6524,7 +6524,7 @@
             const numChannels = 4; // RGBA
 
             const totalBytes = 26 + 4 + 4 + 4 + 2 + (pixelCount * numChannels);
-            const buffer = new memory buffer(totalBytes);
+            const buffer = new ArrayBuffer(totalBytes);
             const view = new DataView(buffer);
             const bytes = new Uint8Array(buffer);
 
