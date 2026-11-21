@@ -738,6 +738,9 @@ a {
   .nav-links {
     display: none;
   }
+  .nav-actions .btn-tool {
+    display: none !important;
+  }
   .btn-header-tools {
     padding: 6px 12px;
     font-size: 0.82rem;
@@ -800,4 +803,11 @@ a {
   height: 20px;
   fill: currentColor;
   flex-shrink: 0;
+}
+
+/* Ensure mobile nav is strictly hidden on desktop screens */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
 }
