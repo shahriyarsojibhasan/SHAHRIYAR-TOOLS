@@ -4,6 +4,7 @@ const path = require('path');
 
 const endpoints = [
   '/',
+  '/docs/',
   '/about/',
   '/contact/',
   '/privacy/',

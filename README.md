@@ -90,9 +90,11 @@ The repository is configured for direct static deployment via GitHub Pages:
 
 **Shahriyar Sojib Hasan**
 - **Personal Portfolio**: [https://shahriyarsojibhasan.top/](https://shahriyarsojibhasan.top/)
+- **Documentation Hub**: [https://tools.shahriyarsojibhasan.top/docs/](https://tools.shahriyarsojibhasan.top/docs/)
+- **Email**: [hello@shahriyarsojibhasan.top](mailto:hello@shahriyarsojibhasan.top)
 - **GitHub**: [@shahriyarsojibhasan](https://github.com/shahriyarsojibhasan)
 - **LinkedIn**: [in/shahriyarsojibhasan](https://linkedin.com/in/shahriyarsojibhasan)
-- **X (Twitter)**: [@shahriyarsojibhasan](https://x.com/shahriyarsojibhasan)
+- **X (Twitter)**: [@shahriyarsojib_](https://x.com/shahriyarsojib_)
 
 ---
 

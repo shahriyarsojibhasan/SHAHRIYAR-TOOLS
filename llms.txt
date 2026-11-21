@@ -90,8 +90,11 @@ SHAHRIYAR TOOLS is a specialized suite of browser-native web tools designed for 
 - Description: Typographic text transformation utility converting text into UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, kebab-case, snake_case, and CONSTANT_CASE with whitespace cleanup.
 - Key Capabilities: Multi-case conversion, whitespace cleaners, character statistics, 1-click clipboard copy.
 
-## Informational & Legal Pages
-- About: https://tools.shahriyarsojibhasan.top/about/
-- Contact: https://tools.shahriyarsojibhasan.top/contact/
+## Informational, Documentation & Legal Pages
+- Documentation Hub: https://tools.shahriyarsojibhasan.top/docs/
+- About Platform: https://tools.shahriyarsojibhasan.top/about/
+- Contact & Feedback: https://tools.shahriyarsojibhasan.top/contact/
 - Privacy Policy: https://tools.shahriyarsojibhasan.top/privacy/
 - Terms of Use: https://tools.shahriyarsojibhasan.top/terms/
+- Official Support Email: hello@shahriyarsojibhasan.top
+- Developer X (Twitter): https://x.com/shahriyarsojib_

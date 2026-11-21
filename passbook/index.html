@@ -2302,7 +2302,7 @@
             z-index: 11;
         }
 
-        /* 📱 RESPONSIVE MOBILE & TABLET LAYOUT */
+        /* <i class="fas fa-mobile-alt"></i> RESPONSIVE MOBILE & TABLET LAYOUT */
         @media screen and (max-width: 768px) {
             header {
                 padding: 6px 8px !important;
@@ -2466,7 +2466,7 @@
         <!-- Left: Sidebar Toggle & Branding -->
         <div class="flex items-center gap-2">
             <a href="../" class="px-2 py-1 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center gap-1 transition shadow-sm" title="SHAHRIYAR TOOLS Home">
-                <span>🛠️</span> <span class="hidden sm:inline">Tools Home</span>
+                <span><i class="fas fa-toolbox"></i></span> <span class="hidden sm:inline">Tools Home</span>
             </a>
             <button id="btnToggleLeftSidebar" onclick="toggleLeftSidebar()"
                 class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 font-bold text-xs flex items-center gap-1 transition shadow-sm"
@@ -2474,7 +2474,7 @@
                 <span id="leftSidebarIcon">◀</span> <span>সাইজ ও ডিজাইন</span>
             </button>
             <div class="flex items-center gap-1.5 border-l border-slate-700 pl-2">
-                <span class="text-sm">🏪</span>
+                <span class="text-sm"><i class="fas fa-store"></i></span>
                 <span class="font-extrabold text-xs text-yellow-300">মেসার্স আলেয়া ট্রেডার্স</span>
                 <span
                     class="text-[9px] bg-emerald-800 text-emerald-200 border border-emerald-500/50 px-1 py-0.2 rounded font-bold hidden sm:inline">মুদি
@@ -2488,17 +2488,17 @@
             <button id="btnView3DBook" onclick="switchViewMode('3d')"
                 class="px-2.5 py-1 rounded-md bg-emerald-600 text-white shadow transition flex items-center gap-1"
                 title="বাস্তব ৩ডি উল্টানো বই ভিউ">
-                <span>📖</span> ৩ডি বই
+                <span><i class="fas fa-book-open"></i></span> ৩ডি বই
             </button>
             <button id="btnViewSpread" onclick="switchViewMode('spread')"
                 class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1"
                 title="পাশাপাশি দুই পাতার ফ্ল্যাট রিডিং ভিউ">
-                <span>📑</span> ২-পাতা স্প্রেড
+                <span><i class="fas fa-columns"></i></span> ২-পাতা স্প্রেড
             </button>
             <button id="btnViewPrintSheets" onclick="switchViewMode('print')"
                 class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1"
                 title="প্রিন্ট বুকলেট শিট ভিউ">
-                <span>🖨️</span> প্রিন্ট শিট
+                <span><i class="fas fa-print"></i></span> প্রিন্ট শিট
             </button>
             <div class="border-l border-slate-600 pl-1.5 pr-1 flex items-center gap-1 text-slate-300">
                 <button onclick="adjustBookZoom(-0.08)"
@@ -2516,11 +2516,11 @@
             <button id="btnToggleEdit" onclick="toggleEditMode()"
                 class="px-2 py-1 rounded bg-emerald-700 hover:bg-emerald-600 text-white font-bold transition flex items-center gap-1 text-xs shadow"
                 title="পাতায় ক্লিক করে সরাসরি লেখার এডিট মোড অন/অফ">
-                <span>✏️</span> <span class="hidden md:inline">এডিট</span>
+                <span><i class="fas fa-pen"></i></span> <span class="hidden md:inline">এডিট</span>
             </button>
             <button onclick="triggerPrintBook()"
                 class="px-2.5 py-1 rounded bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black shadow transition flex items-center gap-1 text-xs">
-                <span>🖨️</span> <span class="hidden sm:inline">প্রিন্ট / PDF</span>
+                <span><i class="fas fa-print"></i></span> <span class="hidden sm:inline">প্রিন্ট / PDF</span>
             </button>
             <button onclick="downloadPSDFile()"
                 class="px-2.5 py-1 rounded bg-sky-700 hover:bg-sky-600 text-white shadow transition flex items-center gap-1 font-bold text-xs"
@@ -2543,7 +2543,7 @@
     <!-- Toast Notification Banner -->
     <div id="toastBanner"
         class="no-print fixed bottom-5 right-5 z-50 hidden bg-emerald-900 border-2 border-yellow-400 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-bold">
-        <span>✅</span>
+        <i class="fas fa-check"></i>
         <span id="toastMessage">সফলভাবে সম্পন্ন হয়েছে!</span>
     </div>
 
@@ -2558,7 +2558,7 @@
             <!-- Section 1: Universal Passbook Size System -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>📏 পাস বই সাইজ (Universal Size)</span>
+                    <span><i class="fas fa-ruler-combined"></i> পাস বই সাইজ (Universal Size)</span>
                     <span class="text-[9px] bg-sky-900 text-sky-200 px-1 rounded">সিনক্রোনাইজড</span>
                 </div>
 
@@ -2600,7 +2600,7 @@
                     </div>
                     <button onclick="applyCustomSizeInputs()"
                         class="w-full py-0.5 rounded bg-sky-700 hover:bg-sky-600 text-white text-[10.5px] font-bold">
-                        মাপ প্রয়োগ করুন 📐
+                        মাপ প্রয়োগ করুন <i class="fas fa-ruler-combined"></i>
                     </button>
                 </div>
 
@@ -2626,11 +2626,11 @@
                         <button id="btnToggleFoldLine" onclick="toggleFoldCutLine()"
                             class="w-full py-1.5 px-2 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-bold text-xs flex items-center justify-between gap-1 shadow-sm transition"
                             title="শিটের মাঝখানের ভাঁজ ও কাটিং দাগ দেখানো বা লুকানো">
-                            <span class="flex items-center gap-1.5"><span>✂️</span> <span>মাঝের ভাঁজ ও কাটিং দাগ:</span></span>
+                            <span class="flex items-center gap-1.5"><span><i class="fas fa-cut"></i></span> <span>মাঝের ভাঁজ ও কাটিং দাগ:</span></span>
                             <span id="foldLineStatusBadge" class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500 font-black text-[10.5px]">চালু</span>
                         </button>
                     </div>
-                    <div class="text-[10.5px] font-bold text-amber-300 mb-1">🖨️ প্রিন্ট ও PDF মোড:</div>
+                    <div class="text-[10.5px] font-bold text-amber-300 mb-1"><i class="fas fa-print"></i> প্রিন্ট ও PDF মোড:</div>
                     <div class="grid grid-cols-2 gap-1 text-[10.5px]">
                         <label
                             class="flex items-center gap-1 cursor-pointer bg-slate-800/80 p-1 rounded border border-slate-600 hover:border-yellow-400">
@@ -2651,9 +2651,9 @@
             <!-- Section 2: 10 UI Themes & Ink Selector -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>🎨 থিম ও ইউআই ডিজাইন (12 UI)</span>
+                    <span><i class="fas fa-palette"></i> থিম ও ইউআই ডিজাইন (12 UI)</span>
                     <button onclick="openUIDesignModal()" class="text-[10px] text-yellow-300 hover:underline">গ্যালারি
-                        🖼️</button>
+                        <i class="fas fa-image"></i></button>
                 </div>
 
                 <div class="mb-2.5">
@@ -2682,19 +2682,19 @@
                     <!-- Cover Mode Switcher: Vector Print vs AI Image -->
                     <div class="mt-2 bg-slate-950/80 p-1.5 rounded-lg border border-slate-700">
                         <div class="text-[10px] font-bold text-slate-300 mb-1 flex items-center justify-between">
-                            <span>🖼️ কভার প্রদর্শন মোড:</span>
+                            <span><i class="fas fa-image"></i> কভার প্রদর্শন মোড:</span>
                             <span id="coverModeBadge"
-                                class="text-[8.5px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded border border-amber-400/30">✨
+                                class="text-[8.5px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded border border-amber-400/30"><i class="fas fa-sparkles"></i>
                                 ভেক্টর ডিজাইন</span>
                         </div>
                         <div class="grid grid-cols-2 gap-1 mb-1.5">
                             <button type="button" id="btnCoverVector" onclick="setCoverMode('vector')"
                                 class="py-1 px-1 rounded text-[10px] font-bold transition bg-amber-500 text-slate-950 shadow cursor-pointer">
-                                ✨ ভেক্টর ডিজাইন
+                                <i class="fas fa-sparkles"></i> ভেক্টর ডিজাইন
                             </button>
                             <button type="button" id="btnCoverAi" onclick="setCoverMode('ai')"
                                 class="py-1 px-1 rounded text-[10px] font-bold transition bg-slate-800 text-slate-300 hover:text-white cursor-pointer">
-                                🖼️ AI কভার ছবি
+                                <i class="fas fa-image"></i> AI কভার ছবি
                             </button>
                         </div>
                         <!-- Upload Custom Cover Image Button -->
@@ -2704,7 +2704,7 @@
                             <button type="button" onclick="document.getElementById('coverImageUploader').click()"
                                 class="w-full py-1 px-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] flex items-center justify-center gap-1.5 shadow transition cursor-pointer"
                                 title="যেকোনো নতুন কভার ছবি আপলোড করে ব্যবহার করুন">
-                                <span>📁 নিজের কভার ছবি আপলোড / পরিবর্তন</span>
+                                <span><i class="fas fa-folder-open"></i> নিজের কভার ছবি আপলোড / পরিবর্তন</span>
                             </button>
                             <button type="button" id="btnRemoveCustomCover" onclick="removeCustomCoverImage()"
                                 class="hidden w-full py-0.5 px-2 rounded bg-rose-900/80 hover:bg-rose-800 text-rose-200 text-[9.5px] font-semibold border border-rose-700/60 transition cursor-pointer">
@@ -2715,7 +2715,7 @@
                         <!-- AI Cover Image Scale & Position Fine-Tuning Box -->
                         <div id="aiCoverAdjustBox" class="mt-1.5 pt-1.5 border-t border-slate-800 space-y-1.5">
                             <div class="flex items-center justify-between text-[10px] text-amber-300 font-bold">
-                                <span>📐 কভার সাইজ ও স্কেল অ্যাডজাস্ট:</span>
+                                <span><i class="fas fa-ruler-combined"></i> কভার সাইজ ও স্কেল অ্যাডজাস্ট:</span>
                                 <span id="lblCoverScale" class="text-white font-mono bg-slate-900 px-1 py-0.2 rounded border border-slate-700">১০০%</span>
                             </div>
                             <div class="space-y-1">
@@ -2735,7 +2735,7 @@
                                     <button type="button" onclick="resetCoverScaleAndOffset()"
                                         class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-[9px] border border-slate-700 transition cursor-pointer"
                                         title="ডিফল্ট ১০০% পারফেক্ট সাইজে রিসেট (সকল কর্নার ১০০% অক্ষত)">
-                                        🔄 পারফেক্ট ফিট রিসেট (100%)
+                                        <i class="fas fa-sync-alt"></i> পারফেক্ট ফিট রিসেট (100%)
                                     </button>
                                     <span class="text-[8.5px] text-emerald-400 font-semibold">সকল কর্নার ১০০% অক্ষত</span>
                                 </div>
@@ -2771,11 +2771,11 @@
                         টোন:</label>
                     <select id="inkSelector" onchange="changeInkColor(this.value)"
                         class="w-full bg-slate-900 border border-slate-600 text-slate-200 rounded px-2 py-1 text-xs font-semibold focus:outline-none focus:border-yellow-400">
-                        <option value="green">🌲 ক্লাসিক সবুজ কালি</option>
-                        <option value="blue">📘 রয়্যাল নীল কালি</option>
-                        <option value="maroon">📕 ঐতিহ্যবাহী মেরুন লাল</option>
-                        <option value="black">⚫ অফসেট সিঙ্গেল-কালার কালো</option>
-                        <option value="chocolate">🟤 প্রিমিয়াম চকোলেট কালি</option>
+                        <option value="green"> ক্লাসিক সবুজ কালি</option>
+                        <option value="blue"> রয়্যাল নীল কালি</option>
+                        <option value="maroon"> ঐতিহ্যবাহী মেরুন লাল</option>
+                        <option value="black"> অফসেট সিঙ্গেল-কালার কালো</option>
+                        <option value="chocolate"> প্রিমিয়াম চকোলেট কালি</option>
                     </select>
                 </div>
             </div>
@@ -2783,7 +2783,7 @@
             <!-- Section 3: 12+ Stylish Bengali Fonts -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>✨ বাংলা ফন্ট স্টাইল (12+ Fonts)</span>
+                    <span><i class="fas fa-sparkles"></i> বাংলা ফন্ট স্টাইল (12+ Fonts)</span>
                     <span class="text-[9px] bg-pink-900 text-pink-200 px-1 rounded">লাইভ ফন্ট</span>
                 </div>
 
@@ -2809,7 +2809,7 @@
                     <!-- Font Size Adjuster Tool -->
                     <div class="mt-2.5 pt-2 border-t border-slate-700/80">
                         <div class="flex items-center justify-between text-[10.5px] font-semibold text-slate-300 mb-1">
-                            <span>🔤 লেখার সাইজ / ফন্ট স্কেল:</span>
+                            <span><i class="fas fa-font"></i> লেখার সাইজ / ফন্ট স্কেল:</span>
                             <span id="fontScaleBadge" class="text-[10px] font-mono text-yellow-300 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-700">100%</span>
                         </div>
                         <div class="flex items-center gap-1.5">
@@ -2827,7 +2827,7 @@
                         <button type="button" onclick="toggleDeepInkMode()"
                             class="w-full py-1.5 px-2 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-bold text-xs flex items-center justify-between gap-1 shadow-sm transition cursor-pointer"
                             title="প্রিন্টে লেখা ও বর্ডার আরো গাঢ় এবং ক্রিস্প করতে ডিপ ইনক সক্রিয় করুন">
-                            <span class="flex items-center gap-1.5"><span>🎚️</span> <span>সুপার শার্প প্রিন্ট মোড:</span></span>
+                            <span class="flex items-center gap-1.5"><span><i class="fas fa-sliders-h"></i></span> <span>সুপার শার্প প্রিন্ট মোড:</span></span>
                             <span id="deepInkBadge" class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-600 font-bold text-[10.5px]">বন্ধ</span>
                         </button>
                     </div>
@@ -2837,7 +2837,7 @@
             <!-- Section 4: Rows, Margin & Page Format Settings -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>📐 মার্জিন, সারি ও পৃষ্ঠা নম্বর</span>
+                    <span><i class="fas fa-ruler-combined"></i> মার্জিন, সারি ও পৃষ্ঠা নম্বর</span>
                 </div>
 
                 <div class="space-y-2 text-[10.5px]">
@@ -2865,7 +2865,7 @@
                         <span class="text-slate-300 font-semibold">পৃষ্ঠা নম্বর স্টাইল:</span>
                         <button id="btnTogglePageNum" onclick="togglePageNumFormat()"
                             class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 font-bold text-[10.5px]">
-                            <span id="pageNumModeIcon">🔢</span> <span id="pageNumModeLabel">পৃষ্ঠা: ০১</span>
+                            <span id="pageNumModeIcon"><i class="fas fa-list-ol"></i></span> <span id="pageNumModeLabel">পৃষ্ঠা: ০১</span>
                         </button>
                     </div>
                 </div>
@@ -2883,16 +2883,16 @@
                     title="প্রথম পাতায় যান">⏮️ প্রথম</button>
                 <button id="btnPrevFlip" onclick="flipPrev()"
                     class="px-2.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 font-bold text-xs"
-                    title="আগের পাতা উল্টান">◀️ আগের পাতা</button>
+                    title="আগের পাতা উল্টান"><i class="fas fa-chevron-left"></i> আগের পাতা</button>
 
                 <div
                     class="px-3 py-0.5 rounded-full bg-slate-900 border border-yellow-400/50 text-yellow-300 font-bold text-xs font-mono select-none">
-                    <span id="floatingPageBadge">📕 সামনের কভার (বই বন্ধ)</span>
+                    <span id="floatingPageBadge"> সামনের কভার (বই বন্ধ)</span>
                 </div>
 
                 <button id="btnNextFlip" onclick="flipNext()"
                     class="px-2.5 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 font-bold text-xs"
-                    title="পরের পাতা উল্টান">বই খুলুন ▶️</button>
+                    title="পরের পাতা উল্টান">বই খুলুন <i class="fas fa-chevron-right"></i></button>
                 <button onclick="flipLast()"
                     class="px-2 py-0.5 rounded hover:bg-slate-700 text-slate-300 font-bold text-xs"
                     title="শেষ পাতায় যান">শেষ ⏭️</button>
@@ -2900,7 +2900,7 @@
                 <div class="border-l border-slate-700 pl-2">
                     <button id="btnSoundToggle" onclick="toggleFlipSound()"
                         class="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-emerald-300 font-bold hover:bg-slate-700">
-                        🔊 শব্দ
+                        <i class="fas fa-volume-up"></i> শব্দ
                     </button>
                 </div>
             </div>
@@ -2937,7 +2937,7 @@
                     <!-- Top Row: Title, Page/Sheet Counter, Direct Print & View Switchers -->
                     <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-slate-700/80">
                         <div class="flex items-center gap-2">
-                            <span class="p-1.5 rounded-lg bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 text-base">🖨️</span>
+                            <span class="p-1.5 rounded-lg bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 text-base"><i class="fas fa-print"></i></span>
                             <div>
                                 <div class="flex items-center gap-2">
                                     <span class="font-extrabold text-sm text-yellow-300">প্রিন্ট শিট পাওয়ার স্যুট (Print Multi-Tools)</span>
@@ -2950,7 +2950,7 @@
                         <div class="flex items-center gap-2">
                             <button onclick="triggerPrintBook()"
                                 class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs shadow-lg flex items-center gap-1.5 transition transform active:scale-95 cursor-pointer">
-                                <span>🖨️</span> <span>প্রিন্ট / PDF সংরক্ষণ (Ctrl+P)</span>
+                                <span><i class="fas fa-print"></i></span> <span>প্রিন্ট / PDF সংরক্ষণ (Ctrl+P)</span>
                             </button>
                             <div class="flex items-center gap-1 bg-slate-800/80 p-0.5 rounded-lg border border-slate-700">
                                 <button onclick="switchViewMode('spread')" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white text-xs font-semibold cursor-pointer">২-পাতা স্প্রেড</button>
@@ -2964,19 +2964,19 @@
                         <!-- Tool 1: 1-Click Quick Data Edit -->
                         <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-2 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-1">
-                                <span class="text-amber-300 font-bold text-[11px] flex items-center gap-1"><span>⚡</span> ১-ক্লিকে তথ্য এডিট</span>
+                                <span class="text-amber-300 font-bold text-[11px] flex items-center gap-1"><span><i class="fas fa-bolt"></i></span> ১-ক্লিকে তথ্য এডিট</span>
                                 <span class="text-[9.5px] bg-amber-950 text-amber-300 px-1.5 rounded">লাইভ সিঙ্ক</span>
                             </div>
                             <button onclick="openQuickDataModal()"
                                 class="w-full py-1.5 px-2 rounded-lg bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-bold text-[11px] shadow flex items-center justify-center gap-1.5 transition cursor-pointer">
-                                <span>📝</span> <span>দোকান ও গ্রাহক তথ্য বদলান</span>
+                                <span><i class="fas fa-edit"></i></span> <span>দোকান ও গ্রাহক তথ্য বদলান</span>
                             </button>
                         </div>
 
                         <!-- Tool 2: Font Scale Adjuster -->
                         <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-2 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-1">
-                                <span class="text-sky-300 font-bold text-[11px] flex items-center gap-1"><span>🔤</span> ফন্ট সাইজ অ্যাডজাস্টার</span>
+                                <span class="text-sky-300 font-bold text-[11px] flex items-center gap-1"><span><i class="fas fa-font"></i></span> ফন্ট সাইজ অ্যাডজাস্টার</span>
                                 <span id="sheetFontScaleBadge" class="text-[10px] font-mono text-yellow-300 bg-slate-900 px-1.5 py-0.2 rounded border border-slate-700">100%</span>
                             </div>
                             <div class="flex items-center gap-1.5">
@@ -2992,18 +2992,18 @@
                         <!-- Tool 3: Super Sharp & Deep Ink Print Mode -->
                         <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-2 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-1">
-                                <span class="text-emerald-300 font-bold text-[11px] flex items-center gap-1"><span>🎚️</span> সুপার শার্প প্রিন্ট</span>
+                                <span class="text-emerald-300 font-bold text-[11px] flex items-center gap-1"><span><i class="fas fa-sliders-h"></i></span> সুপার শার্প প্রিন্ট</span>
                                 <span id="sheetDeepInkBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 border border-slate-600 font-bold text-[9.5px]">বন্ধ</span>
                             </div>
                             <div class="grid grid-cols-2 gap-1">
                                 <button onclick="toggleDeepInkMode()"
                                     class="py-1 px-1.5 rounded-lg bg-emerald-800/80 hover:bg-emerald-700 text-emerald-100 font-bold text-[10.5px] border border-emerald-600/60 transition cursor-pointer flex items-center justify-center gap-1">
-                                    <span>✨</span> <span>ডিপ ইনক</span>
+                                    <span><i class="fas fa-sparkles"></i></span> <span>ডিপ ইনক</span>
                                 </button>
                                 <button onclick="toggleFoldCutLine()"
                                     class="py-1 px-1.5 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold text-[10.5px] border border-slate-600 transition cursor-pointer flex items-center justify-center gap-1"
                                     title="মাঝের ভাঁজ ও কাটিং দাগ অন/অফ">
-                                    <span>✂️</span> <span>কাটিং দাগ</span>
+                                    <span><i class="fas fa-cut"></i></span> <span>কাটিং দাগ</span>
                                 </button>
                             </div>
                         </div>
@@ -3011,7 +3011,7 @@
                         <!-- Tool 4: Sheet View Zoom & Fit -->
                         <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-2 flex flex-col justify-between">
                             <div class="flex items-center justify-between mb-1">
-                                <span class="text-yellow-300 font-bold text-[11px] flex items-center gap-1"><span>🔍</span> শিট ভিউ জুম</span>
+                                <span class="text-yellow-300 font-bold text-[11px] flex items-center gap-1"><span><i class="fas fa-search"></i></span> শিট ভিউ জুম</span>
                                 <span id="sheetZoomLabel" class="text-[10px] font-mono text-yellow-300 bg-slate-900 px-1.5 py-0.2 rounded border border-slate-700">অটো ফিট</span>
                             </div>
                             <div class="flex items-center gap-1">
@@ -3036,7 +3036,7 @@
             <!-- Section 1: Shop Information Editor -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>🏪 দোকানের তথ্য (Live Synced)</span>
+                    <span><i class="fas fa-store"></i> দোকানের তথ্য (Live Synced)</span>
                     <span class="text-[9px] bg-emerald-900 text-emerald-200 px-1 rounded">স্বয়ংক্রিয়</span>
                 </div>
 
@@ -3076,7 +3076,7 @@
             <!-- Section 2: Customer & Guarantor KYC Details -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>👤 গ্রাহক ও জামিনদার KYC</span>
+                    <span><i class="fas fa-user"></i> গ্রাহক ও জামিনদার KYC</span>
                 </div>
 
                 <div class="space-y-1.5 text-[10.5px]">
@@ -3111,7 +3111,7 @@
             <!-- Section 3: Page Count & Sample Data -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>📄 পাতা সংখ্যা ও নমুনা হিসাব</span>
+                    <span><i class="fas fa-file-alt"></i> পাতা সংখ্যা ও নমুনা হিসাব</span>
                 </div>
 
                 <div class="flex items-center justify-between mb-2 text-xs">
@@ -3132,11 +3132,11 @@
                 <div class="grid grid-cols-2 gap-1.5 pt-1 border-t border-slate-700">
                     <button id="btnToggleSample" onclick="toggleSampleData()"
                         class="py-1 px-1.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 font-bold text-[10.5px]">
-                        🧪 নমুনা তথ্য
+                        <i class="fas fa-flask"></i> নমুনা তথ্য
                     </button>
                     <button onclick="openFindReplaceModal()"
                         class="py-1 px-1.5 rounded bg-indigo-700 hover:bg-indigo-600 text-white font-bold text-[10.5px]">
-                        🔍 শব্দ বদলান
+                        <i class="fas fa-search"></i> শব্দ বদলান
                     </button>
                 </div>
             </div>
@@ -3144,13 +3144,13 @@
             <!-- Section 4: Export & Download Actions -->
             <div class="sidebar-card">
                 <div class="sidebar-card-header">
-                    <span>💾 এক্সপোর্ট ও ডাউনলোড</span>
+                    <span><i class="fas fa-save"></i> এক্সপোর্ট ও ডাউনলোড</span>
                 </div>
 
                 <div class="space-y-1.5">
                     <button onclick="triggerPrintBook()"
                         class="w-full py-1.5 rounded bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-xs shadow flex items-center justify-center gap-1.5">
-                        <span>🖨️</span> <span>প্রিন্ট / PDF সংরক্ষণ করুন</span>
+                        <span><i class="fas fa-print"></i></span> <span>প্রিন্ট / PDF সংরক্ষণ করুন</span>
                     </button>
                     <button onclick="downloadPSDFile()"
                         class="w-full py-1.5 rounded bg-gradient-to-r from-sky-700 to-indigo-700 hover:from-sky-600 hover:to-indigo-600 text-white font-bold text-xs shadow flex items-center justify-center gap-1.5 transition">
@@ -3164,11 +3164,11 @@
                     <button onclick="downloadAIFile('svg')"
                         class="w-full py-1 rounded bg-slate-800 hover:bg-slate-700 border border-amber-500/50 text-amber-200 font-semibold text-[11px] flex items-center justify-center gap-1 transition cursor-pointer"
                         title="Adobe Illustrator এ সম্পূর্ণ লাইভ বাংলা টেক্সট ও ফন্ট সাইজ অ্যাডজাস্টমেন্ট ভেক্টর">
-                        <span>📐</span> <span>ইলাস্ট্রেটর ভেক্টর (.svg) - লাইভ টেক্সট</span>
+                        <span><i class="fas fa-ruler-combined"></i></span> <span>ইলাস্ট্রেটর ভেক্টর (.svg) - লাইভ টেক্সট</span>
                     </button>
                     <button onclick="toggleFullScreen()"
                         class="w-full py-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-semibold text-xs flex items-center justify-center gap-1">
-                        <span>⛶</span> <span>সম্পূর্ণ ফুলস্ক্রিন ভিউ</span>
+                        <span><i class="fas fa-expand"></i></span> <span>সম্পূর্ণ ফুলস্ক্রিন ভিউ</span>
                     </button>
                 </div>
             </div>
@@ -3191,7 +3191,7 @@
             <!-- Header -->
             <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center bg-slate-950/60 rounded-t-2xl">
                 <div class="flex items-center gap-2">
-                    <span class="text-xl">⚡</span>
+                    <span class="text-xl"><i class="fas fa-bolt"></i></span>
                     <div>
                         <h2 class="text-base font-bold text-yellow-300">১-ক্লিকে দোকান ও বইয়ের তথ্য পরিবর্তন (Quick Data Editor)</h2>
                         <p class="text-xs text-slate-400">প্রিসেট নির্বাচন করুন অথবা নিচের ঘরে লিখে এক ক্লিকে সব পাতায় লাইভ আপডেট করুন</p>
@@ -3205,26 +3205,26 @@
             <div class="p-5 overflow-y-auto space-y-4">
                 <!-- 1-Click Business Presets -->
                 <div>
-                    <label class="block text-xs font-bold text-emerald-400 mb-1.5">⚡ ১-ক্লিকে জনপ্রিয় ব্যবসার প্রিসেট নির্বাচন করুন:</label>
+                    <label class="block text-xs font-bold text-emerald-400 mb-1.5"><i class="fas fa-bolt"></i> ১-ক্লিকে জনপ্রিয় ব্যবসার প্রিসেট নির্বাচন করুন:</label>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         <button type="button" onclick="applyShopPreset('grocer')" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-emerald-600/60 text-left transition cursor-pointer hover:border-emerald-400">
-                            <div class="font-bold text-xs text-yellow-300">🌾 মুদি ও সার-বীজ</div>
+                            <div class="font-bold text-xs text-yellow-300"><i class="fas fa-seedling"></i> মুদি ও সার-বীজ</div>
                             <div class="text-[10px] text-slate-400 truncate">মেসার্স আলেয়া ট্রেডার্স</div>
                         </button>
                         <button type="button" onclick="applyShopPreset('general')" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-sky-600/60 text-left transition cursor-pointer hover:border-sky-400">
-                            <div class="font-bold text-xs text-sky-300">🛒 জেনারেল স্টোর</div>
+                            <div class="font-bold text-xs text-sky-300"><i class="fas fa-shopping-cart"></i> জেনারেল স্টোর</div>
                             <div class="text-[10px] text-slate-400 truncate">আল-আমিন জেনারেল স্টোর</div>
                         </button>
                         <button type="button" onclick="applyShopPreset('pharmacy')" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-rose-600/60 text-left transition cursor-pointer hover:border-rose-400">
-                            <div class="font-bold text-xs text-rose-300">💊 ফার্মেসী ও ড্রাগ</div>
+                            <div class="font-bold text-xs text-rose-300"><i class="fas fa-capsules"></i> ফার্মেসী ও ড্রাগ</div>
                             <div class="text-[10px] text-slate-400 truncate">বিসমিল্লাহ ফার্মেসী</div>
                         </button>
                         <button type="button" onclick="applyShopPreset('telecom')" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-purple-600/60 text-left transition cursor-pointer hover:border-purple-400">
-                            <div class="font-bold text-xs text-purple-300">📱 টেলিকম ও এমএফএস</div>
+                            <div class="font-bold text-xs text-purple-300"><i class="fas fa-mobile-alt"></i> টেলিকম ও এমএফএস</div>
                             <div class="text-[10px] text-slate-400 truncate">ভাই ভাই টেলিকম</div>
                         </button>
                         <button type="button" onclick="applyShopPreset('empty')" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-amber-600/60 text-left transition cursor-pointer hover:border-amber-400">
-                            <div class="font-bold text-xs text-amber-300">🧹 ফাঁকা ফরম্যাট</div>
+                            <div class="font-bold text-xs text-amber-300"><i class="fas fa-eraser"></i> ফাঁকা ফরম্যাট</div>
                             <div class="text-[10px] text-slate-400 truncate">প্রিন্ট করে কলমে লিখতে</div>
                         </button>
                     </div>
@@ -3278,14 +3278,14 @@
             <!-- Footer -->
             <div class="px-5 py-3 border-t border-slate-800 bg-slate-950/60 rounded-b-2xl flex justify-between items-center">
                 <button type="button" onclick="applyShopPreset('grocer')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition cursor-pointer">
-                    🔄 ডিফল্টে ফিরুন
+                    <i class="fas fa-sync-alt"></i> ডিফল্টে ফিরুন
                 </button>
                 <div class="flex items-center gap-2">
                     <button type="button" onclick="closeQuickDataModal()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition cursor-pointer">
                         বাতিল
                     </button>
                     <button type="button" onclick="saveQuickDataFromModal()" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg transition cursor-pointer flex items-center gap-1.5">
-                        <span>⚡</span> <span>সকল পেজে প্রয়োগ করুন (Save & Sync)</span>
+                        <span><i class="fas fa-bolt"></i></span> <span>সকল পেজে প্রয়োগ করুন (Save & Sync)</span>
                     </button>
                 </div>
             </div>
@@ -3298,7 +3298,7 @@
             class="bg-slate-900 border border-slate-700 rounded-2xl max-w-5xl w-full max-h-[92vh] flex flex-col shadow-2xl text-white">
             <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
                 <div>
-                    <h2 class="text-base font-bold text-yellow-300">🎨 ১২টি প্রিমিয়াম পাস বই কভার ও কালার থিম গ্যালারি
+                    <h2 class="text-base font-bold text-yellow-300"><i class="fas fa-palette"></i> ১২টি প্রিমিয়াম পাস বই কভার ও কালার থিম গ্যালারি
                     </h2>
                     <p class="text-xs text-slate-400">প্রতিটি ডিজাইন কভার, বর্ডার, স্পাইন, টেবিল ও ব্যাক কভারের কালার
                         প্যালেটের সাথে ১০০% সুসংগত</p>
@@ -3311,7 +3311,7 @@
                 <!-- Dynamically populated via renderModalDesignCards() -->
             </div>
             <div class="px-5 py-2.5 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
-                <span>💡 যেকোনো ডিজাইনে ক্লিক করলে সাথে সাথে পুরো পাস বইয়ের রঙ ও কভার পরিবর্তিত হবে</span>
+                <span><i class="fas fa-lightbulb"></i> যেকোনো ডিজাইনে ক্লিক করলে সাথে সাথে পুরো পাস বইয়ের রঙ ও কভার পরিবর্তিত হবে</span>
                 <button onclick="closeUIDesignModal()"
                     class="px-3.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-semibold cursor-pointer">বন্ধ
                     করুন</button>
@@ -3328,7 +3328,7 @@
             class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl text-white">
             <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
                 <div>
-                    <h2 class="text-base font-bold text-yellow-300">🎛️ মার্জিন, রো সংখ্যা ও পৃষ্ঠা নম্বর কন্ট্রোলার
+                    <h2 class="text-base font-bold text-yellow-300"> মার্জিন, রো সংখ্যা ও পৃষ্ঠা নম্বর কন্ট্রোলার
                     </h2>
                     <p class="text-xs text-slate-400">নিচের খালি জায়গা বন্ধ, মার্জিন ও পৃষ্ঠা নম্বরের ফরম্যাট কাস্টমাইজ
                         করুন</p>
@@ -3345,11 +3345,11 @@
                     <div class="grid grid-cols-2 gap-2">
                         <button id="btnModalPageNumSerial" onclick="setPageNumFormat('number')"
                             class="py-1.5 px-2 rounded bg-emerald-700 border border-emerald-400 text-center font-bold text-xs flex items-center justify-center gap-1">
-                            <span>🔢 ক্রমিক সংখ্যা (০১, ০২, ০৩...)</span>
+                            <span><i class="fas fa-list-ol"></i> ক্রমিক সংখ্যা (০১, ০২, ০৩...)</span>
                         </button>
                         <button id="btnModalPageNumDash" onclick="setPageNumFormat('dash')"
                             class="py-1.5 px-2 rounded bg-slate-800 border border-slate-600 hover:border-yellow-400 text-center font-bold text-xs flex items-center justify-center gap-1">
-                            <span>✏️ খালি ড্যাশ (........)</span>
+                            <span><i class="fas fa-pen"></i> খালি ড্যাশ (........)</span>
                         </button>
                     </div>
                     <p class="text-[10px] text-slate-400 mt-1">খালি ড্যাশ দিলে হাতে কলমে পৃষ্ঠা নম্বর লেখার সুবিধা
@@ -3440,7 +3440,7 @@
             class="bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full max-h-[90vh] flex flex-col shadow-2xl text-white">
             <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
                 <div>
-                    <h2 class="text-base font-bold text-yellow-300">⚡ এক ক্লিকে সকল তথ্য পরিবর্তন করুন</h2>
+                    <h2 class="text-base font-bold text-yellow-300"><i class="fas fa-bolt"></i> এক ক্লিকে সকল তথ্য পরিবর্তন করুন</h2>
                     <p class="text-xs text-slate-400">এখানে পরিবর্তন করলেই সম্পূর্ণ বইয়ের সকল পাতা ও কভারে মুহূর্তেই
                         আপডেট হবে</p>
                 </div>
@@ -3450,7 +3450,7 @@
             <div class="p-5 overflow-y-auto space-y-3 text-xs">
 
                 <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700 space-y-2">
-                    <span class="text-yellow-400 font-bold text-xs block">👤 গ্রাহকের তথ্য (বইয়ের সর্বত্র একযোগে আপডেট
+                    <span class="text-yellow-400 font-bold text-xs block"><i class="fas fa-user"></i> গ্রাহকের তথ্য (বইয়ের সর্বত্র একযোগে আপডেট
                         হবে):</span>
                     <div class="grid grid-cols-2 gap-2">
                         <div>
@@ -3504,7 +3504,7 @@
                     class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">বাতিল</button>
                 <button onclick="applyShopDetailsModal()"
                     class="px-4 py-1.5 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold">এক ক্লিকে
-                    আপডেট করুন 💾</button>
+                    আপডেট করুন <i class="fas fa-save"></i></button>
             </div>
         </div>
     </div>
@@ -3517,7 +3517,7 @@
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full shadow-2xl text-white">
             <div class="px-5 py-3 border-b border-slate-800 flex justify-between items-center">
                 <div>
-                    <h2 class="text-base font-bold text-yellow-300">🔍 এক ক্লিকে যেকোনো লেখা পরিবর্তন</h2>
+                    <h2 class="text-base font-bold text-yellow-300"><i class="fas fa-search"></i> এক ক্লিকে যেকোনো লেখা পরিবর্তন</h2>
                     <p class="text-xs text-slate-400">পুরো বইয়ের সব জায়গায় একই লেখা এক ক্লিকে বদলে যাবে</p>
                 </div>
                 <button onclick="closeFindReplaceModal()"
@@ -3540,7 +3540,7 @@
                     class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">বাতিল</button>
                 <button onclick="executeFindAndReplace()"
                     class="px-4 py-1.5 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold">সকল পাতায়
-                    পরিবর্তন করুন ⚡</button>
+                    পরিবর্তন করুন <i class="fas fa-bolt"></i></button>
             </div>
         </div>
     </div>
@@ -3782,7 +3782,7 @@
         function toggleFlipSound() {
             soundEnabled = !soundEnabled;
             const btn = document.getElementById('btnSoundToggle');
-            btn.innerText = soundEnabled ? '🔊 শব্দ' : '🔇 শব্দ';
+            btn.innerText = soundEnabled ? '<i class="fas fa-volume-up"></i> শব্দ' : '<i class="fas fa-volume-mute"></i> শব্দ';
             btn.className = soundEnabled ? 'px-1.5 py-0.5 rounded bg-slate-700 hover:bg-slate-600 text-[11px] text-emerald-300' : 'px-1.5 py-0.5 rounded bg-slate-800 text-[11px] text-slate-400';
         }
 
@@ -3803,7 +3803,7 @@
             }
 
             applyPaperGeometry(conf);
-            showToast('📏 সাইজ পরিবর্তন হয়েছে: ' + conf.name);
+            showToast('<i class="fas fa-ruler-combined"></i> সাইজ পরিবর্তন হয়েছে: ' + conf.name);
         }
 
         function applyCustomSizeInputs() {
@@ -3834,7 +3834,7 @@
             if (sel) sel.value = 'custom';
 
             applyPaperGeometry(customConf);
-            showToast(`📐 কাস্টম সাইজ প্রয়োগ করা হয়েছে: ${customConf.closedW} × ${customConf.closedH} mm`);
+            showToast(`<i class="fas fa-ruler-combined"></i> কাস্টম সাইজ প্রয়োগ করা হয়েছে: ${customConf.closedW} × ${customConf.closedH} mm`);
         }
 
         function applyPaperGeometry(conf) {
@@ -3915,7 +3915,7 @@
             if (currentViewMode === 'print') {
                 renderAllPages(isSampleMode);
             }
-            showToast(mode === 'mode-a' ? '📄 মোড A: একক পেজ PDF প্রিন্ট চালু' : '🖨️ মোড B: A4 ল্যান্ডস্কেপ বুকলেট প্রিন্ট চালু');
+            showToast(mode === 'mode-a' ? '<i class="fas fa-file-alt"></i> মোড A: একক পেজ PDF প্রিন্ট চালু' : '<i class="fas fa-print"></i> মোড B: A4 ল্যান্ডস্কেপ বুকলেট প্রিন্ট চালু');
         }
 
         // Sidebar Toggle Functions
@@ -4068,7 +4068,7 @@
             } else if (customConfig.showSeedNote) {
                 middleBannerHTML = `
                     <div class="${t.seedBar} my-1" contenteditable="true" data-sync="specialSeed">
-                        🌾 ${shopConfig.specialSeed}
+                        <i class="fas fa-seedling"></i> ${shopConfig.specialSeed}
                     </div>
                 `;
             }
@@ -4093,7 +4093,7 @@
                     <!-- Book Title Badge -->
                     <div class="text-center my-1">
                         <span class="${t.badgeBox}">
-                            <span>📒</span>
+                            <span><i class="fas fa-book"></i></span>
                             <span>বাকির পাস বই</span>
                         </span>
                     </div>
@@ -4115,13 +4115,13 @@
                     <div class="${t.mfsCard} my-1 space-y-1">
                         <!-- Top Header -->
                         <div class="${t.mfsHeadBar}">
-                            <span class="flex items-center gap-1">📱 মোবাইল ব্যাংকিং ও রিচার্জ সেবা</span>
-                            <span>⚡ সার্বক্ষণিক সেবা</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-mobile-alt"></i> মোবাইল ব্যাংকিং ও রিচার্জ সেবা</span>
+                            <span><i class="fas fa-bolt"></i> সার্বক্ষণিক সেবা</span>
                         </div>
 
                         <!-- Caution Notice -->
                         <div class="bg-amber-50 border border-amber-300 text-red-800 text-[6.8pt] font-black py-0.5 px-1.5 rounded text-center">
-                            ⚠️ বিশেষ দ্রষ্টব্যঃ MFS লেনদেনের পূর্বে অবশ্যই ফোন করে লেনদেন করবেন।
+                            <i class="fas fa-exclamation-triangle"></i> বিশেষ দ্রষ্টব্যঃ MFS লেনদেনের পূর্বে অবশ্যই ফোন করে লেনদেন করবেন।
                         </div>
 
                         <!-- Primary Numbers Grid -->
@@ -4169,7 +4169,7 @@
                         <!-- Flexiload Strip with Bangladeshi Telecom Logos -->
                         <div class="pt-0.5 border-t border-dashed border-slate-300 flex items-center justify-between text-[6.8pt] font-bold text-slate-700">
                             <div class="flex items-center gap-1 truncate">
-                                <span class="text-amber-600 font-bold">⚡</span>
+                                <span class="text-amber-600 font-bold"><i class="fas fa-bolt"></i></span>
                                 <span contenteditable="true" data-sync="flexiloadNote">${shopConfig.flexiloadNote}</span>
                             </div>
                             <div class="flex items-center gap-1 shrink-0 ml-1">
@@ -4194,8 +4194,8 @@
                         </div>
 
                         <div class="${t.footerBar}">
-                            <span>📍 দোকানের অবস্থানঃ <span data-sync="address">${shopConfig.address}</span></span>
-                            <span>📞 মোবাঃ <span data-sync="mobile">${shopConfig.mobile}</span></span>
+                            <span><i class="fas fa-map-marker-alt"></i> দোকানের অবস্থানঃ <span data-sync="address">${shopConfig.address}</span></span>
+                            <span><i class="fas fa-phone"></i> মোবাঃ <span data-sync="mobile">${shopConfig.mobile}</span></span>
                         </div>
                     </div>
                 </div>
@@ -4279,7 +4279,7 @@
                             <!-- Baki Pre-Conditions (with Guarantor Clause & Photo/NID Requirement) -->
                             <div class="inside-rules-box border-2 rounded px-2 py-1 bg-red-50/80 mb-1" style="border-color: var(--theme-accent);">
                                 <div class="font-extrabold text-[7.8pt] text-center mb-0.5 text-red-900" contenteditable="true">
-                                    ⚖️ বাকি নেওয়ার বিশেষ পূর্বশর্তাবলী ও নীতিমালা
+                                    <i class="fas fa-balance-scale"></i> বাকি নেওয়ার বিশেষ পূর্বশর্তাবলী ও নীতিমালা
                                 </div>
                                 <ol class="list-decimal pl-3.5 space-y-0.2 text-[7.2pt] font-semibold text-slate-800 leading-tight" contenteditable="true">
                                     <li><strong>পাস বই বাধ্যতামূলক:</strong> বাকিতে মুদি, মনিহারী বা সার-কীটনাশক নেওয়ার সময় এই পাস বই সাথে থাকা বাধ্যতামূলক।</li>
@@ -4295,7 +4295,7 @@
                             <div class="p-1 rounded-xl border border-slate-300 bg-gradient-to-b from-slate-50 via-white to-slate-50 shadow-xs mb-1">
                                 <div class="text-center font-black text-[7.5pt] text-slate-900 mb-0.5 flex items-center justify-center gap-1.5 border-b border-dashed border-slate-200 pb-0.5">
                                     <span class="bg-indigo-700 text-white text-[6pt] px-1.5 py-0.2 rounded font-black tracking-wider uppercase shadow-xs">Scan & Pay</span>
-                                    <span>📱 ডিজিটাল পেমেন্ট ও ক্যাশআউট কিউআর কোড</span>
+                                    <span><i class="fas fa-mobile-alt"></i> ডিজিটাল পেমেন্ট ও ক্যাশআউট কিউআর কোড</span>
                                 </div>
                                 <div class="grid grid-cols-3 gap-2 px-0.5 items-stretch text-center">
                                     <!-- Card 1: Shahriyar Store (Payment) -->
@@ -4368,11 +4368,11 @@
                         <!-- Top: Guidelines and Warning -->
                         <div>
                             <div class="text-center py-1 px-2 rounded font-bold text-white text-xs mb-1" style="background-color: var(--theme-accent);" contenteditable="true">
-                                📌 জরুরি নির্দেশাবলী ও পাস বই ব্যবহারের নীতিমালা
+                                <i class="fas fa-thumbtack"></i> জরুরি নির্দেশাবলী ও পাস বই ব্যবহারের নীতিমালা
                             </div>
 
                             <div class="border-2 rounded p-1 text-center font-extrabold text-[8.2pt] mb-1.5" style="background-color: #fef2f2; border-color: var(--theme-accent); color: var(--theme-accent);" contenteditable="true">
-                                ⚠️ সতর্কবার্তাঃ এই পাস বই ছাড়া কোনো প্রকার বাকি লেনদেন সম্পূর্ণ নিষিদ্ধ!
+                                <i class="fas fa-exclamation-triangle"></i> সতর্কবার্তাঃ এই পাস বই ছাড়া কোনো প্রকার বাকি লেনদেন সম্পূর্ণ নিষিদ্ধ!
                             </div>
 
                             <!-- Full Terms & Conditions -->
@@ -4391,7 +4391,7 @@
                         <!-- Middle: Special Notes & Remarks (User Requirement: মন্তব্যঃ je koita add kora jay kore deo adjustable vabe) -->
                         <div class="border rounded p-2 bg-white my-1 shadow-sm flex-grow">
                             <div class="flex justify-between items-center text-[8.5pt] font-extrabold text-slate-800 mb-1.5 pb-0.5 border-b border-dashed border-slate-300">
-                                <span>📝 বিশেষ মন্তব্য বা হিসাব সমাপনী নোটঃ</span>
+                                <span><i class="fas fa-edit"></i> বিশেষ মন্তব্য বা হিসাব সমাপনী নোটঃ</span>
                                 <span class="text-[7.5pt] text-slate-500 font-normal">(প্রয়োজন অনুযায়ী লিখে রাখুন)</span>
                             </div>
                             <div class="space-y-1">
@@ -4564,7 +4564,7 @@
                             <!-- Inspiring Bengali Business Quotes (User Requirement: seshe banglai bybshha niye kichu ukti) -->
                             <div class="border-2 rounded p-2 shadow-sm mb-2" style="background-color: var(--theme-bg-tint); border-color: var(--theme-primary);">
                                 <div class="text-center font-extrabold text-[9pt] mb-1.5 pb-1 border-b border-dashed border-amber-600 flex items-center justify-center gap-1" style="color: var(--theme-primary);" contenteditable="true">
-                                    <span>📜</span> <span>ব্যবসা, লেনদেন ও সততার অমূল্য নীতিবাক্য</span> <span>📜</span>
+                                    <span><i class="fas fa-scroll"></i></span> <span>ব্যবসা, লেনদেন ও সততার অমূল্য নীতিবাক্য</span> <span><i class="fas fa-scroll"></i></span>
                                 </div>
                                 
                                 <div class="space-y-1 text-[8.2pt] font-semibold text-slate-900 leading-snug">
@@ -4593,13 +4593,13 @@
 
                             <!-- Heartfelt Thanks & Customer Appreciation Banner -->
                             <div class="text-center font-extrabold text-[8.8pt] py-1 px-3 rounded shadow-sm text-white mb-2" style="background-color: var(--theme-accent);" contenteditable="true">
-                                🤝 আমাদের সাথে লেনদেন করার জন্য আপনাকে আন্তরিক ধন্যবাদ 🤝
+                                <i class="fas fa-handshake"></i> আমাদের সাথে লেনদেন করার জন্য আপনাকে আন্তরিক ধন্যবাদ <i class="fas fa-handshake"></i>
                             </div>
 
                             <!-- Lost & Found Notice (User Requirement: dhonnobad er niche sesh cover page a thakbe) -->
                             <div class="border-2 border-dashed rounded p-2 bg-amber-50/95 shadow-sm" style="border-color: var(--theme-accent);">
                                 <div class="text-center font-extrabold text-[8.5pt] border-b border-amber-300 pb-0.5 mb-1.5 text-amber-900" contenteditable="true">
-                                    📢 পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়
+                                    <i class="fas fa-bullhorn"></i> পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়
                                 </div>
                                 <div class="text-[8pt] leading-relaxed font-semibold text-slate-900 text-justify space-y-1" contenteditable="true">
                                     <p>• <strong>বই হারিয়ে গেলে:</strong> পাস বই হারিয়ে গেলে সাথে সাথে দোকানে অবগত করতে হবে এবং <strong>নির্দিষ্ট ফি প্রদান করে</strong> নতুন পাস বই সংগ্রহ করতে হবে।</p>
@@ -4612,7 +4612,7 @@
                         <div class="mt-auto pt-2">
                             <div class="signboard-box py-1.5 px-2 text-center">
                                 <div class="text-[8.5pt] text-white font-bold">
-                                    📍 <span data-sync="address">${shopConfig.address}</span> • 📞 মোবাঃ <span data-sync="mobile">${shopConfig.mobile}</span>
+                                    <i class="fas fa-map-marker-alt"></i> <span data-sync="address">${shopConfig.address}</span> • <i class="fas fa-phone"></i> মোবাঃ <span data-sync="mobile">${shopConfig.mobile}</span>
                                 </div>
                             </div>
                         </div>
@@ -4778,7 +4778,7 @@
                 guideEl.innerHTML = `
                     <div class="flex items-center justify-between border-b border-emerald-700/60 pb-2 mb-2">
                         <div class="flex items-center gap-2 text-base font-extrabold text-emerald-300">
-                            <span>📖</span>
+                            <span><i class="fas fa-book-open"></i></span>
                             <span>বুকলেট প্রিন্টিং ও ভাঁজ নির্দেশিকা (Saddle-Stitch Imposition)</span>
                         </div>
                         <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-600 text-white">মোট ${toBengaliDigits(totalPages)} পৃষ্ঠা (${toBengaliDigits(imposition.physicalSheets)}টি A4 কাগজ)</span>
@@ -4832,7 +4832,7 @@
             }
             currentLeavesCount += 2;
             renderAllPages(isSampleMode);
-            showToast(`➕ ১টি শিট (৪ পৃষ্ঠা) যোগ হয়েছে! মোট: ${toBengaliDigits(currentLeavesCount * 2)} পৃষ্ঠা`);
+            showToast(`<i class="fas fa-plus"></i> ১টি শিট (৪ পৃষ্ঠা) যোগ হয়েছে! মোট: ${toBengaliDigits(currentLeavesCount * 2)} পৃষ্ঠা`);
         }
 
         function removeLeaf() {
@@ -4843,7 +4843,7 @@
             currentLeavesCount -= 2;
             if (currentBookState > currentLeavesCount) currentBookState = currentLeavesCount;
             renderAllPages(isSampleMode);
-            showToast(`➖ ১টি শিট (৪ পৃষ্ঠা) কমানো হয়েছে! মোট: ${toBengaliDigits(currentLeavesCount * 2)} পৃষ্ঠা`);
+            showToast(`<i class="fas fa-minus"></i> ১টি শিট (৪ পৃষ্ঠা) কমানো হয়েছে! মোট: ${toBengaliDigits(currentLeavesCount * 2)} পৃষ্ঠা`);
         }
 
         // ==========================================================================
@@ -4903,17 +4903,17 @@
             if (prevBtn) prevBtn.disabled = (currentBookState === 0);
             if (nextBtn) {
                 nextBtn.disabled = (currentBookState === currentLeavesCount);
-                if (currentBookState === 0) nextBtn.innerHTML = 'বই খুলুন ▶️';
-                else if (currentBookState === currentLeavesCount - 1) nextBtn.innerHTML = 'পিছনের কভার ▶️';
-                else nextBtn.innerHTML = 'পরের পাতা উল্টান ▶️';
+                if (currentBookState === 0) nextBtn.innerHTML = 'বই খুলুন <i class="fas fa-chevron-right"></i>';
+                else if (currentBookState === currentLeavesCount - 1) nextBtn.innerHTML = 'পিছনের কভার <i class="fas fa-chevron-right"></i>';
+                else nextBtn.innerHTML = 'পরের পাতা উল্টান <i class="fas fa-chevron-right"></i>';
             }
 
             let badgeText = '';
-            if (currentBookState === 0) badgeText = '📕 সামনের কভার (বই বন্ধ)';
-            else if (currentBookState === currentLeavesCount) badgeText = '📕 পিছনের কভার (বই বন্ধ)';
-            else if (currentBookState === 1) badgeText = '📖 পরিচিতি ও হিসাব পৃষ্ঠা ০১';
-            else if (currentBookState === currentLeavesCount - 1) badgeText = '📖 হিসাব শেষ পৃষ্ঠা ও সমাপনী নোট';
-            else badgeText = `📖 হিসাব পৃষ্ঠা ${toBengaliDigits((currentBookState - 1) * 2)} ও পৃষ্ঠা ${toBengaliDigits((currentBookState - 1) * 2 + 1)}`;
+            if (currentBookState === 0) badgeText = ' সামনের কভার (বই বন্ধ)';
+            else if (currentBookState === currentLeavesCount) badgeText = ' পিছনের কভার (বই বন্ধ)';
+            else if (currentBookState === 1) badgeText = '<i class="fas fa-book-open"></i> পরিচিতি ও হিসাব পৃষ্ঠা ০১';
+            else if (currentBookState === currentLeavesCount - 1) badgeText = '<i class="fas fa-book-open"></i> হিসাব শেষ পৃষ্ঠা ও সমাপনী নোট';
+            else badgeText = `<i class="fas fa-book-open"></i> হিসাব পৃষ্ঠা ${toBengaliDigits((currentBookState - 1) * 2)} ও পৃষ্ঠা ${toBengaliDigits((currentBookState - 1) * 2 + 1)}`;
 
             const bStateBadge = document.getElementById('bookStateBadge');
             if (bStateBadge) bStateBadge.innerText = badgeText;
@@ -4967,21 +4967,21 @@
             customConfig.pageNumFormat = (customConfig.pageNumFormat === 'number') ? 'dash' : 'number';
             updatePageNumUI();
             renderAllPages(isSampleMode);
-            showToast(customConfig.pageNumFormat === 'number' ? '🔢 পৃষ্ঠা নম্বর: ০১, ০২, ০৩ চালু করা হয়েছে' : '✏️ পৃষ্ঠা নম্বর: ........ (ড্যাশ) চালু করা হয়েছে');
+            showToast(customConfig.pageNumFormat === 'number' ? '<i class="fas fa-list-ol"></i> পৃষ্ঠা নম্বর: ০১, ০২, ০৩ চালু করা হয়েছে' : '<i class="fas fa-pen"></i> পৃষ্ঠা নম্বর: ........ (ড্যাশ) চালু করা হয়েছে');
         }
 
         function setPageNumFormat(mode) {
             customConfig.pageNumFormat = mode;
             updatePageNumUI();
             renderAllPages(isSampleMode);
-            showToast(mode === 'number' ? '🔢 পৃষ্ঠা নম্বর: ক্রমিক সংখ্যা (০১, ০২...)' : '✏️ পৃষ্ঠা নম্বর: খালি ড্যাশ (........)');
+            showToast(mode === 'number' ? '<i class="fas fa-list-ol"></i> পৃষ্ঠা নম্বর: ক্রমিক সংখ্যা (০১, ০২...)' : '<i class="fas fa-pen"></i> পৃষ্ঠা নম্বর: খালি ড্যাশ (........)');
         }
 
         function updatePageNumUI() {
             const lbl = document.getElementById('pageNumModeLabel');
             const ico = document.getElementById('pageNumModeIcon');
             if (lbl) lbl.innerText = (customConfig.pageNumFormat === 'dash') ? 'পৃষ্ঠা: .....' : 'পৃষ্ঠা: ০১';
-            if (ico) ico.innerText = (customConfig.pageNumFormat === 'dash') ? '✏️' : '🔢';
+            if (ico) ico.innerText = (customConfig.pageNumFormat === 'dash') ? '<i class="fas fa-pen"></i>' : '<i class="fas fa-list-ol"></i>';
 
             const btnSerial = document.getElementById('btnModalPageNumSerial');
             const btnDash = document.getElementById('btnModalPageNumDash');
@@ -5278,7 +5278,7 @@
 
             if (mode === 'ai') {
                 if (badge) {
-                    badge.textContent = '🖼️ AI কভার ছবি';
+                    badge.textContent = '<i class="fas fa-image"></i> AI কভার ছবি';
                     badge.className = 'text-[8.5px] bg-sky-500/20 text-sky-300 px-1.5 py-0.2 rounded border border-sky-400/30';
                 }
                 if (btnAi) {
@@ -5288,10 +5288,10 @@
                     btnVec.className = 'py-1 px-1 rounded text-[10px] font-bold transition bg-slate-800 text-slate-300 hover:text-white cursor-pointer';
                 }
                 if (adjustBox) adjustBox.classList.remove('hidden');
-                showToast('🖼️ AI ফটোরিয়ালিস্টিক কভার মোড চালু হয়েছে');
+                showToast('<i class="fas fa-image"></i> AI ফটোরিয়ালিস্টিক কভার মোড চালু হয়েছে');
             } else {
                 if (badge) {
-                    badge.textContent = '✨ ভেক্টর ডিজাইন';
+                    badge.textContent = '<i class="fas fa-sparkles"></i> ভেক্টর ডিজাইন';
                     badge.className = 'text-[8.5px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded border border-amber-400/30';
                 }
                 if (btnVec) {
@@ -5301,7 +5301,7 @@
                     btnAi.className = 'py-1 px-1 rounded text-[10px] font-bold transition bg-slate-800 text-slate-300 hover:text-white cursor-pointer';
                 }
                 if (adjustBox) adjustBox.classList.add('hidden');
-                showToast('✨ ভেক্টর প্রিন্ট কভার মোড চালু হয়েছে');
+                showToast('<i class="fas fa-sparkles"></i> ভেক্টর প্রিন্ট কভার মোড চালু হয়েছে');
             }
             if (typeof renderAllPages === 'function') {
                 renderAllPages();
@@ -5343,7 +5343,7 @@
             document.querySelectorAll('.ai-cover-img').forEach(img => {
                 img.style.transform = 'scale(1.0) translateY(0px)';
             });
-            showToast('🔄 কভার ইমেজ স্কেল ও পজিশন পারফেক্ট রিসেট হয়েছে!');
+            showToast('<i class="fas fa-sync-alt"></i> কভার ইমেজ স্কেল ও পজিশন পারফেক্ট রিসেট হয়েছে!');
         }
 
         function handleCoverImageUpload(e) {
@@ -5355,7 +5355,7 @@
                 setCoverMode('ai');
                 const btnReset = document.getElementById('btnRemoveCustomCover');
                 if (btnReset) btnReset.classList.remove('hidden');
-                showToast('📁 কভার ছবি সফলভাবে আপলোড হয়েছে!');
+                showToast('<i class="fas fa-folder-open"></i> কভার ছবি সফলভাবে আপলোড হয়েছে!');
             };
             reader.readAsDataURL(file);
         }
@@ -5369,7 +5369,7 @@
             if (typeof renderAllPages === 'function') {
                 renderAllPages();
             }
-            showToast('🔄 ডিফল্ট থিম কভার ছবিতে ফিরিয়ে আনা হয়েছে');
+            showToast('<i class="fas fa-sync-alt"></i> ডিফল্ট থিম কভার ছবিতে ফিরিয়ে আনা হয়েছে');
         }
 
         function nextUIDesign() {
@@ -5450,14 +5450,14 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                showToast('✅ কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
+                showToast('<i class="fas fa-check"></i> কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
                 return;
             }
 
             // Vector mode capture using html2canvas
             const coverEl = document.querySelector('[data-page-type="front-cover"]');
             if (!coverEl) {
-                showToast('❌ কভার পেজ পাওয়া যায়নি');
+                showToast('<i class="fas fa-times"></i> কভার পেজ পাওয়া যায়নি');
                 return;
             }
 
@@ -5469,7 +5469,7 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                showToast('✅ ভেক্টর কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
+                showToast('<i class="fas fa-check"></i> ভেক্টর কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
             } catch (err) {
                 console.error(err);
                 // Fallback to direct file
@@ -5479,7 +5479,7 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                showToast('✅ কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
+                showToast('<i class="fas fa-check"></i> কভার ছবি ডাউনলোড সম্পন্ন হয়েছে!');
             }
         }
 
@@ -5539,12 +5539,12 @@
                 root.style.setProperty('--title-font', selected.title);
                 root.style.setProperty('--body-font', selected.body);
                 document.body.style.fontFamily = selected.body;
-                showToast('✨ ফন্ট পরিবর্তিত হয়েছে: ' + selected.name);
+                showToast('<i class="fas fa-sparkles"></i> ফন্ট পরিবর্তিত হয়েছে: ' + selected.name);
             } else {
                 root.style.removeProperty('--title-font');
                 root.style.removeProperty('--body-font');
                 document.body.style.fontFamily = '';
-                showToast('🔄 স্বয়ংক্রিয় থিম ফন্ট চালু করা হয়েছে');
+                showToast('<i class="fas fa-sync-alt"></i> স্বয়ংক্রিয় থিম ফন্ট চালু করা হয়েছে');
             }
             if (typeof renderPassbook === 'function') {
                 renderPassbook();
@@ -5571,7 +5571,7 @@
 
             const activeIdx = getActiveCoverThemeIndex();
             const d = COVER_DESIGNS[activeIdx];
-            showToast(`🎨 ডিজাইন পরিবর্তন হয়েছে: ${d.num}. ${d.name}`);
+            showToast(`<i class="fas fa-palette"></i> ডিজাইন পরিবর্তন হয়েছে: ${d.num}. ${d.name}`);
         }
 
         function openUIDesignModal() {
@@ -5590,7 +5590,7 @@
 
         function changeInkTheme(theme) {
             document.body.setAttribute('data-ink', theme);
-            showToast('🎨 কালার থিম পরিবর্তন করা হয়েছে');
+            showToast('<i class="fas fa-palette"></i> কালার থিম পরিবর্তন করা হয়েছে');
         }
 
         // ==========================================================================
@@ -5607,7 +5607,7 @@
         function setRowCount(count) {
             customConfig.rowCount = count;
             renderAllPages(isSampleMode);
-            showToast(`📏 টেবিল রো সেট হয়েছে: ${toBengaliDigits(count)} লাইন (নিচে ফাঁকা নেই)`);
+            showToast(`<i class="fas fa-ruler-combined"></i> টেবিল রো সেট হয়েছে: ${toBengaliDigits(count)} লাইন (নিচে ফাঁকা নেই)`);
         }
 
         function applyMarginChange(val) {
@@ -5648,24 +5648,24 @@
             document.body.classList.toggle('edit-mode-on', isEditMode);
             const btn = document.getElementById('btnToggleEdit');
             if (btn) {
-                btn.innerHTML = isEditMode ? '<span>✏️</span> এডিট চালু' : '<span>🔒</span> এডিট বন্ধ';
+                btn.innerHTML = isEditMode ? '<span><i class="fas fa-pen"></i></span> এডিট চালু' : '<span><i class="fas fa-lock"></i></span> এডিট বন্ধ';
                 btn.className = isEditMode
                     ? 'px-2 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-bold transition flex items-center gap-1 shadow'
                     : 'px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 transition flex items-center gap-1';
             }
-            showToast(isEditMode ? '✏️ এডিট মোড চালু (টেক্সট এডিট করতে পারবেন)' : '🔒 এডিট মোড বন্ধ (লক করা হয়েছে)');
+            showToast(isEditMode ? '<i class="fas fa-pen"></i> এডিট মোড চালু (টেক্সট এডিট করতে পারবেন)' : '<i class="fas fa-lock"></i> এডিট মোড বন্ধ (লক করা হয়েছে)');
         }
 
         function toggleAutoCalc() {
             isAutoCalc = !isAutoCalc;
             const btn = document.getElementById('btnToggleAutoCalc');
             if (btn) {
-                btn.innerHTML = isAutoCalc ? '<span>🧮</span> হিসাব চালু' : '<span>⏸️</span> হিসাব বন্ধ';
+                btn.innerHTML = isAutoCalc ? '<span><i class="fas fa-calculator"></i></span> হিসাব চালু' : '<span><i class="fas fa-pause"></i></span> হিসাব বন্ধ';
                 btn.className = isAutoCalc
                     ? 'px-2 py-1 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-bold transition flex items-center gap-1 shadow'
                     : 'px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 transition flex items-center gap-1';
             }
-            showToast(isAutoCalc ? '🧮 অটো যোগ-বিয়োগ হিসাব চালু' : '⏸️ অটো হিসাব বন্ধ করা হয়েছে');
+            showToast(isAutoCalc ? '<i class="fas fa-calculator"></i> অটো যোগ-বিয়োগ হিসাব চালু' : '<i class="fas fa-pause"></i> অটো হিসাব বন্ধ করা হয়েছে');
         }
 
         function toggleSampleData() {
@@ -5673,18 +5673,18 @@
             renderAllPages(isSampleMode);
             const btn = document.getElementById('btnToggleSample');
             if (btn) {
-                btn.innerHTML = isSampleMode ? '<span>📝</span> নমুনা তথ্য' : '<span>🧹</span> খালি খাতা';
+                btn.innerHTML = isSampleMode ? '<span><i class="fas fa-edit"></i></span> নমুনা তথ্য' : '<span><i class="fas fa-eraser"></i></span> খালি খাতা';
                 btn.className = isSampleMode
                     ? 'px-2 py-1 rounded-lg bg-amber-700 hover:bg-amber-600 text-white font-bold transition flex items-center gap-1 shadow'
                     : 'px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-yellow-300 transition flex items-center gap-1';
             }
-            showToast(isSampleMode ? '📝 নমুনা হিসাবের ডেটা লোড হয়েছে' : '🧹 সকল নমুনা মুছে খালি খাতা প্রস্তুত');
+            showToast(isSampleMode ? '<i class="fas fa-edit"></i> নমুনা হিসাবের ডেটা লোড হয়েছে' : '<i class="fas fa-eraser"></i> সকল নমুনা মুছে খালি খাতা প্রস্তুত');
         }
 
         function toggleFullScreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => { });
-                showToast('⛶ ফুলস্ক্রিন মোড চালু হয়েছে');
+                showToast('<i class="fas fa-expand"></i> ফুলস্ক্রিন মোড চালু হয়েছে');
             } else {
                 if (document.exitFullscreen) document.exitFullscreen();
                 showToast('ফুলস্ক্রিন বন্ধ হয়েছে');
@@ -5734,7 +5734,7 @@
 
             closeShopDetailsModal();
             renderAllPages(isSampleMode);
-            showToast('⚡ ১-ক্লিকে সম্পূর্ণ বইয়ের সকল তথ্য আপডেট হয়েছে!');
+            showToast('<i class="fas fa-bolt"></i> ১-ক্লিকে সম্পূর্ণ বইয়ের সকল তথ্য আপডেট হয়েছে!');
         }
 
         // Quick Sync Live Ribbon Functions
@@ -5775,7 +5775,7 @@
             const findText = document.getElementById('findInputText').value.trim();
             const replaceText = document.getElementById('replaceInputText').value.trim();
             if (!findText) {
-                showToast('❌ অনুসন্ধানের জন্য কোনো শব্দ লিখুন');
+                showToast('<i class="fas fa-times"></i> অনুসন্ধানের জন্য কোনো শব্দ লিখুন');
                 return;
             }
 
@@ -5798,7 +5798,7 @@
 
             closeFindReplaceModal();
             renderAllPages(isSampleMode);
-            showToast(`⚡ সফলভাবে ${matchCount} জায়গায় '${findText}' বদলে '${replaceText}' করা হয়েছে!`);
+            showToast(`<i class="fas fa-bolt"></i> সফলভাবে ${matchCount} জায়গায় '${findText}' বদলে '${replaceText}' করা হয়েছে!`);
         }
 
         // ==========================================================================
@@ -6283,7 +6283,7 @@
             }
         };
         function downloadWordDoc() {
-            showToast('📄 Word / Docs ফাইল তৈরি হচ্ছে...');
+            showToast('<i class="fas fa-file-alt"></i> Word / Docs ফাইল তৈরি হচ্ছে...');
 
             const totalPages = currentLeavesCount * 2;
             const ledgerPagesCount = totalPages - 3;
@@ -6304,16 +6304,16 @@
                     </div>
                     <p style="font-size: 10.5pt; margin: 8px 0; line-height: 1.4; color: #1e293b;">${shopConfig.goodsDesc}</p>
                     <p style="font-size: 11pt; font-weight: bold; margin: 4px 0; color: ${t.accentColor};">${shopConfig.founderName}</p>
-                    <p style="font-size: 11.5pt; font-weight: bold; color: ${t.primaryColor};">📍 ${shopConfig.address}</p>
+                    <p style="font-size: 11.5pt; font-weight: bold; color: ${t.primaryColor};"><i class="fas fa-map-marker-alt"></i> ${shopConfig.address}</p>
                     <div style="display: inline-block; background-color: #fef08a; border: 2px solid ${t.accentColor}; padding: 6px 25px; font-size: 15pt; font-weight: bold; margin: 12px 0; color: #713f12;">
-                        📒 বাকির পাস বই
+                        <i class="fas fa-book"></i> বাকির পাস বই
                     </div>
                     <div style="border: 2px solid ${t.borderColor}; padding: 14px; margin-top: 15px; text-align: left; background: #ffffff;">
                         <p style="font-size: 13pt; margin: 6px 0;"><strong>গ্রাহকের নামঃ</strong> ${shopConfig.customerName ? shopConfig.customerName : '....................................................................'}</p>
                         <p style="font-size: 12pt; margin: 6px 0;"><strong>বই নং / হিসাব নংঃ</strong> ${shopConfig.bookNo ? shopConfig.bookNo : '....................................................................'}</p>
                     </div>
                     <div style="margin-top: 15px; font-size: 10.5pt; font-weight: bold; border-top: 1.5px solid ${t.borderColor}; padding-top: 8px; color: #334155;">
-                        <span>📍 দোকানের অবস্থানঃ ${shopConfig.address} • 📞 মোবাঃ ${shopConfig.mobile}</span>
+                        <span><i class="fas fa-map-marker-alt"></i> দোকানের অবস্থানঃ ${shopConfig.address} • <i class="fas fa-phone"></i> মোবাঃ ${shopConfig.mobile}</span>
                     </div>
                 </div>
                 <br style="page-break-after: always; clear: both;" />
@@ -6336,7 +6336,7 @@
                     </table>
 
                     <div style="border: 1.5px solid ${t.accentColor}; background: #fef2f2; padding: 12px; margin-top: 15px;">
-                        <h4 style="margin: 0 0 8px 0; color: ${t.accentColor};">⚖️ বাকির বিশেষ নিয়মাবলী ও জামিনদার শর্তাবলী</h4>
+                        <h4 style="margin: 0 0 8px 0; color: ${t.accentColor};"><i class="fas fa-balance-scale"></i> বাকির বিশেষ নিয়মাবলী ও জামিনদার শর্তাবলী</h4>
                         <ol style="font-size: 9.8pt; line-height: 1.55; margin: 0; padding-left: 20px;">
                             <li>এই বাকির পাস বই সাথে আনা ছাড়া কোনো প্রকার বাকি লেনদেন সম্পূর্ণ নিষিদ্ধ।</li>
                             <li>নির্ধারিত মেয়াদের মধ্যে পূর্বের বকেয়া পরিশোধ না করা পর্যন্ত নতুন বাকি দেওয়া হবে না।</li>
@@ -6424,9 +6424,9 @@
             // Word Doc Inside Back Cover (Rules, Terms & Notice)
             docBody += `
                 <div style="border: ${t.borderStyle}; padding: 20px; background-color: ${t.pageBg};">
-                    <h3 style="text-align: center; background: ${t.accentColor}; color: #ffffff; padding: 8px; margin: 0 0 15px 0; font-family: ${t.fontFamily};">📌 জরুরি নির্দেশাবলী ও পাস বই ব্যবহারের নীতিমালা</h3>
+                    <h3 style="text-align: center; background: ${t.accentColor}; color: #ffffff; padding: 8px; margin: 0 0 15px 0; font-family: ${t.fontFamily};"><i class="fas fa-thumbtack"></i> জরুরি নির্দেশাবলী ও পাস বই ব্যবহারের নীতিমালা</h3>
                     <div style="border: 2px solid ${t.accentColor}; background: #fef2f2; padding: 8px; text-align: center; font-weight: bold; margin-bottom: 15px; color: ${t.accentColor};">
-                        ⚠️ সতর্কবার্তাঃ এই পাস বই ছাড়া কোনো প্রকার বাকি লেনদেন সম্পূর্ণ নিষিদ্ধ!
+                        <i class="fas fa-exclamation-triangle"></i> সতর্কবার্তাঃ এই পাস বই ছাড়া কোনো প্রকার বাকি লেনদেন সম্পূর্ণ নিষিদ্ধ!
                     </div>
                     <ol style="font-size: 10pt; line-height: 1.6; padding-left: 25px;">
                         <li>দোকান থেকে বাকিতে মালামাল ক্রয়ের সময় অবশ্যই এই <strong>"বাকির পাস বই"</strong> সাথে আনতে হবে।</li>
@@ -6436,7 +6436,7 @@
                         <li>পাস বইয়ের পাতায় কোনো প্রকার কাটাকাটি বা ঘষামাঝা করা সম্পূর্ণ নিষিদ্ধ।</li>
                     </ol>
                     <div style="border: 1px dashed ${t.borderColor}; background: #fffbeb; padding: 12px; margin-top: 15px;">
-                        <h4 style="margin: 0 0 6px 0; color: #b45309;">📢 পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়</h4>
+                        <h4 style="margin: 0 0 6px 0; color: #b45309;"><i class="fas fa-bullhorn"></i> পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়</h4>
                         <p style="font-size: 9.8pt; line-height: 1.4; margin: 0;">পাস বই হারিয়ে গেলে সাথে সাথে দোকানে অবগত করতে হবে এবং নতুন বই সংগ্রহ করতে হবে। কোনো ব্যক্তি বইটি পেয়ে থাকলে মেসার্স আলেয়া ট্রেডার্স, মহিষ্ট্র, কিচক, শিবগঞ্জ, বগুড়া অথবা মোবাঃ ০১৭২৮-৩৬০২৪০-এ যোগাযোগ করার জন্য অনুরোধ করা হলো।</p>
                     </div>
                 </div>
@@ -6452,7 +6452,7 @@
                     </div>
 
                     <div style="border: 1.5px solid ${t.borderColor}; padding: 14px; text-align: left; background: #ffffff; margin-bottom: 15px;">
-                        <h3 style="text-align: center; margin: 0 0 10px 0; color: ${t.primaryColor}; border-bottom: 1px dashed #ca8a04; padding-bottom: 5px;">📜 ব্যবসা, লেনদেন ও সততার অমূল্য নীতিবাক্য</h3>
+                        <h3 style="text-align: center; margin: 0 0 10px 0; color: ${t.primaryColor}; border-bottom: 1px dashed #ca8a04; padding-bottom: 5px;"><i class="fas fa-scroll"></i> ব্যবসা, লেনদেন ও সততার অমূল্য নীতিবাক্য</h3>
                         <p style="font-size: 10.5pt; line-height: 1.6; margin: 6px 0;"><strong>১. "সততা ও বিশ্বস্ততাই ব্যবসার মূলধন:"</strong> একজন সৎ ব্যবসায়ীর সবচেয়ে বড় সম্পদ তার নৈতিক চরিত্র ও ক্রেতার অকৃত্রিম আস্থা।</p>
                         <p style="font-size: 10.5pt; line-height: 1.6; margin: 6px 0;"><strong>২. "বাকিতে সম্মান, নগদে প্রাণ:"</strong> নির্ধারিত সময়ে বকেয়া পরিশোধে ক্রেতার সম্মান বাড়ে, দীর্ঘস্থায়ী হয় পারস্পরিক সৌহার্দ্য।</p>
                         <p style="font-size: 10.5pt; line-height: 1.6; margin: 6px 0;"><strong>৩. "হিসাব পরিষ্কার যার, ব্যবসা সুন্দর তার:"</strong> সুস্পষ্ট ও নির্ভুল হিসাব-নিকাশ ব্যবসায় বরকত ও সমৃদ্ধি নিয়ে আসে।</p>
@@ -6461,17 +6461,17 @@
                     </div>
 
                     <div style="background: ${t.accentColor}; color: #ffffff; padding: 6px 15px; font-weight: bold; font-size: 11pt; margin-bottom: 12px;">
-                        🤝 আমাদের সাথে লেনদেন করার জন্য আপনাকে আন্তরিক ধন্যবাদ 🤝
+                        <i class="fas fa-handshake"></i> আমাদের সাথে লেনদেন করার জন্য আপনাকে আন্তরিক ধন্যবাদ <i class="fas fa-handshake"></i>
                     </div>
 
                     <!-- Lost & Found Notice directly under Thanks banner (User Requirement) -->
                     <div style="border: 1px dashed ${t.borderColor}; background: #fffbeb; padding: 12px; margin-bottom: 15px; text-align: left;">
-                        <h4 style="margin: 0 0 6px 0; color: #b45309; text-align: center;">📢 পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়</h4>
+                        <h4 style="margin: 0 0 6px 0; color: #b45309; text-align: center;"><i class="fas fa-bullhorn"></i> পাস বই হারিয়ে গেলে বা কেউ কুড়িয়ে পেলে করণীয়</h4>
                         <p style="font-size: 9.8pt; line-height: 1.4; margin: 0;">• <strong>বই হারিয়ে গেলে:</strong> পাস বই হারিয়ে গেলে সাথে সাথে দোকানে অবগত করতে হবে এবং নির্দিষ্ট ফি প্রদান করে নতুন পাস বই সংগ্রহ করতে হবে।<br>• <strong>কেউ পেয়ে থাকলে:</strong> কোনো সহৃদয় ব্যক্তি বইটি কোথাও পেয়ে থাকলে অনুগ্রহপূর্বক নিচের মোবাইল নম্বরে অথবা সরাসরি আমাদের দোকানে পৌঁছে দেওয়ার জন্য বিশেষভাবে অনুরোধ করা হলো।</p>
                     </div>
 
                     <div style="margin-top: 15px; font-size: 10.5pt; font-weight: bold; border-top: 1.5px solid ${t.borderColor}; padding-top: 10px; color: #334155;">
-                        📍 দোকানের অবস্থানঃ ${shopConfig.address} • 📞 মোবাঃ ${shopConfig.mobile}
+                        <i class="fas fa-map-marker-alt"></i> দোকানের অবস্থানঃ ${shopConfig.address} • <i class="fas fa-phone"></i> মোবাঃ ${shopConfig.mobile}
                     </div>
                 </div>
             `;
@@ -6508,7 +6508,7 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showToast(`📄 Word / Docs ফাইল সফলভাবে ডাউনলোড হয়েছে (${t.name})!`);
+            showToast(`<i class="fas fa-file-alt"></i> Word / Docs ফাইল সফলভাবে ডাউনলোড হয়েছে (${t.name})!`);
         }
 
         // ==========================================================================
@@ -6524,7 +6524,7 @@
             const numChannels = 4; // RGBA
 
             const totalBytes = 26 + 4 + 4 + 4 + 2 + (pixelCount * numChannels);
-            const buffer = new ArrayBuffer(totalBytes);
+            const buffer = new memory buffer(totalBytes);
             const view = new DataView(buffer);
             const bytes = new Uint8Array(buffer);
 
@@ -6586,7 +6586,7 @@
                     ? 'px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500 font-black text-[10.5px]'
                     : 'px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500 font-black text-[10.5px]';
             });
-            showToast(showCenterFoldCutLine ? '✂️ মাঝের ভাঁজ ও কাটিং দাগ চালু করা হয়েছে' : '🚫 মাঝের ভাঁজ ও কাটিং দাগ বন্ধ (লুকানো) হয়েছে');
+            showToast(showCenterFoldCutLine ? '<i class="fas fa-cut"></i> মাঝের ভাঁজ ও কাটিং দাগ চালু করা হয়েছে' : '🚫 মাঝের ভাঁজ ও কাটিং দাগ বন্ধ (লুকানো) হয়েছে');
         }
 
         
@@ -6595,7 +6595,7 @@
         // -------------------------------------------------------------
         function downloadAIFile(format = 'ai') {
             const isAi = (format === 'ai');
-            showToast(isAi ? '🎨 Adobe Illustrator (.ai) ফাইল প্রস্তুত হচ্ছে...' : '📐 Illustrator ভেক্টর (.svg) প্রস্তুত হচ্ছে...');
+            showToast(isAi ? '<i class="fas fa-palette"></i> Adobe Illustrator (.ai) ফাইল প্রস্তুত হচ্ছে...' : '<i class="fas fa-ruler-combined"></i> Illustrator ভেক্টর (.svg) প্রস্তুত হচ্ছে...');
 
             try {
                 const conf = (typeof paperSizes !== 'undefined' && paperSizes[currentPaperKey]) ? paperSizes[currentPaperKey] : { closedW: 148.5, closedH: 210 };
@@ -6638,7 +6638,7 @@
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
-                    showToast(`✅ Adobe Illustrator (.ai) ফাইল সফলভাবে ডাউনলোড হয়েছে! ইলাস্ট্রেটরে লেখার সাইজ ইচ্ছামতো পরিবর্তন করতে পারবেন।`);
+                    showToast(`<i class="fas fa-check"></i> Adobe Illustrator (.ai) ফাইল সফলভাবে ডাউনলোড হয়েছে! ইলাস্ট্রেটরে লেখার সাইজ ইচ্ছামতো পরিবর্তন করতে পারবেন।`);
                 } else {
                     const svgData = buildIllustratorSVGData({
                         widthPt: w_pt,
@@ -6662,11 +6662,11 @@
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
-                    showToast(`✅ ইলাস্ট্রেটর ভেক্টর (.svg) ডাউনলোড হয়েছে! Adobe Illustrator-এ ওপেন করে লেখার সাইজ ছোট-বড় ও এডিট করতে পারবেন।`);
+                    showToast(`<i class="fas fa-check"></i> ইলাস্ট্রেটর ভেক্টর (.svg) ডাউনলোড হয়েছে! Adobe Illustrator-এ ওপেন করে লেখার সাইজ ছোট-বড় ও এডিট করতে পারবেন।`);
                 }
             } catch (err) {
                 console.error('Illustrator Export Error:', err);
-                showToast('❌ ইলাস্ট্রেটর ফাইল তৈরিতে ত্রুটি দেখা দিয়েছে');
+                showToast('<i class="fas fa-times"></i> ইলাস্ট্রেটর ফাইল তৈরিতে ত্রুটি দেখা দিয়েছে');
             }
         }
 
@@ -6890,7 +6890,7 @@
 
 
         async function downloadPSDFile() {
-            showToast('🎨 ফটোশপ (PSD) ফাইল তৈরি হচ্ছে (300 DPI আল্ট্রা-এইচডি)...');
+            showToast('<i class="fas fa-palette"></i> ফটোশপ (PSD) ফাইল তৈরি হচ্ছে (300 DPI আল্ট্রা-এইচডি)...');
 
             try {
                 if (typeof html2canvas === 'undefined') {
@@ -6947,7 +6947,7 @@
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
-                showToast(`✅ ফটোশপ (PSD) ফাইল সফলভাবে ডাউনলোড হয়েছে (${d.name})!`);
+                showToast(`<i class="fas fa-check"></i> ফটোশপ (PSD) ফাইল সফলভাবে ডাউনলোড হয়েছে (${d.name})!`);
             } catch (err) {
                 console.error('PSD Generation Error:', err);
                 const existingClone = document.getElementById('psd-export-clone');
@@ -6973,9 +6973,9 @@
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
-                    showToast('✅ ফটোশপ (PSD) ফাইল ডাউনলোড সম্পন্ন হয়েছে!');
+                    showToast('<i class="fas fa-check"></i> ফটোশপ (PSD) ফাইল ডাউনলোড সম্পন্ন হয়েছে!');
                 } catch (e2) {
-                    showToast('⚠️ PSD রেন্ডার করতে সমস্যা হয়েছে। দয়া করে "প্রিন্ট / PDF" ফাইলটি সরাসরি ফটোশপে ওপেন করুন!');
+                    showToast('<i class="fas fa-exclamation-triangle"></i> PSD রেন্ডার করতে সমস্যা হয়েছে। দয়া করে "প্রিন্ট / PDF" ফাইলটি সরাসরি ফটোশপে ওপেন করুন!');
                 }
             }
         }
@@ -7182,7 +7182,7 @@
                         : 'px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-600 font-bold text-[10.5px]';
                 }
             });
-            showToast(isDeepInkMode ? '🖨️ সুপার শার্প ও ডিপ ইনক মোড চালু হয়েছে (অফসেট কোয়ালিটি)' : 'স্বাভাবিক প্রিন্ট মোড সক্রিয়');
+            showToast(isDeepInkMode ? '<i class="fas fa-print"></i> সুপার শার্প ও ডিপ ইনক মোড চালু হয়েছে (অফসেট কোয়ালিটি)' : 'স্বাভাবিক প্রিন্ট মোড সক্রিয়');
         }
 
         function adjustPrintSheetZoom(delta) {
@@ -7243,7 +7243,7 @@
             populateQuickDataModal();
             syncAllInputsFromShopConfig();
             renderAllPages(isSampleMode);
-            showToast(`⚡ প্রিসেট সফলভাবে প্রয়োগ করা হয়েছে!`);
+            showToast(`<i class="fas fa-bolt"></i> প্রিসেট সফলভাবে প্রয়োগ করা হয়েছে!`);
         }
 
         function saveQuickDataFromModal() {
@@ -7265,7 +7265,7 @@
             syncAllInputsFromShopConfig();
             renderAllPages(isSampleMode);
             closeQuickDataModal();
-            showToast('⚡ সকল পাতায় তথ্য সফলভাবে আপডেট হয়েছে!');
+            showToast('<i class="fas fa-bolt"></i> সকল পাতায় তথ্য সফলভাবে আপডেট হয়েছে!');
         }
 
         function syncAllInputsFromShopConfig() {
@@ -7309,7 +7309,7 @@
         }
 
         function triggerPrintBook() {
-            showToast('🖨️ প্রিন্ট প্রস্তুত হচ্ছে...');
+            showToast('<i class="fas fa-print"></i> প্রিন্ট প্রস্তুত হচ্ছে...');
             // Ensure print view is ready
             renderAllPages(isSampleMode);
             setTimeout(() => {

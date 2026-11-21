@@ -11,6 +11,7 @@ const canonicalBase = 'https://tools.shahriyarsojibhasan.top';
 
 const filesToAudit = [
   'index.html',
+  'docs/index.html',
   'about/index.html',
   'contact/index.html',
   'privacy/index.html',

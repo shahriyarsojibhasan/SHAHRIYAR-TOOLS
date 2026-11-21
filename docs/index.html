@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation & User Guides | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Documentation & User Guides | SHAHRIYAR TOOLS">
+  <meta name="description" content="Complete documentation and user guides for SHAHRIYAR TOOLS. Learn how to use our free, private online tools for image compression, PDF editing, QR codes, and more.">
+  <meta name="keywords" content="shahriyar tools documentation, free online tools guide, how to compress images, how to merge pdfs, qr code generator guide, private browser tools">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/docs/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/docs/">
+  <meta property="og:title" content="SHAHRIYAR TOOLS Documentation & User Guides">
+  <meta property="og:description" content="Comprehensive guides, privacy architecture, and feature manuals for all browser-based utilities.">
+  <meta property="og:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-docs.png">
+  <meta property="og:site_name" content="SHAHRIYAR TOOLS">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@shahriyarsojib_">
+  <meta name="twitter:creator" content="@shahriyarsojib_">
+  <meta name="twitter:title" content="Documentation & User Guides | SHAHRIYAR TOOLS">
+  <meta name="twitter:description" content="Learn how to use all 15+ browser-based tools with zero data tracking.">
+  <meta name="twitter:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-docs.png">
+
+  <!-- Favicon (Pure Vector SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23dc2626'/><path d='M9 12h14v12H9z' fill='none' stroke='white' stroke-width='2'/><path d='M13 12V9a3 3 0 0 1 6 0v3' fill='none' stroke='white' stroke-width='2'/></svg>"><rect width='32' height='32' rx='6' fill='%23dc2626'/><path d='M9 12h14v12H9z' fill='none' stroke='white' stroke-width='2'/><path d='M13 12V9a3 3 0 0 1 6 0v3' fill='none' stroke='white' stroke-width='2'/></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.5rem;
+      margin: 2.5rem 0 5rem;
+      align-items: start;
+    }
+
+    .docs-sidebar {
+      position: sticky;
+      top: 80px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+
+    .docs-sidebar h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .docs-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .docs-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+
+    .docs-nav-link:hover, .docs-nav-link.active {
+      background: var(--bg-muted);
+      color: var(--brand-primary);
+    }
+
+    .docs-content {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      line-height: 1.75;
+      color: #334155;
+    }
+
+    .docs-content h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .docs-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .docs-content h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .docs-callout {
+      background: var(--bg-muted);
+      border-left: 4px solid var(--brand-primary);
+      padding: 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 1.5rem 0;
+    }
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .docs-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+
+    .docs-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .docs-layout {
+        grid-template-columns: 1fr;
+      }
+      .docs-sidebar {
+        position: static;
+        max-height: none;
+      }
+      .docs-content {
+        padding: 1.5rem 1.25rem;
+      }
+      .docs-content h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "SHAHRIYAR TOOLS Documentation and User Manual",
+        "url": "https://tools.shahriyarsojibhasan.top/docs/",
+        "author": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SHAHRIYAR TOOLS",
+          "url": "https://tools.shahriyarsojibhasan.top/"
+        },
+        "description": "Complete user manual, privacy architecture, and feature documentation for all tools in the SHAHRIYAR TOOLS platform."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://tools.shahriyarsojibhasan.top/docs/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#tools-directory" class="nav-link">All Tools</a></li>
+          <li><a href="./" class="nav-link active">Documentation</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/shahriyarsojibhasan/SHAHRIYAR-TOOLS" target="_blank" rel="noopener" class="btn-tool" style="font-size: 0.85rem;"><i class="fab fa-github"></i> GitHub</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><a href="../" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../#tools-directory" class="mobile-nav-link"><i class="fas fa-th"></i> All Tools Directory</a></li>
+        <li><a href="./" class="mobile-nav-link"><i class="fas fa-book"></i> Documentation</a></li>
+        <li><a href="../about/" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About Platform</a></li>
+        <li><a href="../contact/" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact & Feedback</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Documentation</li>
+      </ol>
+    </nav>
+
+    <div class="docs-layout">
+      <!-- Sidebar TOC -->
+      <aside class="docs-sidebar" aria-label="Documentation Index">
+        <h3>Platform Overview</h3>
+        <ul class="docs-nav-list">
+          <li><a href="#getting-started" class="docs-nav-link active"><i class="fas fa-play"></i> Getting Started</a></li>
+          <li><a href="#privacy-model" class="docs-nav-link"><i class="fas fa-shield-alt"></i> Privacy & Security</a></li>
+        </ul>
+
+        <h3>Tools Manuals</h3>
+        <ul class="docs-nav-list">
+          <li><a href="#media-tools" class="docs-nav-link"><i class="fas fa-image"></i> Image & Media</a></li>
+          <li><a href="#document-tools" class="docs-nav-link"><i class="fas fa-file-pdf"></i> PDF & Documents</a></li>
+          <li><a href="#developer-tools" class="docs-nav-link"><i class="fas fa-code"></i> Developer & Security</a></li>
+          <li><a href="#calculator-tools" class="docs-nav-link"><i class="fas fa-calculator"></i> Calculators & Office</a></li>
+        </ul>
+
+        <h3>Help & Resources</h3>
+        <ul class="docs-nav-list">
+          <li><a href="#faq" class="docs-nav-link"><i class="fas fa-question-circle"></i> Frequently Asked</a></li>
+          <li><a href="../contact/" class="docs-nav-link"><i class="fas fa-envelope"></i> Request a Tool</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Docs Content -->
+      <article class="docs-content">
+        <h1>SHAHRIYAR TOOLS Documentation</h1>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 2rem;">
+          Welcome to the official user manual and documentation hub for SHAHRIYAR TOOLS. Every utility on this platform is built to run directly on your computer or phone with no server uploads.
+        </p>
+
+        <section id="getting-started">
+          <h2><i class="fas fa-play" style="color: var(--brand-primary); font-size: 1.2rem;"></i> 1. Getting Started</h2>
+          <p>
+            SHAHRIYAR TOOLS provides fast, free, and completely private utilities for everyday web tasks. You can use every tool right away without signing up, installing any browser plugins, or paying any fees.
+          </p>
+
+          <div class="docs-grid">
+            <div class="docs-card">
+              <h4><i class="fas fa-bolt" style="color: #f59e0b;"></i> Instant Speed</h4>
+              <p>Everything runs on your device hardware, meaning zero waiting for uploads or remote server queues.</p>
+            </div>
+            <div class="docs-card">
+              <h4><i class="fas fa-lock" style="color: #10b981;"></i> Total Privacy</h4>
+              <p>Your photos, sensitive PDF agreements, and passwords never leave your browser memory.</p>
+            </div>
+            <div class="docs-card">
+              <h4><i class="fas fa-mobile-alt" style="color: #0284c7;"></i> Mobile Friendly</h4>
+              <p>Custom layouts designed specifically for touch screens, tablets, laptops, and desktop monitors.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="privacy-model">
+          <h2><i class="fas fa-shield-alt" style="color: #10b981; font-size: 1.2rem;"></i> 2. Privacy & Security Architecture</h2>
+          <div class="docs-callout">
+            <strong>Key Guarantee:</strong> No file you choose or generate is ever uploaded to a remote server. All image conversion, PDF splitting, compression, and password generation happen inside your device's memory.
+          </div>
+          <p>
+            Traditional websites require you to upload your personal files to their servers, where they may be stored, analyzed, or leaked. In contrast, SHAHRIYAR TOOLS uses modern Web Standards so that all calculations happen in your local browser sandbox.
+          </p>
+        </section>
+
+        <section id="media-tools">
+          <h2><i class="fas fa-image" style="color: #0284c7; font-size: 1.2rem;"></i> 3. Image & Media Tools</h2>
+          
+          <h3>Image Compressor (<a href="../image-compressor/">/image-compressor/</a>)</h3>
+          <p>
+            Compress JPG, PNG, and WebP images quickly while maintaining high visual quality.
+          </p>
+          <ul>
+            <li><strong>Interactive Split Slider:</strong> Drag the center slider left and right to compare original vs. compressed quality in real time.</li>
+            <li><strong>Quality & Resolution Sliders:</strong> Fine-tune compression percentage and scale down resolution (e.g. 50%, 75%) to achieve your target file size.</li>
+            <li><strong>Batch Processing:</strong> Add multiple photos at once and download them individually or as a batch.</li>
+          </ul>
+
+          <h3>Batch Image Converter (<a href="../image-converter/">/image-converter/</a>)</h3>
+          <p>
+            Convert image formats easily between JPG, PNG, WebP, GIF, and BMP.
+          </p>
+          <ul>
+            <li>Select your desired output format from the dropdown menu.</li>
+            <li>Adjust quality settings for JPG and WebP files.</li>
+            <li>Download your converted images with one click.</li>
+          </ul>
+
+          <h3>Reunion Poster Studio (<a href="../reunionposter/">/reunionposter/</a>)</h3>
+          <p>
+            A dedicated graphic studio for creating batch reunion, farewell, and event posters.
+          </p>
+          <ul>
+            <li>Choose from 8 distinct layout styles (Classic Centered, Split Sidebar, Top Banner, Scrapbook, Minimalist).</li>
+            <li>Select color palettes and canvas aspect ratios (Standard 3:4 portrait, 9:16 mobile story, 16:9 banner, or 1:1 square).</li>
+            <li>Double-click any text to edit dates, school names, and slogans.</li>
+            <li>Export high-resolution posters in up to 4K resolution.</li>
+          </ul>
+        </section>
+
+        <section id="document-tools">
+          <h2><i class="fas fa-file-pdf" style="color: #dc2626; font-size: 1.2rem;"></i> 4. PDF & Document Tools</h2>
+
+          <h3>PDF Toolkit (<a href="../pdf-tools/">/pdf-tools/</a>)</h3>
+          <p>
+            Manage and edit your PDF files securely:
+          </p>
+          <ul>
+            <li><strong>Merge PDFs:</strong> Combine multiple PDF documents into a single organized file in seconds.</li>
+            <li><strong>Split PDF:</strong> Extract specific page ranges (e.g., 1-5, 8, 11-14) into an independent PDF.</li>
+            <li><strong>Rotate Pages:</strong> Fix sideways or upside-down scanned pages (90°, 180°, or 270°).</li>
+            <li><strong>Extract Pages:</strong> Pull out only the single pages you need from long documents.</li>
+          </ul>
+
+          <h3>Passbook Studio (<a href="../passbook/">/passbook/</a>)</h3>
+          <p>
+            A traditional Bengali customer ledger and passbook maker designed for merchants, small businesses, and cooperative societies.
+          </p>
+          <ul>
+            <li>Manage customer credit (বাকি) and debit (জমা) transactions.</li>
+            <li>Includes 12 bank-grade security border designs and authentic Bengali typography.</li>
+            <li>Print duplex booklets on standard A4 paper or export vector print sheets.</li>
+          </ul>
+
+          <h3>Invoice Generator (<a href="../invoice-generator/">/invoice-generator/</a>)</h3>
+          <p>
+            Create professional business invoices right in your browser. Add your business logo, custom line items, tax rates, and discounts. Click "Print / Save PDF" to generate an A4 invoice sheet instantly.
+          </p>
+        </section>
+
+        <section id="developer-tools">
+          <h2><i class="fas fa-code" style="color: #7c3aed; font-size: 1.2rem;"></i> 5. Developer & Security Utilities</h2>
+
+          <h3>QR Code Studio (<a href="../qr-code-generator/">/qr-code-generator/</a>)</h3>
+          <p>
+            Create custom QR codes with high scanning reliability:
+          </p>
+          <ul>
+            <li>Supports Website URLs, Plain Text, Wi-Fi network credentials, Contact vCards, and Emails.</li>
+            <li>Custom foreground and background color pickers.</li>
+            <li>Optional center logo embedding with automatic white border backing.</li>
+            <li>Export as crisp high-resolution PNG or scalable vector SVG.</li>
+          </ul>
+
+          <h3>Password Generator (<a href="../password-generator/">/password-generator/</a>)</h3>
+          <p>
+            Create cryptographically strong passwords using your device's built-in random number generator. Includes password strength meters, estimated brute-force crack times, and customizable character rules.
+          </p>
+
+          <h3>JSON Formatter & Validator (<a href="../json-formatter/">/json-formatter/</a>)</h3>
+          <p>
+            Clean up, format, and validate raw JSON code. Identifies exact line and column locations of syntax errors with helpful error hints.
+          </p>
+
+          <h3>Markdown Editor (<a href="../markdown-editor/">/markdown-editor/</a>)</h3>
+          <p>
+            Write documentation and articles with real-time side-by-side preview. Export clean HTML or raw Markdown files.
+          </p>
+        </section>
+
+        <section id="calculator-tools">
+          <h2><i class="fas fa-calculator" style="color: #059669; font-size: 1.2rem;"></i> 6. Everyday Calculators & Converters</h2>
+
+          <h3>Age Calculator (<a href="../age-calculator/">/age-calculator/</a>)</h3>
+          <p>
+            Find your exact chronological age in years, months, and days. Features live ticking seconds, total days lived, and a countdown to your next birthday.
+          </p>
+
+          <h3>Unit Converter (<a href="../unit-converter/">/unit-converter/</a>)</h3>
+          <p>
+            Convert measurements across 7 categories: Length, Weight, Temperature, Area, Volume, Speed, and Digital Storage.
+          </p>
+
+          <h3>Color Palette Studio (<a href="../color-palette/">/color-palette/</a>)</h3>
+          <p>
+            Generate harmonious color palettes, check WCAG contrast accessibility ratios for text readability, and create CSS gradients.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2><i class="fas fa-question-circle" style="color: var(--brand-primary); font-size: 1.2rem;"></i> 7. Frequently Asked Questions</h2>
+          <div class="faq-accordion" style="margin-top: 1rem;">
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Are these tools really 100% free?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>Yes, all utilities are completely free to use with no hidden fees, paywalls, or subscriptions.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Do I need to create an account?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>No registration or account is required. Simply visit any tool and start working immediately.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger" aria-expanded="false">
+                <span>Can I use these tools on my smartphone?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>Yes. Every tool has been independently optimized for mobile screens, tablets, and desktop computers.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../" class="brand-link" style="color: white; margin-bottom: 0.75rem;">
+            <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+            <span class="brand-text">SHAHRIYAR<span style="color: #ef4444;">TOOLS</span></span>
+          </a>
+          <p>An independent developer ecosystem of free, privacy-first web utilities created by Shahriyar Sojib Hasan.</p>
+          <div class="footer-social-links">
+            <a href="https://github.com/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/shahriyarsojib_" target="_blank" rel="noopener" class="footer-social-link" aria-label="X Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Personal Portfolio"><i class="fas fa-globe"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Media & Documents</h4>
+          <ul>
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../image-converter/">Batch Image Converter</a></li>
+            <li><a href="../pdf-tools/">PDF Toolkit</a></li>
+            <li><a href="../reunionposter/">Reunion Poster Studio</a></li>
+            <li><a href="../passbook/">Bangla Passbook Studio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Developer & Security</h4>
+          <ul>
+            <li><a href="../json-formatter/">JSON Formatter</a></li>
+            <li><a href="../password-generator/">Password Generator</a></li>
+            <li><a href="../qr-code-generator/">QR Code Studio</a></li>
+            <li><a href="../markdown-editor/">Markdown Editor</a></li>
+            <li><a href="../text-case-converter/">Text Case Converter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="../docs/">Documentation</a></li>
+            <li><a href="./">Documentation</a></li>
+            <li><a href="../about/">About Platform</a></li>
+            <li><a href="../contact/">Contact & Feedback</a></li>
+            <li><a href="../privacy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Use</a></li>
+            <li><a href="../sitemap.xml">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Developed by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Free Client-Side Tools. No Tracking.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+</body>
+</html>

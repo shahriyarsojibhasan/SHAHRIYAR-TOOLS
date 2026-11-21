@@ -15,7 +15,7 @@
     <meta property="og:title" content="Reunion Poster Studio | Free Event Poster Maker">
     <meta property="og:description" content="Create 4K custom reunion and batch posters online with drag & drop photo alignment.">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23dc2626'/><path d='M9 12h14v12H9z' fill='none' stroke='white' stroke-width='2'/><path d='M13 12V9a3 3 0 0 1 6 0v3' fill='none' stroke='white' stroke-width='2'/></svg>"><text y=%22.9em%22 font-size=%2290%22><i class="fas fa-palette"></i></text></svg>">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -68,7 +68,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Oswald:wght@500&display=swap');
 
-        /* 🎨 COLOR THEMES */
+        /* <i class="fas fa-palette"></i> COLOR THEMES */
         .theme-crimson { --c-prim: #dc2626; --c-sec: #991b1b; --c-bg: #fef2f2; --c-txt: #1e293b; --c-acc: #f59e0b; }
         .theme-royal { --c-prim: #2563eb; --c-sec: #1e40af; --c-bg: #eff6ff; --c-txt: #0f172a; --c-acc: #38bdf8; }
         .theme-forest { --c-prim: #16a34a; --c-sec: #166534; --c-bg: #f0fdf4; --c-txt: #052e16; --c-acc: #facc15; }
@@ -80,7 +80,7 @@
 
         body { font-family: 'Hind Siliguri', sans-serif; background-color: #cbd5e1; margin: 0; padding: 20px; display: flex; gap: 20px; height: 95vh; overflow: hidden; box-sizing: border-box; }
 
-        /* 📱 RESPONSIVE MOBILE LAYOUT (NO BLOCKING OVERLAYS) */
+        /* <i class="fas fa-mobile-alt"></i> RESPONSIVE MOBILE LAYOUT (NO BLOCKING OVERLAYS) */
         .mobile-warning { display: none !important; }
 
         @media screen and (max-width: 850px) {
@@ -121,7 +121,7 @@
             }
         }
 
-        /* 🎛️ CONTROL PANEL */
+        /*  CONTROL PANEL */
         .controls { width: 340px; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow-y: auto; z-index: 10; flex-shrink: 0; }
         .controls::-webkit-scrollbar { width: 6px; }
         .controls::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
@@ -152,19 +152,19 @@
         .btn-danger { background: #ef4444; margin-top: 10px;}
         .btn-danger:hover { background: #dc2626; }
 
-        /* ✨ CREATOR BADGE */
+        /* <i class="fas fa-sparkles"></i> CREATOR BADGE */
         .creator-badge { margin-top: 20px; padding: 12px; text-align: center; font-size: 12px; color: #475569; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; font-weight: 600; }
         .creator-badge strong { color: #dc2626; font-size: 13px; display: block; margin-top: 4px;}
 
-        /* 🖥️ WORKSPACE & SCALING */
+        /*  WORKSPACE & SCALING */
         .workspace { flex-grow: 1; display: flex; justify-content: center; align-items: center; background: #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: inset 0 4px 6px rgba(0,0,0,0.05); }
         #scale-wrapper { transform-origin: center center; transition: transform 0.2s ease-out; display: flex; justify-content: center; align-items: center;}
 
-        /* 🖼️ MASTER ARTBOARD */
+        /* <i class="fas fa-image"></i> MASTER ARTBOARD */
         #artboard { background-color: var(--c-bg); position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); display: flex; box-sizing: border-box; overflow: hidden; transition: outline 0.2s; }
         #artboard.advanced-mode-on { outline: 4px solid #38bdf8; outline-offset: 4px; touch-action: none;}
 
-        /* 🖋️ DYNAMIC TYPOGRAPHY (Fluid Layout) */
+        /*  DYNAMIC TYPOGRAPHY (Fluid Layout) */
         .header-zone, .footer-zone { display: flex; flex-direction: column; justify-content: center; z-index: 5; flex-shrink: 0; max-width: 100%; box-sizing: border-box; }
         .grid-zone { flex-grow: 1; display: flex; align-items: center; justify-content: center; z-index: 2; overflow: visible; min-height: 0; width: 100%; }
 
@@ -183,7 +183,7 @@
         .el-active { outline: 3px dashed #38bdf8 !important; outline-offset: 4px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); z-index: 100 !important; }
         .adv-cursor { cursor: move !important; }
 
-        /* 🧊 LAYOUT STRUCTURES */
+        /*  LAYOUT STRUCTURES */
         .layout-classic { flex-direction: column; padding: 4em; text-align: center; border: 1.5em solid var(--c-prim); }
         .layout-classic .header-zone { align-items: center; margin-bottom: 2em; }
         .layout-classic .footer-zone { align-items: center; margin-top: 2em; }
@@ -222,7 +222,7 @@
         .layout-asymmetric .grid-zone { align-self: flex-end; width: 85%; }
         .layout-asymmetric .footer-zone { align-items: flex-end; text-align: right; margin-top: 2em; }
 
-        /* 🧱 DYNAMIC GRID SYSTEM */
+        /*  DYNAMIC GRID SYSTEM */
         .photo-grid { display: grid; gap: 1.5em; width: 100%; height: 100%; justify-content: center; align-content: center; }
         .freestyle-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; align-content: center; width: 100%; height: 100%; }
         .freestyle-grid .photo-frame { position: relative; flex-shrink: 0; box-shadow: 0 1em 2em rgba(0,0,0,0.2); }
@@ -243,7 +243,7 @@
         /* DEEP CROP FIX: Using object-position */
         .photo-frame img { position: absolute; width: 100%; height: 100%; object-fit: cover; cursor: grab; transform-origin: center; z-index: 2; pointer-events: auto; touch-action: none;}
 
-        /* 🔒 DESIGNER WATERMARK (Protected, Permanent) */
+        /* <i class="fas fa-lock"></i> DESIGNER WATERMARK (Protected, Permanent) */
         .designer-watermark {
             position: absolute; bottom: 15px; right: 25px; font-size: 20px; color: var(--c-txt);
             opacity: 0.5; font-family: sans-serif; font-weight: bold; letter-spacing: 1px;
@@ -254,7 +254,7 @@
 <body>
 
     <div class="mobile-warning" id="mobileWarning">
-        <h2>⚠️ Landscape Required</h2>
+        <h2><i class="fas fa-exclamation-triangle"></i> Landscape Required</h2>
         <p>This professional studio works best on a wider screen.<br>Please <b>rotate your phone sideways</b> or switch to <b>"Desktop Site"</b>.</p>
         <button onclick="document.getElementById('mobileWarning').style.display='none'">I Understand, Continue</button>
     </div>
@@ -265,7 +265,7 @@
         <a href="../" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #dc2626; text-decoration: none; margin-bottom: 12px; padding: 4px 8px; border-radius: 6px; background: #fee2e2;">
             <i class="fas fa-arrow-left"></i> SHAHRIYAR TOOLS HOME
         </a>
-        <h3>🎨 Studio Controls</h3>
+        <h3><i class="fas fa-palette"></i> Studio Controls</h3>
         
         <div class="form-group">
             <label>1. Poster Layout Design</label>
@@ -323,14 +323,14 @@
         <div class="form-group" style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
             <label style="color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 8px;">6. Mouse & Touch Mode</label>
             <div class="mode-selector">
-                <label><input type="radio" name="mouse_mode" value="pan" checked onchange="toggleMode()"> 🔍 Zoom/Pan Image (Default)</label>
-                <label><input type="radio" name="mouse_mode" value="swap" onchange="toggleMode()"> 🔄 Drag & Swap Box (Default)</label>
-                <label style="color: #dc2626;"><input type="radio" name="mouse_mode" value="advanced" onchange="toggleMode()"> 🛠️ All Modifiable (Free Move)</label>
+                <label><input type="radio" name="mouse_mode" value="pan" checked onchange="toggleMode()"> <i class="fas fa-search"></i> Zoom/Pan Image (Default)</label>
+                <label><input type="radio" name="mouse_mode" value="swap" onchange="toggleMode()"> <i class="fas fa-sync-alt"></i> Drag & Swap Box (Default)</label>
+                <label style="color: #dc2626;"><input type="radio" name="mouse_mode" value="advanced" onchange="toggleMode()"> <i class="fas fa-toolbox"></i> All Modifiable (Free Move)</label>
             </div>
             
             <div id="element-tools">
                 <label style="font-size: 13px; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 8px;">
-                    📏 Adjuster <span id="el-type" style="color:#38bdf8; font-weight:normal;"></span>
+                    <i class="fas fa-ruler-combined"></i> Adjuster <span id="el-type" style="color:#38bdf8; font-weight:normal;"></span>
                 </label>
                 
                 <label>Size (Scale): <span id="val-scale">1.0</span></label>
@@ -349,14 +349,14 @@
                 <p style="margin:5px 0 0 0; font-size:11px; color:#64748b;">Click or drag multiple files here</p>
                 <input type="file" id="file-input" multiple accept="image/*">
             </div>
-            <button class="btn btn-danger" onclick="clearAllImages()">🗑️ Clear All Images</button>
+            <button class="btn btn-danger" onclick="clearAllImages()"><i class="fas fa-trash-alt"></i> Clear All Images</button>
         </div>
         
         <button class="btn btn-success" onclick="downloadHDPoster()">⬇ Download HD 4K Poster</button>
-        <button class="btn btn-outline" onclick="resetAllToDefault()">🔄 Reset Layout & Text</button>
+        <button class="btn btn-outline" onclick="resetAllToDefault()"><i class="fas fa-sync-alt"></i> Reset Layout & Text</button>
 
         <div class="creator-badge">
-            ✨ Developed with ❤️ by <strong>Shahriyar Sojib Hasan</strong> ✨
+            <i class="fas fa-sparkles"></i> Developed with <i class="fas fa-heart" style="color: #ef4444;"></i> by <strong>Shahriyar Sojib Hasan</strong> <i class="fas fa-sparkles"></i>
         </div>
 
     </div>
@@ -531,7 +531,7 @@
         }
 
         // ==========================================
-        // 🚀 UNIFIED ELEMENT SELECTION & ADJUSTER (TOUCH & MOUSE)
+        // <i class="fas fa-rocket"></i> UNIFIED ELEMENT SELECTION & ADJUSTER (TOUCH & MOUSE)
         // ==========================================
         function deselectAll() {
             if (activeEl) activeEl.classList.remove('el-active');
@@ -637,7 +637,7 @@
         }
 
         // ==========================================
-        // 🔄 SMART RESET SYSTEMS
+        // <i class="fas fa-sync-alt"></i> SMART RESET SYSTEMS
         // ==========================================
         function resetAllToDefault() {
             document.getElementById('txt-title').innerText = "কিশলয় বিদ্যা নিকেতন";
@@ -660,7 +660,7 @@
         }
 
         // ==========================================
-        // 🖼️ IMAGE HANDLING, SWAP & DEEP CROP FIX
+        // <i class="fas fa-image"></i> IMAGE HANDLING, SWAP & DEEP CROP FIX
         // ==========================================
         let touchSwapSource = null;
         let lastDragOverTouch = null;
@@ -876,12 +876,12 @@
         }
 
         // ==========================================
-        // 📸 100% BUG-FREE 4K EXPORT ENGINE
+        // <i class="fas fa-camera"></i> 100% BUG-FREE 4K EXPORT ENGINE
         // ==========================================
         function downloadHDPoster() {
             const btn = document.querySelector('.btn-success');
             const originalText = btn.innerHTML;
-            btn.innerHTML = "Processing 4K Export... ⏳";
+            btn.innerHTML = "Processing 4K Export... <i class="fas fa-clock"></i>";
             btn.disabled = true;
             
             deselectAll();
