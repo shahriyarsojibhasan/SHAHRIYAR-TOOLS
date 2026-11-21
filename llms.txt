@@ -90,6 +90,11 @@ SHAHRIYAR TOOLS is a specialized suite of browser-native web tools designed for 
 - Description: Typographic text transformation utility converting text into UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, kebab-case, snake_case, and CONSTANT_CASE with whitespace cleanup.
 - Key Capabilities: Multi-case conversion, whitespace cleaners, character statistics, 1-click clipboard copy.
 
+### 16. DuoVista PDF Studio
+- URL: https://tools.shahriyarsojibhasan.top/duovista-pdf/
+- Description: Dual split-screen PDF reader and study tool for desktop and mobile devices. Read 1 PDF in independent Top-and-Bottom panes or compare 2 different PDFs side-by-side with an ultra-thin 2px hairline divider, Microsoft Edge-style PDF annotations (highlighter, freehand pen, notes, eraser), exam countdown timers, audio player, and built-in Q1-40 answer sheet.
+- Key Capabilities: Up-Down / Side-by-Side split screen, 1 vs 2 PDF mode, hover and touch scroll, Edge annotations, IELTS exam suite, zero-upload client-side PDF.js rendering.
+
 ## Informational, Documentation & Legal Pages
 - Documentation Hub: https://tools.shahriyarsojibhasan.top/docs/
 - About Platform: https://tools.shahriyarsojibhasan.top/about/

@@ -30,7 +30,8 @@ const filesToAudit = [
   'age-calculator/index.html',
   'invoice-generator/index.html',
   'markdown-editor/index.html',
-  'text-case-converter/index.html'
+  'text-case-converter/index.html',
+  'duovista-pdf/index.html'
 ];
 
 let errors = [];

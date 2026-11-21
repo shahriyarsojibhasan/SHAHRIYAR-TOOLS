@@ -35,6 +35,7 @@
 | 13 | **Invoice Generator** | [`/invoice-generator/`](https://tools.shahriyarsojibhasan.top/invoice-generator/) | A4 sheet layout, logo upload, line items, taxes, discounts | `@media print` vector PDF export |
 | 14 | **Markdown Editor** | [`/markdown-editor/`](https://tools.shahriyarsojibhasan.top/markdown-editor/) | Dual-pane synchronized editor & live preview, table builder | `marked.js`, HTML export |
 | 15 | **Text Case Converter** | [`/text-case-converter/`](https://tools.shahriyarsojibhasan.top/text-case-converter/) | UPPER, lower, Title, Sentence, camelCase, snake_case | 12+ casing transformers & cleaners |
+| 16 | **DuoVista PDF Studio** | [`/duovista-pdf/`](https://tools.shahriyarsojibhasan.top/duovista-pdf/) | Dual split-screen reader (Up-Down / Side-by-Side), IELTS test suite, Edge annotations | Mozilla `PDF.js`, Canvas API, Audio API |
 
 ---
 

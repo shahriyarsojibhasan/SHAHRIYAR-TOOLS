@@ -24,6 +24,8 @@ const endpoints = [
   '/invoice-generator/',
   '/markdown-editor/',
   '/text-case-converter/',
+  '/duovista-pdf/',
+  '/pdf-viewer/',
   '/sitemap.xml',
   '/robots.txt',
   '/llms.txt',
