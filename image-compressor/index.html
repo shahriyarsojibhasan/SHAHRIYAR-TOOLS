@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Online Image Compressor | Compress JPG, PNG, WebP Locally | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Online Image Compressor | Compress JPG, PNG, WebP Locally">
+  <meta name="description" content="Compress JPG, PNG, and WebP images directly in your browser without uploading to any server. Interactive before/after split slider, customizable quality, batch download, and 100% private.">
+  <meta name="keywords" content="image compressor, compress jpg online, compress png, reduce image file size, bulk image compression, webp compressor, lossless photo compressor, client-side image optimizer">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/image-compressor/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/image-compressor/">
+  <meta property="og:title" content="Free Online Image Compressor | Reduce File Size Instantly">
+  <meta property="og:description" content="Optimize and reduce image sizes with zero quality loss. 100% private in-browser compression with live before/after slider preview.">
+  <meta property="og:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-compressor.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tools.shahriyarsojibhasan.top/image-compressor/">
+  <meta property="twitter:title" content="Free Online Image Compressor | SHAHRIYAR TOOLS">
+  <meta property="twitter:description" content="Compress JPG, PNG, and WebP images locally with live split preview. Completely private.">
+  <meta property="twitter:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-compressor.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗜️</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Tool-Specific Custom Styles -->
+  <style>
+    :root {
+      --compressor-theme: #0284c7;
+      --compressor-theme-dark: #0369a1;
+      --compressor-theme-light: #e0f2fe;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--compressor-theme-light);
+      color: var(--compressor-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Workspace Layout */
+    .compressor-workspace {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 1.75rem;
+      margin-top: 1.5rem;
+      align-items: start;
+    }
+
+    /* Controls Panel */
+    .compressor-controls {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .control-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .control-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .control-value {
+      font-family: var(--font-mono);
+      color: var(--compressor-theme-dark);
+      background: var(--compressor-theme-light);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+
+    .range-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--bg-muted);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--compressor-theme);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+      border: 2px solid white;
+      transition: transform var(--transition-fast);
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .preset-chips {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .preset-chip {
+      flex: 1;
+      padding: 6px;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .preset-chip.active, .preset-chip:hover {
+      background: var(--compressor-theme);
+      color: white;
+      border-color: var(--compressor-theme);
+    }
+
+    /* Dropzone */
+    .dropzone {
+      border: 2px dashed var(--border-medium);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2rem;
+      text-align: center;
+      background: white;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--compressor-theme);
+      background: var(--compressor-theme-light);
+      transform: scale(1.01);
+    }
+
+    .dropzone-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--compressor-theme-light);
+      color: var(--compressor-theme);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .dropzone-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .dropzone-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Comparison Area */
+    .comparison-container {
+      display: none;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      margin-top: 1.5rem;
+    }
+
+    .comparison-container.active {
+      display: block;
+    }
+
+    .split-view-wrapper {
+      position: relative;
+      width: 100%;
+      max-height: 520px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: #0f172a;
+      user-select: none;
+      touch-action: pan-y;
+    }
+
+    .split-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .split-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      border-right: 3px solid white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .split-overlay img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      max-width: none;
+      object-fit: contain;
+    }
+
+    .split-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: ew-resize;
+      z-index: 10;
+      color: var(--compressor-theme);
+      font-size: 1.1rem;
+    }
+
+    .split-badge {
+      position: absolute;
+      top: 16px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.75);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+      z-index: 5;
+    }
+
+    .badge-original { left: 16px; }
+    .badge-compressed { right: 16px; background: rgba(2, 132, 199, 0.85); }
+
+    /* Stats Bar */
+    .compression-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      background: var(--bg-muted);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .stat-item h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-item .stat-num {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    .stat-savings {
+      color: var(--color-success) !important;
+    }
+
+    /* Batch Actions */
+    .batch-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+      border: none;
+    }
+
+    .btn-primary-action {
+      background: var(--compressor-theme);
+      color: white;
+    }
+
+    .btn-primary-action:hover {
+      background: var(--compressor-theme-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-secondary-action {
+      background: var(--bg-muted);
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+
+    .btn-secondary-action:hover {
+      background: white;
+    }
+
+    @media (max-width: 900px) {
+      .compressor-workspace {
+        grid-template-columns: 1fr;
+      }
+      .tool-hero h1 {
+        font-size: 2rem;
+      }
+      .compression-stats {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Free Image Compressor Online",
+        "url": "https://tools.shahriyarsojibhasan.top/image-compressor/",
+        "description": "Compress JPG, PNG, and WebP images locally in your browser with interactive before/after split slider, bulk queue processing, and zero server uploads.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Compressor",
+            "item": "https://tools.shahriyarsojibhasan.top/image-compressor/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is my image uploaded to any external server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All compression is executed 100% locally inside your web browser using HTML5 Canvas and OffscreenCanvas APIs. Your photos never leave your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which image formats are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool supports JPEG, JPG, PNG, and WebP formats. You can also downscale resolution or convert between formats during compression."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much file size can I reduce without losing quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Typically, you can reduce JPEG and WebP file sizes by 50% to 80% with virtually indistinguishable visual difference by choosing 75% to 85% quality."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#image-tools" class="nav-link active">Image Tools</a></li>
+          <li><a href="../#developer-tools" class="nav-link">Developer</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><a href="../" class="mobile-nav-link">Home Directory</a></li>
+        <li><a href="../#image-tools" class="mobile-nav-link">Image Utilities</a></li>
+        <li><a href="../#developer-tools" class="mobile-nav-link">Developer Utilities</a></li>
+        <li><a href="../about/" class="mobile-nav-link">About Platform</a></li>
+        <li><a href="../contact/" class="mobile-nav-link">Contact & Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#image-tools">Image Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Image Compressor</li>
+      </ol>
+    </nav>
+
+    <!-- Tool Hero -->
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-shield-alt"></i> 100% Client-Side & Private</span>
+      <h1>Free Online Image Compressor</h1>
+      <p>Compress JPG, PNG, and WebP images with instant before/after split slider comparison. Zero file uploads, zero wait time.</p>
+    </section>
+
+    <!-- Compressor Workspace -->
+    <section class="compressor-workspace">
+      <!-- Left Controls Panel -->
+      <aside class="compressor-controls" aria-label="Compression Controls">
+        <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem;">
+          <i class="fas fa-sliders-h" style="color: var(--compressor-theme); margin-right: 8px;"></i>
+          Compression Settings
+        </h2>
+
+        <!-- Quality Slider -->
+        <div class="control-group">
+          <div class="control-label">
+            <span>Quality Level</span>
+            <span id="quality-val" class="control-value">75%</span>
+          </div>
+          <input type="range" id="quality-slider" class="range-slider" min="10" max="95" value="75" aria-label="Quality Level Slider">
+          <div class="preset-chips">
+            <button class="preset-chip" data-q="50">Small (50%)</button>
+            <button class="preset-chip active" data-q="75">Balanced (75%)</button>
+            <button class="preset-chip" data-q="90">High (90%)</button>
+          </div>
+        </div>
+
+        <!-- Scale / Resolution -->
+        <div class="control-group">
+          <div class="control-label">
+            <span>Resolution Scale</span>
+            <span id="scale-val" class="control-value">100%</span>
+          </div>
+          <input type="range" id="scale-slider" class="range-slider" min="20" max="100" step="5" value="100" aria-label="Resolution Scale Slider">
+          <div class="preset-chips">
+            <button class="preset-chip" data-s="50">50%</button>
+            <button class="preset-chip" data-s="75">75%</button>
+            <button class="preset-chip active" data-s="100">Original (100%)</button>
+          </div>
+        </div>
+
+        <!-- Target Format -->
+        <div class="control-group">
+          <div class="control-label">
+            <span>Output Format</span>
+          </div>
+          <select id="output-format" style="width: 100%; padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-medium); font-weight: 600;">
+            <option value="original">Keep Original Format</option>
+            <option value="image/jpeg">Convert to JPEG</option>
+            <option value="image/webp">Convert to WebP (Recommended)</option>
+            <option value="image/png">Convert to PNG</option>
+          </select>
+        </div>
+
+        <button id="recompress-btn" class="btn-action btn-primary-action" style="width: 100%; margin-top: 1rem;">
+          <i class="fas fa-sync-alt"></i> Apply Compression
+        </button>
+      </aside>
+
+      <!-- Right Display & Workspace -->
+      <div class="compressor-display">
+        <!-- Drag & Drop Zone -->
+        <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Upload Image File">
+          <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" style="display: none;">
+          <div class="dropzone-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <div class="dropzone-title">Click to browse or drop images here</div>
+          <p class="dropzone-desc">Supports JPG, PNG, and WebP up to 50MB. Processing happens 100% locally in your browser.</p>
+        </div>
+
+        <!-- Split View Comparison Container -->
+        <div id="comparison-card" class="comparison-container">
+          <div class="split-view-wrapper" id="split-wrapper">
+            <span class="split-badge badge-original">Original: <span id="orig-size-badge">0 KB</span></span>
+            <span class="split-badge badge-compressed">Compressed: <span id="comp-size-badge">0 KB</span></span>
+
+            <!-- Background Image (Compressed) -->
+            <img id="img-compressed" class="split-image" alt="Compressed preview">
+
+            <!-- Foreground Overlaid Image (Original) -->
+            <div id="split-overlay" class="split-overlay">
+              <img id="img-original" alt="Original preview">
+            </div>
+
+            <!-- Draggable Center Handle -->
+            <div id="split-handle" class="split-handle" aria-label="Drag before and after divider">
+              <i class="fas fa-arrows-alt-h"></i>
+            </div>
+          </div>
+
+          <!-- Statistics -->
+          <div class="compression-stats">
+            <div class="stat-item">
+              <h4>Original Size</h4>
+              <div id="stat-original" class="stat-num">-</div>
+            </div>
+            <div class="stat-item">
+              <h4>Compressed Size</h4>
+              <div id="stat-compressed" class="stat-num">-</div>
+            </div>
+            <div class="stat-item">
+              <h4>Size Reduction</h4>
+              <div id="stat-savings" class="stat-num stat-savings">-</div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="batch-actions">
+            <button id="download-btn" class="btn-action btn-primary-action">
+              <i class="fas fa-download"></i> Download Compressed Image
+            </button>
+            <button id="new-image-btn" class="btn-action btn-secondary-action">
+              <i class="fas fa-upload"></i> Choose Another Image
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical SEO Content & FAQ Section -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Why Use Browser-Native Image Compression?</h2>
+          <p>
+            Large image files significantly slow down page load times, waste mobile bandwidth, and harm your Google Core Web Vitals rankings (specifically Largest Contentful Paint). 
+            Traditional online image compressors require you to upload private family photos, confidential business documents, or proprietary creative assets to remote servers.
+          </p>
+          <p>
+            <strong>SHAHRIYAR TOOLS Image Compressor</strong> processes your photos directly inside your browser using HTML5 Canvas rendering and the modern Web Offscreen API. 
+            Your images never touch an external server, giving you zero upload delay, unlimited file compression, and total security.
+          </p>
+
+          <h3>Key Features & Advantages</h3>
+          <div class="seo-features-list">
+            <div class="seo-feature-item">
+              <h4><i class="fas fa-user-shield" style="color: var(--compressor-theme);"></i> Absolute Privacy</h4>
+              <p>Zero server uploads. Everything runs locally in memory on your phone or laptop.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4><i class="fas fa-columns" style="color: var(--compressor-theme);"></i> Live Split Slider</h4>
+              <p>Drag the interactive divider to inspect pixels before and after compression in real time.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4><i class="fas fa-bolt" style="color: var(--compressor-theme);"></i> Instant Speed</h4>
+              <p>No waiting for server queues or uploads. High-resolution photos compress in milliseconds.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4><i class="fas fa-exchange-alt" style="color: var(--compressor-theme);"></i> Format Conversion</h4>
+              <p>Easily convert heavy PNG or JPEG photos to modern ultra-efficient WebP images.</p>
+            </div>
+          </div>
+
+          <h3>How to Compress Images in 3 Simple Steps</h3>
+          <ol class="how-to-steps">
+            <li class="how-to-step">
+              <h4>Upload Your Image</h4>
+              <p>Drag and drop your JPG, PNG, or WebP photo into the upload box or click to select from your file browser.</p>
+            </li>
+            <li class="how-to-step">
+              <h4>Adjust Quality & Dimensions</h4>
+              <p>Move the compression quality slider or choose a quick preset (50%, 75%, 90%). Check the live before/after slider to ensure visual clarity.</p>
+            </li>
+            <li class="how-to-step">
+              <h4>Download Instantly</h4>
+              <p>Click the green "Download Compressed Image" button to save the optimized file directly to your downloads folder.</p>
+            </li>
+          </ol>
+
+          <h3>Frequently Asked Questions (FAQ)</h3>
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Are my photos uploaded to any server or cloud database?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>Never. The compression logic is executed exclusively within your device's browser using JavaScript and HTML5 Canvas. Your photos never leave your device.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>What is the best quality level for web images?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>For most websites and social media, 75% to 80% provides the optimal balance. It usually achieves a 60% to 80% reduction in file size with zero visible artifacting.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Can I convert PNG images to WebP?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>Yes. Select "Convert to WebP" in the Output Format dropdown. WebP provides superior compression while retaining full alpha transparency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-lock" style="color: var(--color-success); margin-right: 6px;"></i> 100% Client-Side</h3>
+            <p>Your privacy is guaranteed. No data, metadata, or images are transmitted to external systems. Verified safe for sensitive documents and photos.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Related Tools</h3>
+            <ul class="related-tools-list">
+              <li>
+                <a href="../image-converter/" class="related-tool-link">
+                  <i class="fas fa-exchange-alt"></i> Batch Image Converter
+                </a>
+              </li>
+              <li>
+                <a href="../reunionposter/" class="related-tool-link">
+                  <i class="fas fa-paint-brush"></i> Reunion Poster Studio
+                </a>
+              </li>
+              <li>
+                <a href="../pdf-tools/" class="related-tool-link">
+                  <i class="fas fa-file-pdf"></i> PDF Toolkit
+                </a>
+              </li>
+              <li>
+                <a href="../qr-code-generator/" class="related-tool-link">
+                  <i class="fas fa-qrcode"></i> QR Code Generator
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3><i class="fas fa-toolbox" style="color: var(--brand-primary);"></i> SHAHRIYAR TOOLS</h3>
+          <p>A high-performance suite of free, client-side online tools for creators, developers, students, and businesses.</p>
+          <div class="footer-social-links">
+            <a href="https://github.com/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/shahriyarsojibhasan" target="_blank" rel="noopener" class="footer-social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Utilities</h4>
+          <ul>
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../image-converter/">Image Converter</a></li>
+            <li><a href="../pdf-tools/">PDF Toolkit</a></li>
+            <li><a href="../qr-code-generator/">QR Code Generator</a></li>
+            <li><a href="../word-counter/">Word Counter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Developer Tools</h4>
+          <ul>
+            <li><a href="../json-formatter/">JSON Formatter</a></li>
+            <li><a href="../password-generator/">Password Generator</a></li>
+            <li><a href="../markdown-editor/">Markdown Editor</a></li>
+            <li><a href="../color-palette/">Color Palette</a></li>
+            <li><a href="../text-case-converter/">Text Case Converter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="../about/">About Platform</a></li>
+            <li><a href="../contact/">Contact & Feedback</a></li>
+            <li><a href="../privacy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Crafted by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>100% Free & Open-Source Utilities. Zero Server Storage.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('file-input');
+      const comparisonCard = document.getElementById('comparison-card');
+      const qualitySlider = document.getElementById('quality-slider');
+      const qualityVal = document.getElementById('quality-val');
+      const scaleSlider = document.getElementById('scale-slider');
+      const scaleVal = document.getElementById('scale-val');
+      const outputFormat = document.getElementById('output-format');
+      const recompressBtn = document.getElementById('recompress-btn');
+      
+      const imgOriginal = document.getElementById('img-original');
+      const imgCompressed = document.getElementById('img-compressed');
+      const splitWrapper = document.getElementById('split-wrapper');
+      const splitOverlay = document.getElementById('split-overlay');
+      const splitHandle = document.getElementById('split-handle');
+      
+      const origSizeBadge = document.getElementById('orig-size-badge');
+      const compSizeBadge = document.getElementById('comp-size-badge');
+      const statOriginal = document.getElementById('stat-original');
+      const statCompressed = document.getElementById('stat-compressed');
+      const statSavings = document.getElementById('stat-savings');
+      const downloadBtn = document.getElementById('download-btn');
+      const newImageBtn = document.getElementById('new-image-btn');
+
+      let currentFile = null;
+      let originalImgElement = null;
+      let compressedBlob = null;
+      let isDragging = false;
+
+      // Dropzone click & drag events
+      dropzone.addEventListener('click', () => fileInput.click());
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('dragover');
+      });
+      dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('dragover');
+        if (e.dataTransfer.files.length > 0) {
+          handleFile(e.dataTransfer.files[0]);
+        }
+      });
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          handleFile(e.target.files[0]);
+        }
+      });
+
+      // Preset buttons
+      document.querySelectorAll('.preset-chip[data-q]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.preset-chip[data-q]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          qualitySlider.value = btn.dataset.q;
+          qualityVal.textContent = btn.dataset.q + '%';
+          if (currentFile) compressImage();
+        });
+      });
+
+      document.querySelectorAll('.preset-chip[data-s]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.preset-chip[data-s]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          scaleSlider.value = btn.dataset.s;
+          scaleVal.textContent = btn.dataset.s + '%';
+          if (currentFile) compressImage();
+        });
+      });
+
+      qualitySlider.addEventListener('input', () => {
+        qualityVal.textContent = qualitySlider.value + '%';
+      });
+      qualitySlider.addEventListener('change', () => {
+        if (currentFile) compressImage();
+      });
+
+      scaleSlider.addEventListener('input', () => {
+        scaleVal.textContent = scaleSlider.value + '%';
+      });
+      scaleSlider.addEventListener('change', () => {
+        if (currentFile) compressImage();
+      });
+
+      outputFormat.addEventListener('change', () => {
+        if (currentFile) compressImage();
+      });
+
+      recompressBtn.addEventListener('click', () => {
+        if (currentFile) compressImage();
+      });
+
+      newImageBtn.addEventListener('click', () => {
+        fileInput.value = '';
+        fileInput.click();
+      });
+
+      function handleFile(file) {
+        if (!file.type.match(/image\/(jpeg|png|webp)/i)) {
+          window.showToast('Please upload a JPG, PNG, or WebP image.', 'error');
+          return;
+        }
+
+        currentFile = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            originalImgElement = img;
+            imgOriginal.src = e.target.result;
+            dropzone.style.display = 'none';
+            comparisonCard.classList.add('active');
+            compressImage();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function compressImage() {
+        if (!originalImgElement || !currentFile) return;
+
+        const quality = parseInt(qualitySlider.value, 10) / 100;
+        const scale = parseInt(scaleSlider.value, 10) / 100;
+
+        let targetMime = outputFormat.value;
+        if (targetMime === 'original') {
+          targetMime = currentFile.type || 'image/jpeg';
+        }
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const width = Math.max(1, Math.round(originalImgElement.naturalWidth * scale));
+        const height = Math.max(1, Math.round(originalImgElement.naturalHeight * scale));
+
+        canvas.width = width;
+        canvas.height = height;
+
+        // Draw with high quality interpolation
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(originalImgElement, 0, 0, width, height);
+
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            window.showToast('Compression failed', 'error');
+            return;
+          }
+
+          compressedBlob = blob;
+          const compressedUrl = URL.createObjectURL(blob);
+          imgCompressed.src = compressedUrl;
+
+          // Sync overlay image dimensions
+          setTimeout(syncOverlayDimensions, 50);
+
+          // Update stats
+          const origBytes = currentFile.size;
+          const compBytes = blob.size;
+          const savings = ((origBytes - compBytes) / origBytes) * 100;
+
+          origSizeBadge.textContent = window.formatBytes(origBytes);
+          compSizeBadge.textContent = window.formatBytes(compBytes);
+
+          statOriginal.textContent = window.formatBytes(origBytes);
+          statCompressed.textContent = window.formatBytes(compBytes);
+
+          if (savings >= 0) {
+            statSavings.textContent = '-' + savings.toFixed(1) + '%';
+            statSavings.className = 'stat-num stat-savings';
+          } else {
+            statSavings.textContent = '+' + Math.abs(savings).toFixed(1) + '%';
+            statSavings.className = 'stat-num';
+          }
+
+          window.showToast('Image compressed successfully!', 'success', 2000);
+        }, targetMime, quality);
+      }
+
+      function syncOverlayDimensions() {
+        if (!imgCompressed || !imgOriginal) return;
+        const rect = imgCompressed.getBoundingClientRect();
+        imgOriginal.style.width = rect.width + 'px';
+        imgOriginal.style.height = rect.height + 'px';
+      }
+
+      window.addEventListener('resize', syncOverlayDimensions);
+
+      // Split Slider Interaction (Mouse & Touch)
+      function setSliderPos(xPos) {
+        const rect = splitWrapper.getBoundingClientRect();
+        let posX = xPos - rect.left;
+        if (posX < 0) posX = 0;
+        if (posX > rect.width) posX = rect.width;
+
+        const percentage = (posX / rect.width) * 100;
+        splitOverlay.style.width = percentage + '%';
+        splitHandle.style.left = percentage + '%';
+      }
+
+      splitWrapper.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        setSliderPos(e.clientX);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        setSliderPos(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Touch events for mobile
+      splitWrapper.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        if (e.touches[0]) setSliderPos(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        if (e.touches[0]) setSliderPos(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      // Download Action
+      downloadBtn.addEventListener('click', () => {
+        if (!compressedBlob) return;
+        const a = document.createElement('a');
+        let ext = 'jpg';
+        if (compressedBlob.type === 'image/png') ext = 'png';
+        if (compressedBlob.type === 'image/webp') ext = 'webp';
+
+        const baseName = currentFile.name.replace(/\.[^/.]+$/, "");
+        a.href = URL.createObjectURL(compressedBlob);
+        a.download = `${baseName}-compressed.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.showToast('Download started!', 'success');
+      });
+
+    })();
+  </script>
+</body>
+</html>

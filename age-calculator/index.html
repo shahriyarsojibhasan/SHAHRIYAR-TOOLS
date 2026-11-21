@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exact Age Calculator Online | Years, Months, Days & Live Seconds | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Exact Age Calculator Online | Years, Months, Days & Live Seconds">
+  <meta name="description" content="Calculate your exact age in years, months, days, hours, and live ticking seconds. Features next birthday countdown, total days lived, and zodiac signs with leap-year precision.">
+  <meta name="keywords" content="age calculator, calculate age online, date of birth calculator, how old am i, birthday countdown, days lived calculator, zodiac sign calculator, chrono age">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/age-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/age-calculator/">
+  <meta property="og:title" content="Exact Age Calculator & Chronological Milestone Tracker">
+  <meta property="og:description" content="Calculate your chronological age to the exact second with birthday countdowns and milestones.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --age-theme: #f59e0b;
+      --age-theme-dark: #d97706;
+      --age-theme-light: #fef3c7;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--age-theme-light);
+      color: var(--age-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Calculator Input Card */
+    .age-input-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      max-width: 680px;
+      margin: 1.5rem auto 0;
+    }
+
+    .dob-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-medium);
+      font-size: 1.05rem;
+      font-family: var(--font-mono);
+      background: var(--bg-subtle);
+      box-sizing: border-box;
+    }
+
+    .btn-calculate {
+      width: 100%;
+      background: var(--age-theme);
+      color: #0f172a;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .btn-calculate:hover {
+      background: var(--age-theme-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Main Result Card */
+    .age-result-container {
+      margin-top: 2rem;
+      display: none;
+    }
+
+    .primary-age-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .primary-age-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.15);
+      filter: blur(40px);
+    }
+
+    .age-number-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .age-unit-block {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.5rem;
+      min-width: 110px;
+    }
+
+    .age-unit-block .val {
+      font-size: 2.5rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--age-theme);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .age-unit-block .lbl {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .live-ticking-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--age-theme);
+      color: var(--age-theme);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    /* Milestone Cards */
+    .milestones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .milestone-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .milestone-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .milestone-card .val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    @media (max-width: 640px) {
+      .dob-row {
+        grid-template-columns: 1fr;
+      }
+      .age-number-group {
+        gap: 0.75rem;
+      }
+      .age-unit-block {
+        min-width: 80px;
+        padding: 0.75rem 1rem;
+      }
+      .age-unit-block .val {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Exact Age & Birthday Calculator Online",
+        "url": "https://tools.shahriyarsojibhasan.top/age-calculator/",
+        "description": "Calculate exact age in years, months, days, hours, and live seconds with next birthday countdowns and milestones.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Age Calculator",
+            "item": "https://tools.shahriyarsojibhasan.top/age-calculator/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#calculators" class="nav-link active">Calculators</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#calculators">Calculators</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Age Calculator</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-birthday-cake"></i> Chronological Timeline Engine</span>
+      <h1>Free Exact Age Calculator Online</h1>
+      <p>Discover your precise age down to the second, total days lived, and countdown to your next birthday.</p>
+    </section>
+
+    <!-- Input Card -->
+    <section class="age-input-card" aria-label="Date of Birth Entry">
+      <div class="dob-row">
+        <div class="form-group">
+          <label for="input-dob">Date of Birth</label>
+          <input type="date" id="input-dob" value="2000-01-01">
+        </div>
+        <div class="form-group">
+          <label for="input-target-date">Calculate Age At (Optional)</label>
+          <input type="date" id="input-target-date">
+        </div>
+      </div>
+
+      <button id="btn-calc-age" class="btn-calculate">
+        <i class="fas fa-calculator"></i> Calculate Exact Age
+      </button>
+    </section>
+
+    <!-- Results Display -->
+    <div id="age-results" class="age-result-container">
+      <section class="primary-age-card" aria-label="Primary Age Results">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: #cbd5e1; margin-bottom: 0.5rem;">Your Chronological Age</h2>
+        <div class="age-number-group">
+          <div class="age-unit-block">
+            <div id="res-years" class="val">0</div>
+            <div class="lbl">Years</div>
+          </div>
+          <div class="age-unit-block">
+            <div id="res-months" class="val">0</div>
+            <div class="lbl">Months</div>
+          </div>
+          <div class="age-unit-block">
+            <div id="res-days" class="val">0</div>
+            <div class="lbl">Days</div>
+          </div>
+        </div>
+
+        <div class="live-ticking-badge">
+          <i class="fas fa-clock"></i>
+          <span id="res-live-seconds">0 seconds lived</span>
+        </div>
+      </section>
+
+      <!-- Milestones Grid -->
+      <section class="milestones-grid" aria-label="Life Metrics Breakdown">
+        <div class="milestone-card">
+          <h4>Next Birthday</h4>
+          <div id="res-next-bday" class="val" style="color: var(--age-theme-dark); font-size: 1.25rem;">-</div>
+        </div>
+        <div class="milestone-card">
+          <h4>Total Days Lived</h4>
+          <div id="res-total-days" class="val">-</div>
+        </div>
+        <div class="milestone-card">
+          <h4>Total Weeks Lived</h4>
+          <div id="res-total-weeks" class="val">-</div>
+        </div>
+        <div class="milestone-card">
+          <h4>Western Zodiac</h4>
+          <div id="res-zodiac" class="val" style="font-size: 1.25rem; color: #0284c7;">-</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Precision Chronological Age Calculation with Leap-Year Accuracy</h2>
+          <p>
+            Calculating human age involves calendar nuances such as varying month lengths (28, 29, 30, or 31 days) and leap years. 
+            <strong>SHAHRIYAR TOOLS Age Calculator</strong> handles Gregorian calendar adjustments to provide true chronological age.
+          </p>
+          <h3>Why Date Calculation Matters</h3>
+          <p>
+            Knowing your exact age down to the day is essential for government job applications, visa documentation, retirement eligibility, and school admissions.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-lock" style="color: var(--color-success);"></i> Private Input</h3>
+            <p>Your birth date is calculated instantly in your browser session and never stored or tracked.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Precision Chronological Time Calculation.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const inputDob = document.getElementById('input-dob');
+      const inputTarget = document.getElementById('input-target-date');
+      const btnCalc = document.getElementById('btn-calc-age');
+      const ageResults = document.getElementById('age-results');
+
+      const resYears = document.getElementById('res-years');
+      const resMonths = document.getElementById('res-months');
+      const resDays = document.getElementById('res-days');
+      const resLiveSeconds = document.getElementById('res-live-seconds');
+      const resNextBday = document.getElementById('res-next-bday');
+      const resTotalDays = document.getElementById('res-total-days');
+      const resTotalWeeks = document.getElementById('res-total-weeks');
+      const resZodiac = document.getElementById('res-zodiac');
+
+      let timerId = null;
+
+      // Set today as default target date
+      const today = new Date().toISOString().split('T')[0];
+      inputTarget.value = today;
+
+      btnCalc.addEventListener('click', calculateAge);
+      inputDob.addEventListener('change', calculateAge);
+
+      function calculateAge() {
+        if (!inputDob.value) {
+          window.showToast('Please select your birth date', 'warning');
+          return;
+        }
+
+        const dob = new Date(inputDob.value + 'T00:00:00');
+        const targetDate = inputTarget.value ? new Date(inputTarget.value + 'T23:59:59') : new Date();
+
+        if (dob > targetDate) {
+          window.showToast('Birth date cannot be in the future', 'error');
+          return;
+        }
+
+        ageResults.style.display = 'block';
+
+        let years = targetDate.getFullYear() - dob.getFullYear();
+        let months = targetDate.getMonth() - dob.getMonth();
+        let days = targetDate.getDate() - dob.getDate();
+
+        if (days < 0) {
+          months--;
+          const prevMonthLastDay = new Date(targetDate.getFullYear(), targetDate.getMonth(), 0).getDate();
+          days += prevMonthLastDay;
+        }
+
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+
+        resYears.textContent = years;
+        resMonths.textContent = months;
+        resDays.textContent = days;
+
+        // Total Days & Weeks
+        const diffMs = targetDate - dob;
+        const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        const totalWeeks = Math.floor(totalDays / 7);
+
+        resTotalDays.textContent = totalDays.toLocaleString();
+        resTotalWeeks.textContent = totalWeeks.toLocaleString();
+
+        // Next Birthday
+        const nextBday = new Date(targetDate.getFullYear(), dob.getMonth(), dob.getDate());
+        if (nextBday < targetDate) {
+          nextBday.setFullYear(targetDate.getFullYear() + 1);
+        }
+        const bdayDiffDays = Math.ceil((nextBday - targetDate) / (1000 * 60 * 60 * 24));
+        const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        resNextBday.textContent = `${bdayDiffDays} days left (${weekdays[nextBday.getDay()]})`;
+
+        // Zodiac Sign
+        resZodiac.textContent = getZodiac(dob.getMonth() + 1, dob.getDate());
+
+        // Live seconds ticking
+        if (timerId) clearInterval(timerId);
+        timerId = setInterval(() => {
+          const now = new Date();
+          const totalSecs = Math.floor((now - dob) / 1000);
+          resLiveSeconds.textContent = `${totalSecs.toLocaleString()} seconds lived`;
+        }, 1000);
+      }
+
+      function getZodiac(month, day) {
+        if ((month == 1 && day <= 19) || (month == 12 && day >= 22)) return "Capricorn ♑";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius ♒";
+        if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "Pisces ♓";
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries ♈";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Taurus ♉";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Gemini ♊";
+        if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cancer ♋";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo ♌";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo ♍";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra ♎";
+        if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Scorpio ♏";
+        if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagittarius ♐";
+        return "Unknown";
+      }
+
+      // Initial run
+      calculateAge();
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Free Color Palette Studio | Harmonic Generator, Contrast Checker & Gradients | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Color Palette Studio | Harmonic Generator, Contrast Checker & Gradients">
+  <meta name="description" content="Generate beautiful harmonic color schemes, test WCAG contrast ratios, build CSS gradients, and export colors to CSS variables or JSON. Spacebar to roll new palettes.">
+  <meta name="keywords" content="color palette generator, color scheme maker, wcag contrast checker, css gradient generator, hex to rgb, hex to hsl, harmonious color generator, web design color tool">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/color-palette/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/color-palette/">
+  <meta property="og:title" content="Free Color Palette Studio | Harmonies & Contrast">
+  <meta property="og:description" content="Explore harmonious color palettes, gradient makers, and WCAG accessibility contrast scores.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --palette-theme: #ec4899;
+      --palette-theme-dark: #db2777;
+      --palette-theme-light: #fce7f3;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--palette-theme-light);
+      color: var(--palette-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Palette Bar Controls */
+    .palette-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-palette {
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-muted);
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-palette:hover {
+      background: white;
+      border-color: var(--palette-theme);
+      color: var(--palette-theme);
+    }
+
+    .btn-palette-primary {
+      background: var(--palette-theme);
+      border-color: var(--palette-theme);
+      color: white;
+    }
+
+    .btn-palette-primary:hover {
+      background: var(--palette-theme-dark);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Swatch Grid */
+    .swatch-display-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 380px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      margin-top: 1.5rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .swatch-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.75rem 1rem;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+
+    .swatch-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 10px 14px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 140px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #0f172a;
+      cursor: pointer;
+    }
+
+    .swatch-btn-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-swatch-icon {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #475569;
+      font-size: 0.95rem;
+      padding: 4px;
+      transition: color var(--transition-fast);
+    }
+
+    .btn-swatch-icon:hover {
+      color: var(--palette-theme);
+    }
+
+    .btn-swatch-icon.locked {
+      color: #dc2626;
+    }
+
+    /* Secondary Tools: Gradient & Contrast */
+    .color-sub-tools {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .sub-tool-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .sub-tool-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gradient-preview {
+      height: 120px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    .contrast-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .contrast-pass {
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .contrast-fail {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    @media (max-width: 860px) {
+      .swatch-display-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .swatch-col {
+        height: 120px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+      }
+      .color-sub-tools {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Color Palette Studio Online",
+        "url": "https://tools.shahriyarsojibhasan.top/color-palette/",
+        "description": "Harmonic color palette generator, WCAG contrast checker, and CSS gradient builder for digital designers.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Color Palette Studio",
+            "item": "https://tools.shahriyarsojibhasan.top/color-palette/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#design-tools" class="nav-link active">Design Tools</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#design-tools">Design Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Color Palette Studio</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-paint-brush"></i> Design Laboratory</span>
+      <h1>Color Palette Studio & Accessibility Checker</h1>
+      <p>Generate harmonious color schemes, inspect WCAG contrast ratios, and craft modern CSS gradients.</p>
+    </section>
+
+    <!-- Toolbar -->
+    <div class="palette-toolbar">
+      <div class="toolbar-left">
+        <button id="btn-roll-palette" class="btn-palette btn-palette-primary">
+          <i class="fas fa-random"></i> Roll Palette (Spacebar)
+        </button>
+        <select id="sel-harmony" style="padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-medium); font-weight: 600;">
+          <option value="analogous">Harmonious (Analogous)</option>
+          <option value="monochromatic">Monochromatic</option>
+          <option value="triadic">Triadic (High Energy)</option>
+          <option value="complementary">Complementary</option>
+          <option value="random">True Random</option>
+        </select>
+      </div>
+
+      <div class="toolbar-right">
+        <button id="btn-export-css" class="btn-palette"><i class="fas fa-code"></i> Copy CSS Vars</button>
+        <button id="btn-export-json" class="btn-palette"><i class="fas fa-file-export"></i> JSON</button>
+      </div>
+    </div>
+
+    <!-- 5 Swatch Columns -->
+    <section class="swatch-display-grid" id="swatch-grid" aria-label="Generated Color Swatches">
+      <!-- Generated via JS -->
+    </section>
+
+    <!-- Sub Tools: Gradient Builder & Contrast Checker -->
+    <div class="color-sub-tools">
+      <!-- Gradient Generator -->
+      <section class="sub-tool-card" aria-label="CSS Gradient Builder">
+        <h3><i class="fas fa-sliders-h" style="color: var(--palette-theme);"></i> Live CSS Gradient Builder</h3>
+        <div id="gradient-box" class="gradient-preview"></div>
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+          <button id="btn-copy-gradient" class="btn-palette btn-palette-primary" style="flex: 1;">
+            <i class="fas fa-copy"></i> Copy CSS Linear Gradient
+          </button>
+        </div>
+      </section>
+
+      <!-- WCAG Accessibility Checker -->
+      <section class="sub-tool-card" aria-label="WCAG Accessibility Contrast Checker">
+        <h3><i class="fas fa-universal-access" style="color: var(--palette-theme);"></i> WCAG Contrast Checker</h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px;">
+          Checks contrast ratio between Color 1 and Color 2 in your current palette.
+        </p>
+        <div id="contrast-preview-box" style="padding: 1.25rem; border-radius: var(--radius-md); text-align: center; font-weight: 700; font-size: 1.1rem; margin-bottom: 10px;">
+          Sample Reading Text On Background
+        </div>
+        <div>
+          Ratio: <strong id="contrast-ratio" style="font-family: var(--font-mono); font-size: 1.2rem;">4.5:1</strong>
+          <span id="contrast-status" class="contrast-badge contrast-pass">WCAG AA Pass</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Designing Accessible, Harmonious Color Palettes</h2>
+          <p>
+            Effective color choice defines brand identity and ensures high user engagement. 
+            However, digital design requires more than aesthetic appeal: accessibility guidelines (WCAG 2.2 AA) dictate that regular text must maintain a minimum contrast ratio of <strong>4.5:1</strong> against its background.
+          </p>
+          <h3>Color Harmony Principles</h3>
+          <p>
+            Analogous schemes place adjacent hues on the 360-degree color wheel, creating soothing natural tones. 
+            Complementary schemes place opposing colors for high contrast call-to-action buttons, while triadic palettes introduce dynamic balance.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-palette" style="color: var(--color-success);"></i> Instant Palette Export</h3>
+            <p>One-click copy into Tailwind CSS configuration or native CSS root variables. Designed for rapid prototyping.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Creative Color Architecture.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const swatchGrid = document.getElementById('swatch-grid');
+      const btnRoll = document.getElementById('btn-roll-palette');
+      const selHarmony = document.getElementById('sel-harmony');
+      const btnExportCss = document.getElementById('btn-export-css');
+      const btnExportJson = document.getElementById('btn-export-json');
+      const gradientBox = document.getElementById('gradient-box');
+      const btnCopyGradient = document.getElementById('btn-copy-gradient');
+      const contrastPreviewBox = document.getElementById('contrast-preview-box');
+      const contrastRatio = document.getElementById('contrast-ratio');
+      const contrastStatus = document.getElementById('contrast-status');
+
+      let swatches = [
+        { hex: '#0f172a', locked: false },
+        { hex: '#2563eb', locked: false },
+        { hex: '#38bdf8', locked: false },
+        { hex: '#f8fafc', locked: false },
+        { hex: '#dc2626', locked: false }
+      ];
+
+      function generatePalettes() {
+        const mode = selHarmony.value;
+        const baseHue = Math.floor(Math.random() * 360);
+
+        swatches.forEach((swatch, idx) => {
+          if (!swatch.locked) {
+            let hue = baseHue;
+            let sat = 70 + Math.random() * 20;
+            let light = 30 + (idx * 15);
+
+            if (mode === 'analogous') {
+              hue = (baseHue + (idx * 25)) % 360;
+            } else if (mode === 'triadic') {
+              hue = (baseHue + (idx * 72)) % 360;
+            } else if (mode === 'complementary') {
+              hue = (idx % 2 === 0) ? baseHue : (baseHue + 180) % 360;
+            } else if (mode === 'random') {
+              hue = Math.floor(Math.random() * 360);
+              sat = Math.floor(Math.random() * 60) + 40;
+              light = Math.floor(Math.random() * 70) + 20;
+            }
+
+            swatch.hex = hslToHex(hue, sat, light);
+          }
+        });
+
+        renderSwatches();
+        updateGradientAndContrast();
+      }
+
+      function renderSwatches() {
+        swatchGrid.innerHTML = '';
+        swatches.forEach((swatch, idx) => {
+          const col = document.createElement('div');
+          col.className = 'swatch-col';
+          col.style.backgroundColor = swatch.hex;
+
+          col.innerHTML = `
+            <div class="swatch-actions">
+              <span class="swatch-hex" data-hex="${swatch.hex}">${swatch.hex.toUpperCase()}</span>
+              <div class="swatch-btn-row">
+                <button class="btn-swatch-icon ${swatch.locked ? 'locked' : ''}" data-idx="${idx}" title="Lock Color">
+                  <i class="fas ${swatch.locked ? 'fa-lock' : 'fa-lock-open'}"></i>
+                </button>
+                <button class="btn-swatch-icon copy-swatch" data-hex="${swatch.hex}" title="Copy Hex">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          `;
+
+          swatchGrid.appendChild(col);
+        });
+
+        // Bind events
+        document.querySelectorAll('.swatch-hex, .copy-swatch').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const hex = e.currentTarget.dataset.hex;
+            window.copyText(hex, `Copied ${hex}!`);
+          });
+        });
+
+        document.querySelectorAll('.btn-swatch-icon[data-idx]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.idx, 10);
+            swatches[idx].locked = !swatches[idx].locked;
+            renderSwatches();
+          });
+        });
+      }
+
+      function updateGradientAndContrast() {
+        const c1 = swatches[0].hex;
+        const c2 = swatches[1].hex;
+        const c3 = swatches[2].hex;
+
+        gradientBox.style.background = `linear-gradient(135deg, ${c1} 0%, ${c2} 50%, ${c3} 100%)`;
+
+        // Contrast Check
+        contrastPreviewBox.style.backgroundColor = c1;
+        contrastPreviewBox.style.color = c4OrLight();
+        const ratio = getContrastRatio(c1, c4OrLight());
+        contrastRatio.textContent = ratio.toFixed(2) + ':1';
+
+        if (ratio >= 4.5) {
+          contrastStatus.textContent = 'WCAG AA Pass';
+          contrastStatus.className = 'contrast-badge contrast-pass';
+        } else {
+          contrastStatus.textContent = 'Low Contrast (Fail AA)';
+          contrastStatus.className = 'contrast-badge contrast-fail';
+        }
+      }
+
+      function c4OrLight() {
+        return swatches[3] ? swatches[3].hex : '#ffffff';
+      }
+
+      // Spacebar hotkey
+      window.addEventListener('keydown', (e) => {
+        if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          generatePalettes();
+        }
+      });
+
+      btnRoll.addEventListener('click', generatePalettes);
+      selHarmony.addEventListener('change', generatePalettes);
+
+      btnExportCss.addEventListener('click', () => {
+        let css = ':root {\n';
+        swatches.forEach((s, i) => {
+          css += `  --color-${i + 1}: ${s.hex};\n`;
+        });
+        css += '}';
+        window.copyText(css, 'CSS Variables copied!');
+      });
+
+      btnExportJson.addEventListener('click', () => {
+        const json = JSON.stringify(swatches.map(s => s.hex), null, 2);
+        window.copyText(json, 'JSON copied!');
+      });
+
+      btnCopyGradient.addEventListener('click', () => {
+        const c1 = swatches[0].hex;
+        const c2 = swatches[1].hex;
+        const c3 = swatches[2].hex;
+        const cssGrad = `background: linear-gradient(135deg, ${c1} 0%, ${c2} 50%, ${c3} 100%);`;
+        window.copyText(cssGrad, 'CSS Gradient copied!');
+      });
+
+      // Math Helpers
+      function hslToHex(h, s, l) {
+        l /= 100;
+        const a = s * Math.min(l, 1 - l) / 100;
+        const f = n => {
+          const k = (n + h / 30) % 12;
+          const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+          return Math.round(255 * color).toString(16).padStart(2, '0');
+        };
+        return `#${f(0)}${f(8)}${f(4)}`;
+      }
+
+      function getLuminance(hex) {
+        const rgb = parseInt(hex.slice(1), 16);
+        const r = ((rgb >> 16) & 0xff) / 255;
+        const g = ((rgb >>  8) & 0xff) / 255;
+        const b = ((rgb >>  0) & 0xff) / 255;
+        const a = [r, g, b].map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      }
+
+      function getContrastRatio(hex1, hex2) {
+        const lum1 = getLuminance(hex1);
+        const lum2 = getLuminance(hex2);
+        const brightest = Math.max(lum1, lum2);
+        const darkest = Math.min(lum1, lum2);
+        return (brightest + 0.05) / (darkest + 0.05);
+      }
+
+      // Initial roll
+      generatePalettes();
+
+    })();
+  </script>
+</body>
+</html>

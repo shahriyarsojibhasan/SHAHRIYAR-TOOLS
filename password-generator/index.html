@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Strong Password Generator | Web Crypto High Entropy Vault | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Strong Password Generator | Web Crypto High Entropy Vault">
+  <meta name="description" content="Generate cryptographically secure random passwords using the browser Web Crypto API. Customizable character sets, brute-force crack time estimator, zero storage.">
+  <meta name="keywords" content="password generator, secure password generator, random password maker, web crypto password, strong password, password strength checker, high entropy password">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/password-generator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/password-generator/">
+  <meta property="og:title" content="Strong Password Generator | High-Entropy Security Vault">
+  <meta property="og:description" content="Generate unbreakable passwords locally using Web Crypto API. Real-time crack time estimates.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --vault-bg: #0f172a;
+      --vault-surface: #1e293b;
+      --vault-border: #334155;
+      --vault-accent: #10b981;
+      --vault-accent-glow: rgba(16, 185, 129, 0.3);
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Vault Card */
+    .vault-card {
+      background: var(--vault-bg);
+      border: 1px solid var(--vault-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      color: white;
+      max-width: 800px;
+      margin: 1.5rem auto 0;
+    }
+
+    /* Output Display Box */
+    .password-display-box {
+      background: var(--vault-surface);
+      border: 2px solid var(--vault-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      transition: border-color var(--transition-fast);
+    }
+
+    .password-display-box:hover {
+      border-color: var(--vault-accent);
+    }
+
+    .password-text {
+      font-family: var(--font-mono);
+      font-size: 1.35rem;
+      font-weight: 700;
+      word-break: break-all;
+      letter-spacing: 1px;
+      color: #f8fafc;
+      user-select: all;
+    }
+
+    .display-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-vault-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--vault-bg);
+      border: 1px solid var(--vault-border);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-vault-icon:hover {
+      background: var(--vault-accent);
+      color: #0f172a;
+      transform: scale(1.05);
+    }
+
+    /* Strength Meter Bar */
+    .strength-meter {
+      margin-bottom: 2rem;
+    }
+
+    .strength-bar-track {
+      height: 8px;
+      background: var(--vault-surface);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .strength-bar-fill {
+      height: 100%;
+      width: 80%;
+      background: var(--vault-accent);
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 10px var(--vault-accent-glow);
+      transition: all 0.3s ease;
+    }
+
+    .strength-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+    }
+
+    /* Controls Grid */
+    .slider-row {
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .slider-header span:last-child {
+      color: var(--vault-accent);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .vault-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: var(--vault-surface);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .vault-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--vault-accent);
+      cursor: pointer;
+      box-shadow: 0 0 12px var(--vault-accent-glow);
+    }
+
+    /* Checkbox Toggles */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      padding: 10px 14px;
+      background: var(--vault-surface);
+      border: 1px solid var(--vault-border);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+    }
+
+    .toggle-label:hover {
+      border-color: var(--vault-accent);
+    }
+
+    .toggle-label input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--vault-accent);
+    }
+
+    .btn-generate-main {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 14px;
+      background: var(--vault-accent);
+      color: #0f172a;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 16px var(--vault-accent-glow);
+    }
+
+    .btn-generate-main:hover {
+      background: #34d399;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Web Crypto Strong Password Generator",
+        "url": "https://tools.shahriyarsojibhasan.top/password-generator/",
+        "description": "Generate cryptographically secure random passwords using the browser Web Crypto API with entropy scoring.",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires Web Crypto API.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Password Generator",
+            "item": "https://tools.shahriyarsojibhasan.top/password-generator/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#developer-tools" class="nav-link active">Security Tools</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#developer-tools">Security Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Password Generator</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-shield-alt"></i> Web Crypto API Cryptographic Randomness</span>
+      <h1>Cryptographically Secure Password Generator</h1>
+      <p>Generate high-entropy, unbreakable passwords directly on your machine. Zero storage, zero transmissions.</p>
+    </section>
+
+    <!-- Vault Card -->
+    <section class="vault-card" aria-label="Password Vault Generator">
+      <!-- Output Box -->
+      <div class="password-display-box">
+        <div id="password-display" class="password-text">Generating...</div>
+        <div class="display-actions">
+          <button id="btn-copy-pw" class="btn-vault-icon" aria-label="Copy password to clipboard" title="Copy">
+            <i class="fas fa-copy"></i>
+          </button>
+          <button id="btn-refresh-pw" class="btn-vault-icon" aria-label="Generate new password" title="Regenerate">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Strength Meter -->
+      <div class="strength-meter">
+        <div class="strength-bar-track">
+          <div id="strength-bar" class="strength-bar-fill"></div>
+        </div>
+        <div class="strength-info">
+          <span>Security: <strong id="strength-label" style="color: var(--vault-accent);">Very Strong</strong></span>
+          <span>Entropy: <strong id="entropy-label">98 bits</strong></span>
+          <span>Crack Time: <strong id="crack-label">3.2 Trillion Years</strong></span>
+        </div>
+      </div>
+
+      <!-- Length Slider -->
+      <div class="slider-row">
+        <div class="slider-header">
+          <span>Password Length</span>
+          <span id="length-display">20 characters</span>
+        </div>
+        <input type="range" id="length-slider" class="vault-slider" min="6" max="64" value="20" aria-label="Password length slider">
+      </div>
+
+      <!-- Checkbox Options -->
+      <div class="checkbox-grid">
+        <label class="toggle-label">
+          <input type="checkbox" id="chk-uppercase" checked>
+          <span>Uppercase Letters (A-Z)</span>
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="chk-lowercase" checked>
+          <span>Lowercase Letters (a-z)</span>
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="chk-numbers" checked>
+          <span>Numbers (0-9)</span>
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="chk-symbols" checked>
+          <span>Special Symbols (!@#$%^&*)</span>
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="chk-no-ambiguous">
+          <span>Exclude Ambiguous (O, 0, l, 1, I)</span>
+        </label>
+      </div>
+
+      <button id="btn-generate-main" class="btn-generate-main">
+        <i class="fas fa-key"></i> Generate Secure Password
+      </button>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Why Pseudo-Random Numbers (`Math.random()`) Are Dangerous for Passwords</h2>
+          <p>
+            Standard JavaScript <code>Math.random()</code> is not cryptographically secure and can be predicted by malicious actors. 
+            <strong>SHAHRIYAR TOOLS Password Generator</strong> strictly utilizes <code>window.crypto.getRandomValues()</code>, leveraging hardware entropy from your device's operating system.
+          </p>
+          <h3>Password Entropy & Brute-Force Resilience</h3>
+          <p>
+            Entropy measures the unpredictability of a password in bits. A 20-character password composed of uppercase, lowercase, numbers, and symbols delivers over 120 bits of entropy, requiring billions of years for even supercomputing clusters to brute force.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-lock" style="color: var(--color-success);"></i> Memory Only</h3>
+            <p>Generated passwords exist solely in volatile computer RAM while this tab is open. They are never written to disk, cookies, or remote databases.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Hardware Entropy Web Crypto Security.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const passwordDisplay = document.getElementById('password-display');
+      const lengthSlider = document.getElementById('length-slider');
+      const lengthDisplay = document.getElementById('length-display');
+      const chkUppercase = document.getElementById('chk-uppercase');
+      const chkLowercase = document.getElementById('chk-lowercase');
+      const chkNumbers = document.getElementById('chk-numbers');
+      const chkSymbols = document.getElementById('chk-symbols');
+      const chkNoAmbiguous = document.getElementById('chk-no-ambiguous');
+      const strengthBar = document.getElementById('strength-bar');
+      const strengthLabel = document.getElementById('strength-label');
+      const entropyLabel = document.getElementById('entropy-label');
+      const crackLabel = document.getElementById('crack-label');
+
+      const btnCopy = document.getElementById('btn-copy-pw');
+      const btnRefresh = document.getElementById('btn-refresh-pw');
+      const btnGenerateMain = document.getElementById('btn-generate-main');
+
+      lengthSlider.addEventListener('input', () => {
+        lengthDisplay.textContent = `${lengthSlider.value} characters`;
+        generatePassword();
+      });
+
+      [chkUppercase, chkLowercase, chkNumbers, chkSymbols, chkNoAmbiguous].forEach(chk => {
+        chk.addEventListener('change', generatePassword);
+      });
+
+      btnRefresh.addEventListener('click', generatePassword);
+      btnGenerateMain.addEventListener('click', generatePassword);
+
+      btnCopy.addEventListener('click', () => {
+        window.copyText(passwordDisplay.textContent, 'Password copied safely!');
+      });
+
+      function generatePassword() {
+        let chars = '';
+        const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        const numbers = '0123456789';
+        const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+        if (chkUppercase.checked) chars += uppercase;
+        if (chkLowercase.checked) chars += lowercase;
+        if (chkNumbers.checked) chars += numbers;
+        if (chkSymbols.checked) chars += symbols;
+
+        if (chkNoAmbiguous.checked) {
+          chars = chars.replace(/[O0l1I|`'"]/g, '');
+        }
+
+        if (chars.length === 0) {
+          passwordDisplay.textContent = 'Select at least 1 option';
+          strengthBar.style.width = '0%';
+          strengthLabel.textContent = 'None';
+          entropyLabel.textContent = '0 bits';
+          crackLabel.textContent = 'Instant';
+          return;
+        }
+
+        const length = parseInt(lengthSlider.value, 10);
+        const array = new Uint32Array(length);
+        window.crypto.getRandomValues(array);
+
+        let password = '';
+        for (let i = 0; i < length; i++) {
+          password += chars[array[i] % chars.length];
+        }
+
+        passwordDisplay.textContent = password;
+        calculateEntropy(length, chars.length);
+      }
+
+      function calculateEntropy(length, poolSize) {
+        const entropy = Math.round(length * Math.log2(poolSize));
+        entropyLabel.textContent = `${entropy} bits`;
+
+        if (entropy < 40) {
+          strengthBar.style.width = '25%';
+          strengthBar.style.background = '#ef4444';
+          strengthLabel.textContent = 'Weak';
+          strengthLabel.style.color = '#ef4444';
+          crackLabel.textContent = '< 1 Minute';
+        } else if (entropy < 65) {
+          strengthBar.style.width = '50%';
+          strengthBar.style.background = '#f59e0b';
+          strengthLabel.textContent = 'Moderate';
+          strengthLabel.style.color = '#f59e0b';
+          crackLabel.textContent = 'A Few Weeks';
+        } else if (entropy < 90) {
+          strengthBar.style.width = '75%';
+          strengthBar.style.background = '#38bdf8';
+          strengthLabel.textContent = 'Strong';
+          strengthLabel.style.color = '#38bdf8';
+          crackLabel.textContent = '10,000+ Years';
+        } else {
+          strengthBar.style.width = '100%';
+          strengthBar.style.background = '#10b981';
+          strengthLabel.textContent = 'Very Strong';
+          strengthLabel.style.color = '#10b981';
+          crackLabel.textContent = 'Trillions of Years';
+        }
+      }
+
+      // Initial generation
+      generatePassword();
+
+    })();
+  </script>
+</body>
+</html>

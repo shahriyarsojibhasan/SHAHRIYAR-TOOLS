@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Free Online QR Code Generator | URL, Wi-Fi, vCard with Logo | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Online QR Code Generator | URL, Wi-Fi, vCard with Logo">
+  <meta name="description" content="Generate custom QR codes for URLs, Wi-Fi networks, contact vCards, emails, and SMS. Add logos, customize colors, adjust error correction, and download high-res PNG or SVG.">
+  <meta name="keywords" content="qr code generator, wifi qr code, vcard qr code maker, custom qr code with logo, svg qr code, high resolution qr generator, free qr creator">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/qr-code-generator/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/qr-code-generator/">
+  <meta property="og:title" content="Free Custom QR Code Studio | High-Res PNG & SVG">
+  <meta property="og:description" content="Create custom QR codes with color swatches, logos, Wi-Fi and vCard templates. Instant export.">
+  <meta property="og:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-qr.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- QR Code Library CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --qr-theme: #059669;
+      --qr-theme-dark: #047857;
+      --qr-theme-light: #d1fae5;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--qr-theme-light);
+      color: var(--qr-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Workspace */
+    .qr-workspace {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      align-items: start;
+    }
+
+    .qr-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Type Switcher Pills */
+    .type-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1rem;
+    }
+
+    .type-btn {
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-muted);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition-fast);
+    }
+
+    .type-btn.active, .type-btn:hover {
+      background: var(--qr-theme);
+      color: white;
+      border-color: var(--qr-theme);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-medium);
+      font-size: 0.95rem;
+      background: white;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Color Customizer */
+    .color-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .color-input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .color-picker {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      padding: 0;
+      background: none;
+    }
+
+    /* Preview Panel */
+    .qr-preview-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .qr-canvas-wrapper {
+      padding: 1.5rem;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      max-width: 100%;
+    }
+
+    #qr-canvas {
+      max-width: 100%;
+      height: auto !important;
+    }
+
+    .export-actions {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .btn-export {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-export-png {
+      background: var(--qr-theme);
+      color: white;
+    }
+
+    .btn-export-png:hover {
+      background: var(--qr-theme-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+    }
+
+    .btn-export-svg {
+      background: var(--bg-muted);
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+
+    .btn-export-svg:hover {
+      background: white;
+    }
+
+    @media (max-width: 860px) {
+      .qr-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Custom QR Code Generator",
+        "url": "https://tools.shahriyarsojibhasan.top/qr-code-generator/",
+        "description": "Generate high-resolution custom QR codes for URLs, Wi-Fi networks, and contact cards with custom colors and logo embedding.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "QR Code Generator",
+            "item": "https://tools.shahriyarsojibhasan.top/qr-code-generator/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#developer-tools" class="nav-link active">Developer</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#developer-tools">Developer Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">QR Code Generator</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-qrcode"></i> High-Resolution Vector Studio</span>
+      <h1>Free Custom QR Code Generator</h1>
+      <p>Create custom branded QR codes for websites, Wi-Fi networks, contacts, and emails with logos and colors.</p>
+    </section>
+
+    <div class="qr-workspace">
+      <!-- Input Card -->
+      <section class="qr-card" aria-label="QR Code Settings">
+        <div class="type-switcher" role="tablist">
+          <button class="type-btn active" data-type="url"><i class="fas fa-link"></i> Website URL</button>
+          <button class="type-btn" data-type="text"><i class="fas fa-paragraph"></i> Plain Text</button>
+          <button class="type-btn" data-type="wifi"><i class="fas fa-wifi"></i> Wi-Fi</button>
+          <button class="type-btn" data-type="vcard"><i class="fas fa-address-card"></i> vCard</button>
+          <button class="type-btn" data-type="email"><i class="fas fa-envelope"></i> Email</button>
+        </div>
+
+        <!-- Dynamic Fields Container -->
+        <div id="dynamic-inputs">
+          <!-- URL (Default) -->
+          <div id="input-url" class="type-form">
+            <div class="form-group">
+              <label for="qr-url">Website URL</label>
+              <input type="url" id="qr-url" placeholder="https://example.com" value="https://tools.shahriyarsojibhasan.top/">
+            </div>
+          </div>
+
+          <!-- Plain Text -->
+          <div id="input-text" class="type-form" style="display: none;">
+            <div class="form-group">
+              <label for="qr-text">Message / Content</label>
+              <textarea id="qr-text" placeholder="Type anything here..."></textarea>
+            </div>
+          </div>
+
+          <!-- Wi-Fi -->
+          <div id="input-wifi" class="type-form" style="display: none;">
+            <div class="form-group">
+              <label for="wifi-ssid">Network Name (SSID)</label>
+              <input type="text" id="wifi-ssid" placeholder="MyHomeNetwork">
+            </div>
+            <div class="form-group">
+              <label for="wifi-password">Wi-Fi Password</label>
+              <input type="text" id="wifi-password" placeholder="SecretPassword">
+            </div>
+            <div class="form-group">
+              <label for="wifi-type">Encryption Type</label>
+              <select id="wifi-type">
+                <option value="WPA">WPA/WPA2/WPA3</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None (Open)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- vCard -->
+          <div id="input-vcard" class="type-form" style="display: none;">
+            <div class="form-group">
+              <label for="vcard-name">Full Name</label>
+              <input type="text" id="vcard-name" placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="vcard-phone">Phone Number</label>
+              <input type="tel" id="vcard-phone" placeholder="+1234567890">
+            </div>
+            <div class="form-group">
+              <label for="vcard-email">Email Address</label>
+              <input type="email" id="vcard-email" placeholder="john@example.com">
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div id="input-email" class="type-form" style="display: none;">
+            <div class="form-group">
+              <label for="email-to">Recipient Email</label>
+              <input type="email" id="email-to" placeholder="support@example.com">
+            </div>
+            <div class="form-group">
+              <label for="email-subject">Subject</label>
+              <input type="text" id="email-subject" placeholder="Inquiry">
+            </div>
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-light); margin: 1.5rem 0;">
+
+        <!-- Styling Controls -->
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem;">Customize Appearance</h3>
+        <div class="color-row">
+          <div class="form-group">
+            <label>QR Code Color</label>
+            <div class="color-input-wrapper">
+              <input type="color" id="qr-color-dark" class="color-picker" value="#000000">
+              <span id="qr-color-dark-label" style="font-family: var(--font-mono); font-size: 0.85rem;">#000000</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Background Color</label>
+            <div class="color-input-wrapper">
+              <input type="color" id="qr-color-light" class="color-picker" value="#ffffff">
+              <span id="qr-color-light-label" style="font-family: var(--font-mono); font-size: 0.85rem;">#ffffff</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="qr-correction">Error Correction Level</label>
+          <select id="qr-correction">
+            <option value="H" selected>High (30% - Best with Logo)</option>
+            <option value="Q">Quartile (25%)</option>
+            <option value="M">Medium (15%)</option>
+            <option value="L">Low (7%)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="qr-logo-upload">Embed Logo / Icon (Optional)</label>
+          <input type="file" id="qr-logo-upload" accept="image/*">
+        </div>
+      </section>
+
+      <!-- Preview Panel -->
+      <section class="qr-preview-panel" aria-label="QR Code Preview">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;">Live Preview</h3>
+        <div class="qr-canvas-wrapper">
+          <canvas id="qr-canvas" width="280" height="280"></canvas>
+        </div>
+
+        <div class="export-actions">
+          <button id="download-png-btn" class="btn-export btn-export-png">
+            <i class="fas fa-download"></i> Download PNG
+          </button>
+          <button id="download-svg-btn" class="btn-export btn-export-svg">
+            <i class="fas fa-file-code"></i> SVG
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>High-Precision QR Codes for Print & Digital Media</h2>
+          <p>
+            Quick Response (QR) codes connect the physical world to online experiences. 
+            Whether you are printing restaurant menus, Wi-Fi login table tents, business cards, or packaging, having high error correction and crisp vector export is essential for instant smartphone scanning.
+          </p>
+          <h3>Best Practices for Printable QR Codes</h3>
+          <p>
+            Always ensure strong contrast between the foreground and background colors. Dark QR codes on clean white backgrounds scan most reliably across all camera lighting conditions. 
+            When embedding a center logo, keep error correction set to <strong>High (H)</strong> so scanners can read the code even if the logo covers up to 30% of the center data area.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-shield-alt" style="color: var(--color-success);"></i> 100% In-Browser</h3>
+            <p>Your Wi-Fi passwords and personal contact details are never logged or saved. The code is drawn directly onto your screen's canvas element.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Private Client-Side QR Studio.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const canvas = document.getElementById('qr-canvas');
+      const typeBtns = document.querySelectorAll('.type-btn');
+      const qrColorDark = document.getElementById('qr-color-dark');
+      const qrColorDarkLabel = document.getElementById('qr-color-dark-label');
+      const qrColorLight = document.getElementById('qr-color-light');
+      const qrColorLightLabel = document.getElementById('qr-color-light-label');
+      const qrCorrection = document.getElementById('qr-correction');
+      const logoUpload = document.getElementById('qr-logo-upload');
+      const downloadPngBtn = document.getElementById('download-png-btn');
+      const downloadSvgBtn = document.getElementById('download-svg-btn');
+
+      let currentType = 'url';
+      let centerLogoImg = null;
+
+      typeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          typeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentType = btn.dataset.type;
+
+          document.querySelectorAll('.type-form').forEach(form => form.style.display = 'none');
+          const target = document.getElementById(`input-${currentType}`);
+          if (target) target.style.display = 'block';
+
+          generateQR();
+        });
+      });
+
+      // Color pickers
+      qrColorDark.addEventListener('input', () => {
+        qrColorDarkLabel.textContent = qrColorDark.value;
+        generateQR();
+      });
+      qrColorLight.addEventListener('input', () => {
+        qrColorLightLabel.textContent = qrColorLight.value;
+        generateQR();
+      });
+
+      qrCorrection.addEventListener('change', generateQR);
+
+      // Listen to all inputs
+      document.querySelectorAll('#dynamic-inputs input, #dynamic-inputs textarea, #dynamic-inputs select').forEach(input => {
+        input.addEventListener('input', generateQR);
+      });
+
+      // Logo upload
+      logoUpload.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const reader = new FileReader();
+          reader.onload = (evt) => {
+            const img = new Image();
+            img.onload = () => {
+              centerLogoImg = img;
+              generateQR();
+            };
+            img.src = evt.target.result;
+          };
+          reader.readAsDataURL(e.target.files[0]);
+        } else {
+          centerLogoImg = null;
+          generateQR();
+        }
+      });
+
+      function getPayloadString() {
+        switch (currentType) {
+          case 'url':
+            return document.getElementById('qr-url').value.trim() || 'https://tools.shahriyarsojibhasan.top/';
+          case 'text':
+            return document.getElementById('qr-text').value.trim() || 'Hello from Shahriyar Tools!';
+          case 'wifi':
+            const ssid = document.getElementById('wifi-ssid').value.trim();
+            const pass = document.getElementById('wifi-password').value;
+            const type = document.getElementById('wifi-type').value;
+            return `WIFI:S:${ssid};T:${type};P:${pass};;`;
+          case 'vcard':
+            const name = document.getElementById('vcard-name').value.trim();
+            const phone = document.getElementById('vcard-phone').value.trim();
+            const email = document.getElementById('vcard-email').value.trim();
+            return `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
+          case 'email':
+            const to = document.getElementById('email-to').value.trim();
+            const subj = document.getElementById('email-subject').value.trim();
+            return `mailto:${to}?subject=${encodeURIComponent(subj)}`;
+          default:
+            return 'https://tools.shahriyarsojibhasan.top/';
+        }
+      }
+
+      function generateQR() {
+        const text = getPayloadString();
+        const options = {
+          width: 280,
+          margin: 2,
+          color: {
+            dark: qrColorDark.value,
+            light: qrColorLight.value
+          },
+          errorCorrectionLevel: qrCorrection.value
+        };
+
+        QRCode.toCanvas(canvas, text, options, (err) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+
+          if (centerLogoImg) {
+            const ctx = canvas.getContext('2d');
+            const logoSize = Math.round(canvas.width * 0.22);
+            const x = (canvas.width - logoSize) / 2;
+            const y = (canvas.height - logoSize) / 2;
+
+            // Draw clean background pill for logo
+            ctx.fillStyle = qrColorLight.value;
+            ctx.fillRect(x - 4, y - 4, logoSize + 8, logoSize + 8);
+            ctx.drawImage(centerLogoImg, x, y, logoSize, logoSize);
+          }
+        });
+      }
+
+      downloadPngBtn.addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = `qrcode-${currentType}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.showToast('QR Code downloaded as PNG!', 'success');
+      });
+
+      downloadSvgBtn.addEventListener('click', () => {
+        const text = getPayloadString();
+        QRCode.toString(text, {
+          type: 'svg',
+          color: {
+            dark: qrColorDark.value,
+            light: qrColorLight.value
+          },
+          errorCorrectionLevel: qrCorrection.value
+        }, (err, svgString) => {
+          if (err) {
+            window.showToast('SVG export failed', 'error');
+            return;
+          }
+          const blob = new Blob([svgString], { type: 'image/svg+xml' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `qrcode-${currentType}.svg`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.showToast('QR Code downloaded as SVG!', 'success');
+        });
+      });
+
+      // Initial run
+      generateQR();
+
+    })();
+  </script>
+</body>
+</html>

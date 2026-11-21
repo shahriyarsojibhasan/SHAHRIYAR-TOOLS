@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Free Online Word Counter & Text Analyzer | Live Character & Reading Stats | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Online Word Counter & Text Analyzer | Live Character & Reading Stats">
+  <meta name="description" content="Count words, characters, sentences, paragraphs, and reading time in real-time. Analyze keyword frequency, readability score, and format text with zero data storage.">
+  <meta name="keywords" content="word counter, character counter, online text analyzer, reading time calculator, keyword density checker, sentence counter, paragraph counter, free word count">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/word-counter/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/word-counter/">
+  <meta property="og:title" content="Free Word Counter & Keyword Analyzer | SHAHRIYAR TOOLS">
+  <meta property="og:description" content="Instant real-time writing statistics, readability scores, and keyword density for writers, students, and SEOs.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --wc-theme: #0284c7;
+      --wc-theme-dark: #0369a1;
+      --wc-theme-light: #e0f2fe;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--wc-theme-light);
+      color: var(--wc-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Live Stat Bar */
+    .stat-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+
+    .stat-pill {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .stat-pill:hover {
+      border-color: var(--wc-theme);
+      transform: translateY(-2px);
+    }
+
+    .stat-pill h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .stat-pill .num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+
+    /* Workspace */
+    .writing-workspace {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .editor-container {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .editor-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-tool {
+      background: var(--bg-muted);
+      border: 1px solid var(--border-medium);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-tool:hover {
+      background: white;
+      border-color: var(--wc-theme);
+      color: var(--wc-theme);
+    }
+
+    #text-input {
+      width: 100%;
+      height: 380px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      resize: vertical;
+      background: var(--bg-subtle);
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    #text-input:focus {
+      border-color: var(--wc-theme);
+      background: white;
+    }
+
+    /* Keyword Frequency Sidebar */
+    .keyword-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .keyword-table th {
+      text-align: left;
+      padding: 8px 6px;
+      border-bottom: 2px solid var(--border-light);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .keyword-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    @media (max-width: 900px) {
+      .writing-workspace {
+        grid-template-columns: 1fr;
+      }
+      .stat-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Free Word Counter Online",
+        "url": "https://tools.shahriyarsojibhasan.top/word-counter/",
+        "description": "Real-time word counter, character counter, reading time calculator, and keyword density analyzer with zero tracking.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Word Counter",
+            "item": "https://tools.shahriyarsojibhasan.top/word-counter/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#document-tools" class="nav-link active">Writing Tools</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#document-tools">Writing Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Word Counter</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-chart-line"></i> Real-Time Text Intelligence</span>
+      <h1>Free Online Word Counter & Text Analyzer</h1>
+      <p>Analyze words, characters, sentences, reading time, and keyword density in real-time as you type.</p>
+    </section>
+
+    <!-- Top Stats Bar -->
+    <section class="stat-bar-grid" aria-label="Live Writing Statistics">
+      <div class="stat-pill">
+        <h3>Words</h3>
+        <div id="stat-words" class="num">0</div>
+      </div>
+      <div class="stat-pill">
+        <h3>Characters</h3>
+        <div id="stat-chars" class="num">0</div>
+      </div>
+      <div class="stat-pill">
+        <h3>No Spaces</h3>
+        <div id="stat-chars-no-space" class="num">0</div>
+      </div>
+      <div class="stat-pill">
+        <h3>Sentences</h3>
+        <div id="stat-sentences" class="num">0</div>
+      </div>
+      <div class="stat-pill">
+        <h3>Paragraphs</h3>
+        <div id="stat-paragraphs" class="num">0</div>
+      </div>
+      <div class="stat-pill">
+        <h3>Reading Time</h3>
+        <div id="stat-reading" class="num" style="font-size: 1.4rem;">0 min</div>
+      </div>
+    </section>
+
+    <!-- Workspace -->
+    <div class="writing-workspace">
+      <!-- Editor -->
+      <section class="editor-container" aria-label="Text Writing Space">
+        <div class="editor-toolbar">
+          <div class="toolbar-actions">
+            <button id="btn-sample" class="btn-tool"><i class="fas fa-file-alt"></i> Sample</button>
+            <button id="btn-upper" class="btn-tool">UPPER</button>
+            <button id="btn-lower" class="btn-tool">lower</button>
+            <button id="btn-title" class="btn-tool">Title</button>
+            <button id="btn-clean" class="btn-tool"><i class="fas fa-broom"></i> Clean Spaces</button>
+          </div>
+          <div class="toolbar-actions">
+            <button id="btn-copy" class="btn-tool" style="color: var(--color-success);"><i class="fas fa-copy"></i> Copy</button>
+            <button id="btn-clear" class="btn-tool" style="color: var(--color-danger);"><i class="fas fa-trash"></i> Clear</button>
+          </div>
+        </div>
+
+        <textarea id="text-input" placeholder="Start typing or paste your text here..." aria-label="Text to count and analyze"></textarea>
+      </section>
+
+      <!-- Keyword Frequency Sidebar -->
+      <aside class="keyword-card" aria-label="Top Keywords Frequency">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">
+          <i class="fas fa-tags" style="color: var(--wc-theme); margin-right: 6px;"></i> Keyword Frequency
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Top recurring words and keyword density percentage.</p>
+
+        <table class="keyword-table">
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th style="text-align: center;">Count</th>
+              <th style="text-align: right;">Density</th>
+            </tr>
+          </thead>
+          <tbody id="keyword-tbody">
+            <tr>
+              <td colspan="3" style="text-align: center; color: var(--text-muted); padding: 1.5rem 0;">Type text to see keywords</td>
+            </tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+
+    <!-- SEO Information -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Accurate Word & Character Statistics for Content Creators</h2>
+          <p>
+            Whether writing essays, blog posts, Twitter / X threads, Amazon descriptions, or academic papers, staying within character and word limits is critical.
+            <strong>SHAHRIYAR TOOLS Word Counter</strong> calculates accurate metrics in real time without lag, allowing you to fine-tune readability and eliminate keyword stuffing.
+          </p>
+          <h3>How Reading Time is Calculated</h3>
+          <p>
+            The average adult reads approximately 200 words per minute (WPM) for standard comprehension. 
+            Our reading time calculation dynamically computes reading duration to help you structure presentations, articles, and newsletters appropriately.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-user-secret" style="color: var(--color-success);"></i> Total Privacy</h3>
+            <p>Your writing is never saved, transmitted, or logged. Everything is processed live in your browser's memory.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Free In-Browser Writing Suite.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const textInput = document.getElementById('text-input');
+      const statWords = document.getElementById('stat-words');
+      const statChars = document.getElementById('stat-chars');
+      const statCharsNoSpace = document.getElementById('stat-chars-no-space');
+      const statSentences = document.getElementById('stat-sentences');
+      const statParagraphs = document.getElementById('stat-paragraphs');
+      const statReading = document.getElementById('stat-reading');
+      const keywordTbody = document.getElementById('keyword-tbody');
+
+      const btnSample = document.getElementById('btn-sample');
+      const btnUpper = document.getElementById('btn-upper');
+      const btnLower = document.getElementById('btn-lower');
+      const btnTitle = document.getElementById('btn-title');
+      const btnClean = document.getElementById('btn-clean');
+      const btnCopy = document.getElementById('btn-copy');
+      const btnClear = document.getElementById('btn-clear');
+
+      textInput.addEventListener('input', analyzeText);
+
+      btnSample.addEventListener('click', () => {
+        textInput.value = "Welcome to SHAHRIYAR TOOLS! This online utility platform offers high-performance, privacy-conscious tools for developers, designers, and everyday users. All image, text, and PDF processing runs directly in your browser. This guarantees your personal data remains 100% private and secure.";
+        analyzeText();
+      });
+
+      btnUpper.addEventListener('click', () => {
+        textInput.value = textInput.value.toUpperCase();
+        analyzeText();
+      });
+
+      btnLower.addEventListener('click', () => {
+        textInput.value = textInput.value.toLowerCase();
+        analyzeText();
+      });
+
+      btnTitle.addEventListener('click', () => {
+        textInput.value = textInput.value.replace(/\w\S*/g, (txt) => {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+        analyzeText();
+      });
+
+      btnClean.addEventListener('click', () => {
+        textInput.value = textInput.value.replace(/[ \t]+/g, ' ').replace(/\n\s*\n/g, '\n\n').trim();
+        analyzeText();
+        window.showToast('Cleaned extra whitespace', 'info');
+      });
+
+      btnCopy.addEventListener('click', () => {
+        window.copyText(textInput.value, 'Text copied to clipboard!');
+      });
+
+      btnClear.addEventListener('click', () => {
+        textInput.value = '';
+        analyzeText();
+        window.showToast('Text cleared', 'info');
+      });
+
+      function analyzeText() {
+        const text = textInput.value;
+
+        // Characters
+        const chars = text.length;
+        const charsNoSpace = text.replace(/\s/g, '').length;
+
+        // Words
+        const wordsArray = text.trim().match(/\b[\w'-]+\b/g) || [];
+        const wordsCount = wordsArray.length;
+
+        // Sentences
+        const sentencesArray = text.match(/[^.!?]+[.!?]+(\s|$)/g) || [];
+        const sentencesCount = sentencesArray.length > 0 ? sentencesArray.length : (text.trim().length > 0 ? 1 : 0);
+
+        // Paragraphs
+        const paragraphsArray = text.split(/\n+/).filter(p => p.trim().length > 0);
+        const paragraphsCount = paragraphsArray.length;
+
+        // Reading Time (~200 wpm)
+        const minutes = Math.ceil(wordsCount / 200);
+        const readingTimeStr = wordsCount === 0 ? '0 min' : (minutes === 1 ? '1 min' : `${minutes} mins`);
+
+        // Update UI stats
+        statWords.textContent = wordsCount.toLocaleString();
+        statChars.textContent = chars.toLocaleString();
+        statCharsNoSpace.textContent = charsNoSpace.toLocaleString();
+        statSentences.textContent = sentencesCount.toLocaleString();
+        statParagraphs.textContent = paragraphsCount.toLocaleString();
+        statReading.textContent = readingTimeStr;
+
+        // Keyword Density
+        updateKeywords(wordsArray);
+      }
+
+      function updateKeywords(words) {
+        if (words.length === 0) {
+          keywordTbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:var(--text-muted);padding:1.5rem 0;">Type text to see keywords</td></tr>`;
+          return;
+        }
+
+        const stopWords = new Set(['the','and','to','of','a','in','is','it','you','that','he','was','for','on','are','as','with','his','they','i','at','be','this','have','from','or','one','had','by','word','but','not','what','all','were','we','when','your','can','said','there','use','an','each','which','she','do','how','their','if']);
+        const freqMap = {};
+
+        words.forEach(w => {
+          const lower = w.toLowerCase();
+          if (lower.length > 1 && !stopWords.has(lower)) {
+            freqMap[lower] = (freqMap[lower] || 0) + 1;
+          }
+        });
+
+        const sorted = Object.entries(freqMap).sort((a, b) => b[1] - a[1]).slice(0, 8);
+
+        if (sorted.length === 0) {
+          keywordTbody.innerHTML = `<tr><td colspan="3" style="text-align:center;color:var(--text-muted);padding:1rem 0;">No prominent keywords</td></tr>`;
+          return;
+        }
+
+        let html = '';
+        sorted.forEach(([word, count]) => {
+          const density = ((count / words.length) * 100).toFixed(1);
+          html += `
+            <tr>
+              <td style="font-weight: 600; color: var(--text-main);">${word}</td>
+              <td style="text-align: center; font-family: var(--font-mono);">${count}</td>
+              <td style="text-align: right; font-family: var(--font-mono); color: var(--wc-theme);">${density}%</td>
+            </tr>
+          `;
+        });
+
+        keywordTbody.innerHTML = html;
+      }
+
+      // Initial analysis
+      analyzeText();
+
+    })();
+  </script>
+</body>
+</html>

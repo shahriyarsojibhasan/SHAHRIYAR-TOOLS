@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Free Batch Image Converter | Convert JPG, PNG, WebP Online | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Batch Image Converter | Convert JPG, PNG, WebP Online">
+  <meta name="description" content="Convert multiple images between JPG, PNG, WebP, BMP, and GIF formats simultaneously. Fast, client-side batch image conversion with resolution resizing and zero uploads.">
+  <meta name="keywords" content="image converter, jpg to png, png to jpg, convert to webp, batch image converter, online picture converter, webp converter, free image format change">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/image-converter/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/image-converter/">
+  <meta property="og:title" content="Batch Image Converter | Convert JPG, PNG, WebP Online">
+  <meta property="og:description" content="Easily convert images in batch directly in your web browser. 100% private and instantaneous.">
+  <meta property="og:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-converter.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tools.shahriyarsojibhasan.top/image-converter/">
+  <meta property="twitter:title" content="Batch Image Converter | SHAHRIYAR TOOLS">
+  <meta property="twitter:description" content="Convert images between JPG, PNG, WebP and more with zero server uploads.">
+  <meta property="twitter:image" content="https://tools.shahriyarsojibhasan.top/assets/branding/og-converter.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔄</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --conv-theme: #8b5cf6;
+      --conv-theme-dark: #6d28d9;
+      --conv-theme-light: #ede9fe;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--conv-theme-light);
+      color: var(--conv-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Converter Workspace */
+    .converter-card {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-top: 1.5rem;
+    }
+
+    /* Global Batch Bar */
+    .batch-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: var(--bg-muted);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .batch-settings {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .setting-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .setting-pill select, .setting-pill input {
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-medium);
+      background: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn-convert-all {
+      background: var(--conv-theme);
+      color: white;
+      padding: 10px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-convert-all:hover {
+      background: var(--conv-theme-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-convert-all:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Dropzone */
+    .dropzone {
+      border: 2px dashed var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      background: var(--bg-subtle);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--conv-theme);
+      background: var(--conv-theme-light);
+    }
+
+    .dropzone-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--conv-theme-light);
+      color: var(--conv-theme);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+    }
+
+    /* File Queue List */
+    .file-queue {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .queue-item {
+      display: grid;
+      grid-template-columns: 60px 2fr 1.2fr 1fr 100px 80px;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .queue-item:hover {
+      border-color: var(--conv-theme);
+    }
+
+    .queue-thumb {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-light);
+    }
+
+    .queue-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 260px;
+    }
+
+    .queue-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .queue-target select {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .queue-status {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+    }
+
+    .status-ready { background: var(--bg-muted); color: var(--text-secondary); }
+    .status-converting { background: var(--color-warning-bg); color: var(--color-warning); }
+    .status-done { background: var(--color-success-bg); color: var(--color-success); }
+
+    .btn-download-item {
+      background: var(--bg-muted);
+      border: 1px solid var(--border-medium);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all var(--transition-fast);
+      color: var(--text-main);
+    }
+
+    .btn-download-item:hover:not(:disabled) {
+      background: var(--conv-theme);
+      color: white;
+      border-color: var(--conv-theme);
+    }
+
+    .btn-download-item:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .btn-remove-item {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 6px;
+      transition: color var(--transition-fast);
+    }
+
+    .btn-remove-item:hover {
+      color: var(--color-danger);
+    }
+
+    @media (max-width: 860px) {
+      .queue-item {
+        grid-template-columns: 50px 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 0.75rem;
+      }
+      .queue-target, .queue-status, .queue-download, .queue-action {
+        grid-column: span 2;
+      }
+      .batch-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Batch Image Converter Online",
+        "url": "https://tools.shahriyarsojibhasan.top/image-converter/",
+        "description": "Convert JPG, PNG, WebP, GIF, and BMP images locally in your browser. Batch conversion, custom quality settings, and instant downloads.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Image Converter",
+            "item": "https://tools.shahriyarsojibhasan.top/image-converter/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I convert multiple images at once?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! You can drop dozens of images into the batch queue, choose a target format (or customize each individually), and convert them simultaneously."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should I convert my images to WebP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WebP provides up to 30% smaller file size than standard JPEG and PNG files while maintaining equal or better image quality and full alpha transparency."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#image-tools" class="nav-link active">Image Tools</a></li>
+          <li><a href="../#developer-tools" class="nav-link">Developer</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" aria-label="Mobile Navigation">
+      <ul class="mobile-nav-links">
+        <li><a href="../" class="mobile-nav-link">Home Directory</a></li>
+        <li><a href="../#image-tools" class="mobile-nav-link">Image Utilities</a></li>
+        <li><a href="../#developer-tools" class="mobile-nav-link">Developer Utilities</a></li>
+        <li><a href="../about/" class="mobile-nav-link">About Platform</a></li>
+        <li><a href="../contact/" class="mobile-nav-link">Contact & Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#image-tools">Image Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Image Converter</li>
+      </ol>
+    </nav>
+
+    <!-- Tool Hero -->
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-sync-alt"></i> Batch Processing Engine</span>
+      <h1>Free Batch Image Converter</h1>
+      <p>Convert JPG, PNG, WebP, GIF, and BMP formats in your browser without uploading to external servers. Fast, secure, and private.</p>
+    </section>
+
+    <!-- Converter Main Card -->
+    <section class="converter-card">
+      <!-- Global Controls -->
+      <div class="batch-bar">
+        <div class="batch-settings">
+          <div class="setting-pill">
+            <label for="global-format"><i class="fas fa-random" style="color: var(--conv-theme);"></i> Convert all to:</label>
+            <select id="global-format">
+              <option value="image/webp">WebP (Modern & Small)</option>
+              <option value="image/jpeg">JPG / JPEG</option>
+              <option value="image/png">PNG (Lossless)</option>
+            </select>
+          </div>
+
+          <div class="setting-pill">
+            <label for="global-quality"><i class="fas fa-sliders-h" style="color: var(--conv-theme);"></i> Quality:</label>
+            <select id="global-quality">
+              <option value="0.92">Maximum (92%)</option>
+              <option value="0.85" selected>Balanced (85%)</option>
+              <option value="0.75">Compact (75%)</option>
+              <option value="0.60">Small (60%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button id="convert-all-btn" class="btn-convert-all" disabled>
+            <i class="fas fa-play"></i> Convert All Files
+          </button>
+          <button id="clear-all-btn" class="btn-download-item" style="padding: 10px 16px;">
+            <i class="fas fa-trash-alt"></i> Clear Queue
+          </button>
+        </div>
+      </div>
+
+      <!-- Dropzone -->
+      <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Upload Images for Conversion">
+        <input type="file" id="file-input" multiple accept="image/jpeg,image/png,image/webp,image/gif,image/bmp,image/svg+xml" style="display: none;">
+        <div class="dropzone-icon">
+          <i class="fas fa-images"></i>
+        </div>
+        <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">
+          Click to browse or drop multiple images here
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+          Select multiple files simultaneously. Supports JPG, PNG, WebP, GIF, and BMP.
+        </p>
+      </div>
+
+      <!-- Queue List -->
+      <div id="queue-container" class="file-queue" style="display: none;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+          <span>Conversion Queue (<span id="queue-count">0</span> items)</span>
+          <button id="download-all-btn" class="btn-download-item" style="display: none;">
+            <i class="fas fa-download"></i> Download Converted
+          </button>
+        </h3>
+        <div id="queue-items"></div>
+      </div>
+    </section>
+
+    <!-- SEO & FAQ Section -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>High-Speed Client-Side Image Format Conversion</h2>
+          <p>
+            Digital projects, mobile applications, and web performance optimization often require transitioning legacy image assets into modern formats. 
+            Converting JPEG to WebP can drastically trim network payloads, while converting SVG or WebP to PNG ensures maximum backwards compatibility across older printing software and legacy platforms.
+          </p>
+          <p>
+            With <strong>SHAHRIYAR TOOLS Batch Image Converter</strong>, image rasterization and encoding happen in memory on your computer or phone. 
+            There are no server limits, no daily quotas, and no privacy compromises.
+          </p>
+
+          <h3>Supported Conversion Pipelines</h3>
+          <div class="seo-features-list">
+            <div class="seo-feature-item">
+              <h4>PNG to JPG</h4>
+              <p>Eliminate alpha channels and compress photographs for quick email or mobile sharing.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4>JPG to WebP</h4>
+              <p>Shrink photo file sizes by up to 35% without visible difference for faster websites.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4>WebP to PNG</h4>
+              <p>Extract transparent assets from WebP into standard PNG for graphics design software.</p>
+            </div>
+            <div class="seo-feature-item">
+              <h4>Batch Parallel Execution</h4>
+              <p>Convert dozens of images at the same time using multi-threaded web workers and canvas.</p>
+            </div>
+          </div>
+
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Can I convert animated GIFs?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>When converting an animated GIF to JPG, PNG, or WebP via HTML5 Canvas, the first frame is converted into a high-resolution static image.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-trigger">
+                <span>Will PNG transparency be preserved?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </button>
+              <div class="faq-body">
+                <p>Yes, when converting between PNG and WebP, transparency is fully preserved. If converting to JPEG (which does not support alpha transparency), transparent backgrounds default to clean solid white.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-shield-alt" style="color: var(--color-success); margin-right: 6px;"></i> Zero Cloud Storage</h3>
+            <p>Every file is read using the HTML5 File API and transformed into new formats using native Canvas 2D encoding. Zero bytes leave your device.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Related Image Tools</h3>
+            <ul class="related-tools-list">
+              <li><a href="../image-compressor/" class="related-tool-link"><i class="fas fa-compress-arrows-alt"></i> Image Compressor</a></li>
+              <li><a href="../reunionposter/" class="related-tool-link"><i class="fas fa-paint-brush"></i> Reunion Poster Studio</a></li>
+              <li><a href="../color-palette/" class="related-tool-link"><i class="fas fa-palette"></i> Color Palette Studio</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>100% Client-Side In-Browser Conversion.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('file-input');
+      const queueContainer = document.getElementById('queue-container');
+      const queueItems = document.getElementById('queue-items');
+      const queueCount = document.getElementById('queue-count');
+      const globalFormat = document.getElementById('global-format');
+      const globalQuality = document.getElementById('global-quality');
+      const convertAllBtn = document.getElementById('convert-all-btn');
+      const clearAllBtn = document.getElementById('clear-all-btn');
+      const downloadAllBtn = document.getElementById('download-all-btn');
+
+      let fileQueue = [];
+
+      dropzone.addEventListener('click', () => fileInput.click());
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('dragover');
+      });
+      dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('dragover');
+        if (e.dataTransfer.files.length > 0) {
+          addFilesToQueue(e.dataTransfer.files);
+        }
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          addFilesToQueue(e.target.files);
+        }
+      });
+
+      globalFormat.addEventListener('change', () => {
+        fileQueue.forEach(item => {
+          if (item.status !== 'done') {
+            item.targetFormat = globalFormat.value;
+            const sel = document.getElementById(`sel-format-${item.id}`);
+            if (sel) sel.value = globalFormat.value;
+          }
+        });
+      });
+
+      clearAllBtn.addEventListener('click', () => {
+        fileQueue = [];
+        renderQueue();
+        fileInput.value = '';
+        window.showToast('Queue cleared', 'info');
+      });
+
+      function addFilesToQueue(files) {
+        let added = 0;
+        Array.from(files).forEach(file => {
+          if (file.type.startsWith('image/')) {
+            const item = {
+              id: 'file_' + Math.random().toString(36).substr(2, 9),
+              file: file,
+              name: file.name,
+              size: file.size,
+              targetFormat: globalFormat.value,
+              status: 'ready', // ready, converting, done, error
+              convertedBlob: null,
+              thumbUrl: null
+            };
+            fileQueue.push(item);
+            generateThumbnail(item);
+            added++;
+          }
+        });
+
+        if (added > 0) {
+          renderQueue();
+          window.showToast(`Added ${added} image(s) to queue`, 'success');
+        } else {
+          window.showToast('Please select valid image files', 'error');
+        }
+      }
+
+      function generateThumbnail(item) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          item.thumbUrl = e.target.result;
+          const thumbEl = document.getElementById(`thumb-${item.id}`);
+          if (thumbEl) thumbEl.src = item.thumbUrl;
+        };
+        reader.readAsDataURL(item.file);
+      }
+
+      function renderQueue() {
+        if (fileQueue.length === 0) {
+          queueContainer.style.display = 'none';
+          convertAllBtn.disabled = true;
+          return;
+        }
+
+        queueContainer.style.display = 'block';
+        convertAllBtn.disabled = false;
+        queueCount.textContent = fileQueue.length;
+
+        let html = '';
+        fileQueue.forEach(item => {
+          let statusBadge = `<span class="status-badge status-ready">Ready</span>`;
+          if (item.status === 'converting') statusBadge = `<span class="status-badge status-converting">Converting...</span>`;
+          if (item.status === 'done') statusBadge = `<span class="status-badge status-done">Completed</span>`;
+
+          html += `
+            <div class="queue-item" id="item-${item.id}">
+              <img id="thumb-${item.id}" class="queue-thumb" src="${item.thumbUrl || 'data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23e2e8f0\'/></svg>'}" alt="Preview">
+              <div class="queue-info">
+                <h4>${item.name}</h4>
+                <span>${window.formatBytes(item.size)}</span>
+              </div>
+              <div class="queue-target">
+                <select id="sel-format-${item.id}" ${item.status === 'done' ? 'disabled' : ''}>
+                  <option value="image/webp" ${item.targetFormat === 'image/webp' ? 'selected' : ''}>WebP</option>
+                  <option value="image/jpeg" ${item.targetFormat === 'image/jpeg' ? 'selected' : ''}>JPEG</option>
+                  <option value="image/png" ${item.targetFormat === 'image/png' ? 'selected' : ''}>PNG</option>
+                </select>
+              </div>
+              <div class="queue-status" id="status-${item.id}">
+                ${statusBadge}
+              </div>
+              <div class="queue-download">
+                <button class="btn-download-item" id="btn-dl-${item.id}" ${item.status === 'done' ? '' : 'disabled'}>
+                  <i class="fas fa-download"></i> Save
+                </button>
+              </div>
+              <div class="queue-action" style="text-align: right;">
+                <button class="btn-remove-item" data-id="${item.id}" aria-label="Remove item">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          `;
+        });
+
+        queueItems.innerHTML = html;
+
+        // Bind item controls
+        fileQueue.forEach(item => {
+          const sel = document.getElementById(`sel-format-${item.id}`);
+          if (sel) {
+            sel.addEventListener('change', () => {
+              item.targetFormat = sel.value;
+            });
+          }
+
+          const dlBtn = document.getElementById(`btn-dl-${item.id}`);
+          if (dlBtn) {
+            dlBtn.addEventListener('click', () => downloadSingle(item));
+          }
+        });
+
+        document.querySelectorAll('.btn-remove-item').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            fileQueue = fileQueue.filter(it => it.id !== id);
+            renderQueue();
+          });
+        });
+
+        // Show download all if any are done
+        const hasDone = fileQueue.some(it => it.status === 'done');
+        downloadAllBtn.style.display = hasDone ? 'inline-flex' : 'none';
+      }
+
+      convertAllBtn.addEventListener('click', async () => {
+        convertAllBtn.disabled = true;
+        const quality = parseFloat(globalQuality.value);
+
+        for (const item of fileQueue) {
+          if (item.status === 'done') continue;
+
+          item.status = 'converting';
+          updateItemStatusUI(item);
+
+          try {
+            item.convertedBlob = await convertImageBlob(item.file, item.targetFormat, quality);
+            item.status = 'done';
+          } catch (err) {
+            item.status = 'error';
+            window.showToast(`Error converting ${item.name}`, 'error');
+          }
+
+          updateItemStatusUI(item);
+        }
+
+        convertAllBtn.disabled = false;
+        downloadAllBtn.style.display = 'inline-flex';
+        window.showToast('Batch conversion finished!', 'success');
+      });
+
+      function updateItemStatusUI(item) {
+        const statusEl = document.getElementById(`status-${item.id}`);
+        const dlBtn = document.getElementById(`btn-dl-${item.id}`);
+        if (!statusEl) return;
+
+        if (item.status === 'converting') {
+          statusEl.innerHTML = `<span class="status-badge status-converting">Converting...</span>`;
+        } else if (item.status === 'done') {
+          statusEl.innerHTML = `<span class="status-badge status-done">${window.formatBytes(item.convertedBlob.size)}</span>`;
+          if (dlBtn) dlBtn.disabled = false;
+        } else if (item.status === 'error') {
+          statusEl.innerHTML = `<span class="status-badge" style="background:#fee2e2;color:#dc2626;">Failed</span>`;
+        }
+      }
+
+      function convertImageBlob(file, mimeType, quality) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          const url = URL.createObjectURL(file);
+
+          img.onload = () => {
+            URL.revokeObjectURL(url);
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+
+            const ctx = canvas.getContext('2d');
+            // If converting to JPEG, draw solid white background for transparency
+            if (mimeType === 'image/jpeg') {
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            ctx.drawImage(img, 0, 0);
+
+            canvas.toBlob((blob) => {
+              if (blob) {
+                resolve(blob);
+              } else {
+                reject(new Error('Canvas toBlob failed'));
+              }
+            }, mimeType, quality);
+          };
+
+          img.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error('Image decode error'));
+          };
+
+          img.src = url;
+        });
+      }
+
+      function downloadSingle(item) {
+        if (!item.convertedBlob) return;
+        let ext = 'webp';
+        if (item.targetFormat === 'image/jpeg') ext = 'jpg';
+        if (item.targetFormat === 'image/png') ext = 'png';
+
+        const baseName = item.name.replace(/\.[^/.]+$/, "");
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(item.convertedBlob);
+        a.download = `${baseName}.${ext}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      downloadAllBtn.addEventListener('click', () => {
+        let count = 0;
+        fileQueue.forEach((item, index) => {
+          if (item.status === 'done' && item.convertedBlob) {
+            setTimeout(() => {
+              downloadSingle(item);
+            }, index * 250);
+            count++;
+          }
+        });
+        window.showToast(`Downloading ${count} converted files`, 'info');
+      });
+
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Free Online Markdown Editor | Live Split Preview & HTML Export | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Free Online Markdown Editor | Live Split Preview & HTML Export">
+  <meta name="description" content="Write and preview Markdown in real-time with synchronized split view, formatting toolbar, tables, and instant export to .md or clean styled HTML. 100% in-browser.">
+  <meta name="keywords" content="markdown editor, online markdown preview, markdown to html, live markdown editor, split screen markdown, free markdown tool, github flavored markdown">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/markdown-editor/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/markdown-editor/">
+  <meta property="og:title" content="Free Online Markdown Editor | Live Split Preview">
+  <meta property="og:description" content="Split-screen live Markdown editor with rich toolbars and HTML export.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <!-- Marked.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    :root {
+      --md-theme: #0f172a;
+      --md-accent: #2563eb;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Editor Container */
+    .md-editor-container {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-top: 1.5rem;
+    }
+
+    .md-toolbar {
+      background: var(--bg-muted);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .toolbar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-md-tool {
+      background: white;
+      border: 1px solid var(--border-medium);
+      color: var(--text-main);
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+      min-width: 32px;
+      height: 32px;
+    }
+
+    .btn-md-tool:hover {
+      background: var(--md-accent);
+      color: white;
+      border-color: var(--md-accent);
+    }
+
+    /* Split Workspace */
+    .md-split-view {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+
+    .md-editor-pane {
+      border-right: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .md-textarea {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      background: white;
+      resize: none;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .md-preview-pane {
+      padding: 20px 28px;
+      overflow-y: auto;
+      max-height: 600px;
+      line-height: 1.7;
+      color: #334155;
+      background: #fafbfc;
+    }
+
+    /* Preview Typography */
+    .md-preview-pane h1, .md-preview-pane h2, .md-preview-pane h3 {
+      color: var(--text-main);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .md-preview-pane h1 { font-size: 1.85rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem; }
+    .md-preview-pane h2 { font-size: 1.45rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.4rem; }
+    .md-preview-pane h3 { font-size: 1.2rem; }
+    .md-preview-pane p { margin-bottom: 1rem; }
+    .md-preview-pane code {
+      font-family: var(--font-mono);
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .md-preview-pane pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    .md-preview-pane pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    .md-preview-pane blockquote {
+      border-left: 4px solid var(--md-accent);
+      padding-left: 1rem;
+      color: var(--text-muted);
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    .md-preview-pane table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .md-preview-pane th, .md-preview-pane td {
+      border: 1px solid var(--border-medium);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .md-preview-pane th {
+      background: #f1f5f9;
+      font-weight: 700;
+    }
+
+    /* Footer Info Bar */
+    .md-footer-bar {
+      background: var(--bg-muted);
+      border-top: 1px solid var(--border-light);
+      padding: 8px 18px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .mobile-tab-bar {
+      display: none;
+      border-bottom: 1px solid var(--border-light);
+      background: white;
+    }
+
+    .mobile-tab-bar button {
+      flex: 1;
+      padding: 10px;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .mobile-tab-bar button.active {
+      border-bottom: 2px solid var(--md-accent);
+      color: var(--md-accent);
+    }
+
+    @media (max-width: 860px) {
+      .mobile-tab-bar {
+        display: flex;
+      }
+      .md-split-view {
+        grid-template-columns: 1fr;
+      }
+      .md-editor-pane {
+        border-right: none;
+      }
+      .md-preview-pane {
+        display: none;
+      }
+      .md-preview-pane.mobile-active {
+        display: block;
+      }
+      .md-editor-pane.mobile-hidden {
+        display: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Online Markdown Editor & Previewer",
+        "url": "https://tools.shahriyarsojibhasan.top/markdown-editor/",
+        "description": "Live split-screen Markdown editor with toolbar formatting, table generation, and instant HTML export.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Markdown Editor",
+            "item": "https://tools.shahriyarsojibhasan.top/markdown-editor/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#developer-tools" class="nav-link active">Developer Tools</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#developer-tools">Developer Tools</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Markdown Editor</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-pen-nib"></i> GitHub Flavored Markdown</span>
+      <h1>Free Online Markdown Workspace</h1>
+      <p>Compose Markdown with live dual-pane preview, rich formatting actions, and export to HTML or .md.</p>
+    </section>
+
+    <!-- Editor Container -->
+    <section class="md-editor-container" aria-label="Markdown Workspace">
+      <!-- Toolbar -->
+      <div class="md-toolbar">
+        <div class="toolbar-group">
+          <button class="btn-md-tool" data-action="h1" title="Heading 1"><b>H1</b></button>
+          <button class="btn-md-tool" data-action="h2" title="Heading 2"><b>H2</b></button>
+          <button class="btn-md-tool" data-action="bold" title="Bold"><i class="fas fa-bold"></i></button>
+          <button class="btn-md-tool" data-action="italic" title="Italic"><i class="fas fa-italic"></i></button>
+          <button class="btn-md-tool" data-action="quote" title="Quote"><i class="fas fa-quote-left"></i></button>
+          <button class="btn-md-tool" data-action="code" title="Code"><i class="fas fa-code"></i></button>
+          <button class="btn-md-tool" data-action="list" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+          <button class="btn-md-tool" data-action="table" title="Table"><i class="fas fa-table"></i></button>
+          <button class="btn-md-tool" data-action="link" title="Link"><i class="fas fa-link"></i></button>
+        </div>
+
+        <div class="toolbar-group">
+          <button id="btn-copy-html" class="btn-md-tool" title="Copy HTML"><i class="fas fa-copy"></i> HTML</button>
+          <button id="btn-download-md" class="btn-md-tool" title="Download .md"><i class="fas fa-download"></i> .md</button>
+          <button id="btn-download-html" class="btn-md-tool" title="Download .html"><i class="fas fa-file-code"></i> .html</button>
+        </div>
+      </div>
+
+      <!-- Mobile Tab Switcher -->
+      <div class="mobile-tab-bar">
+        <button id="tab-write" class="active">Write</button>
+        <button id="tab-preview">Preview</button>
+      </div>
+
+      <!-- Split View -->
+      <div class="md-split-view">
+        <div class="md-editor-pane" id="editor-pane">
+          <textarea id="md-input" class="md-textarea" placeholder="Type Markdown here..."></textarea>
+        </div>
+        <div class="md-preview-pane" id="preview-pane"></div>
+      </div>
+
+      <!-- Footer Bar -->
+      <div class="md-footer-bar">
+        <span id="md-stats">0 words | 0 characters</span>
+        <span>Marked.js Engine</span>
+      </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Streamlined Documentation with GitHub Flavored Markdown</h2>
+          <p>
+            Markdown is the standard syntax for technical writing, README documentation, static blogs, and issue trackers. 
+            <strong>SHAHRIYAR TOOLS Markdown Editor</strong> provides seamless live rendering with instant conversion to semantic HTML.
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-shield-alt" style="color: var(--color-success);"></i> 100% Client-Side</h3>
+            <p>Your notes and articles remain exclusively on your computer without server synchronization or cloud storage.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>High-Speed Client-Side Markdown Workspace.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const mdInput = document.getElementById('md-input');
+      const previewPane = document.getElementById('preview-pane');
+      const editorPane = document.getElementById('editor-pane');
+      const mdStats = document.getElementById('md-stats');
+      const btnCopyHtml = document.getElementById('btn-copy-html');
+      const btnDownloadMd = document.getElementById('btn-download-md');
+      const btnDownloadHtml = document.getElementById('btn-download-html');
+
+      const tabWrite = document.getElementById('tab-write');
+      const tabPreview = document.getElementById('tab-preview');
+
+      // Sample Initial Markdown
+      const sampleMarkdown = `# Welcome to SHAHRIYAR TOOLS Markdown Editor
+
+A high-performance, **distraction-free** Markdown workspace designed for developers and writers.
+
+## Features
+- **Live dual-pane** preview
+- **Zero server uploads** (100% private)
+- Export to \`.md\` or styled \`.html\`
+- Mobile-friendly responsive view
+
+### Sample Table
+
+| Tool Name | Category | Privacy |
+| :--- | :--- | :--- |
+| **Passbook Studio** | Finance | Local Only |
+| **Image Compressor** | Media | In-Browser |
+| **JSON Formatter** | Developer | Client-Side |
+
+> *"Simplicity is the ultimate sophistication."* — Leonardo da Vinci
+`;
+
+      mdInput.value = sampleMarkdown;
+
+      function renderMarkdown() {
+        const raw = mdInput.value;
+        const html = marked.parse(raw);
+        previewPane.innerHTML = html;
+
+        // Stats
+        const words = (raw.trim().match(/\b[\w'-]+\b/g) || []).length;
+        const chars = raw.length;
+        mdStats.textContent = `${words.toLocaleString()} words | ${chars.toLocaleString()} characters`;
+      }
+
+      mdInput.addEventListener('input', renderMarkdown);
+
+      // Mobile Tabs
+      tabWrite.addEventListener('click', () => {
+        tabWrite.classList.add('active');
+        tabPreview.classList.remove('active');
+        editorPane.classList.remove('mobile-hidden');
+        previewPane.classList.remove('mobile-active');
+      });
+
+      tabPreview.addEventListener('click', () => {
+        tabPreview.classList.add('active');
+        tabWrite.classList.remove('active');
+        editorPane.classList.add('mobile-hidden');
+        previewPane.classList.add('mobile-active');
+      });
+
+      // Toolbar Actions
+      document.querySelectorAll('.btn-md-tool[data-action]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.action;
+          const start = mdInput.selectionStart;
+          const end = mdInput.selectionEnd;
+          const selected = mdInput.value.substring(start, end);
+          let replace = '';
+
+          switch (action) {
+            case 'h1': replace = `# ${selected || 'Heading 1'}`; break;
+            case 'h2': replace = `## ${selected || 'Heading 2'}`; break;
+            case 'bold': replace = `**${selected || 'bold text'}**`; break;
+            case 'italic': replace = `*${selected || 'italic text'}*`; break;
+            case 'quote': replace = `> ${selected || 'Blockquote'}`; break;
+            case 'code': replace = selected.includes('\n') ? `\`\`\`javascript\n${selected || 'code here'}\n\`\`\`` : `\`${selected || 'code'}\``; break;
+            case 'list': replace = `- ${selected || 'List item'}`; break;
+            case 'table': replace = `| Column 1 | Column 2 |\n| :--- | :--- |\n| Data 1 | Data 2 |`; break;
+            case 'link': replace = `[${selected || 'Link Title'}](https://example.com)`; break;
+          }
+
+          mdInput.setRangeText(replace, start, end, 'end');
+          mdInput.focus();
+          renderMarkdown();
+        });
+      });
+
+      btnCopyHtml.addEventListener('click', () => {
+        window.copyText(previewPane.innerHTML, 'Rendered HTML copied!');
+      });
+
+      btnDownloadMd.addEventListener('click', () => {
+        const blob = new Blob([mdInput.value], { type: 'text/markdown' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'document.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.showToast('Downloaded document.md', 'success');
+      });
+
+      btnDownloadHtml.addEventListener('click', () => {
+        const fullHtml = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Document</title><style>body{font-family:sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#333;}table{border-collapse:collapse;width:100%;}th,td{border:1px solid #ccc;padding:8px;}pre{background:#f4f4f4;padding:1rem;border-radius:6px;overflow-x:auto;}</style></head><body>${previewPane.innerHTML}</body></html>`;
+        const blob = new Blob([fullHtml], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'document.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.showToast('Downloaded document.html', 'success');
+      });
+
+      // Initial render
+      renderMarkdown();
+
+    })();
+  </script>
+</body>
+</html>

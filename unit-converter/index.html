@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Universal Unit Converter | Length, Weight, Temperature, Storage | SHAHRIYAR TOOLS</title>
+  <meta name="title" content="Universal Unit Converter | Length, Weight, Temperature, Storage">
+  <meta name="description" content="Convert measurements instantly across Length, Weight, Temperature, Area, Volume, Speed, and Digital Data. Accurate two-way synchronized calculations with formula transparency.">
+  <meta name="keywords" content="unit converter, length converter, kg to lbs, celsius to fahrenheit, metric conversion, digital storage converter, speed converter, online measurement calculator">
+  <meta name="author" content="Shahriyar Sojib Hasan">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tools.shahriyarsojibhasan.top/unit-converter/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tools.shahriyarsojibhasan.top/unit-converter/">
+  <meta property="og:title" content="Universal Online Unit Converter | SHAHRIYAR TOOLS">
+  <meta property="og:description" content="Accurate multi-category unit converter with instantaneous formula calculations.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+  <meta name="theme-color" content="#dc2626">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+
+  <style>
+    :root {
+      --unit-theme: #2563eb;
+      --unit-theme-dark: #1d4ed8;
+      --unit-theme-light: #eff6ff;
+    }
+
+    .tool-hero {
+      padding: 2.5rem 0 1.5rem;
+      text-align: center;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--unit-theme-light);
+      color: var(--unit-theme-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tool-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Category Nav Bar */
+    .category-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .cat-chip {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      background: white;
+      border: 1px solid var(--border-medium);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition-fast);
+    }
+
+    .cat-chip.active, .cat-chip:hover {
+      background: var(--unit-theme);
+      color: white;
+      border-color: var(--unit-theme);
+      transform: translateY(-1px);
+    }
+
+    /* Conversion Cockpit */
+    .converter-cockpit {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .conversion-dual-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .unit-input-card {
+      background: var(--bg-muted);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .unit-input-card label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .input-val-box {
+      width: 100%;
+      background: white;
+      border: 2px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-size: 1.5rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-main);
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color var(--transition-fast);
+      margin-bottom: 12px;
+    }
+
+    .input-val-box:focus {
+      border-color: var(--unit-theme);
+    }
+
+    .unit-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-medium);
+      background: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-swap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--unit-theme);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 0 auto;
+      transition: transform var(--transition-fast);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-swap:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+
+    /* Formula Banner */
+    .formula-banner {
+      margin-top: 2rem;
+      background: var(--unit-theme-light);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .formula-text {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--unit-theme-dark);
+    }
+
+    @media (max-width: 768px) {
+      .conversion-dual-row {
+        grid-template-columns: 1fr;
+      }
+      .btn-swap {
+        transform: rotate(90deg);
+      }
+      .btn-swap:hover {
+        transform: rotate(270deg) scale(1.1);
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Universal Unit Converter Online",
+        "url": "https://tools.shahriyarsojibhasan.top/unit-converter/",
+        "description": "Convert Length, Mass, Temperature, Area, Volume, and Digital Data with synchronized calculations.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Shahriyar Sojib Hasan",
+          "url": "https://shahriyarsojibhasan.top/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tools.shahriyarsojibhasan.top/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Unit Converter",
+            "item": "https://tools.shahriyarsojibhasan.top/unit-converter/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand-link">
+        <span class="brand-badge"><i class="fas fa-toolbox"></i></span>
+        <span class="brand-text">SHAHRIYAR<span>TOOLS</span></span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="../" class="nav-link">Home</a></li>
+          <li><a href="../#calculators" class="nav-link active">Calculators</a></li>
+          <li><a href="../about/" class="nav-link">About</a></li>
+          <li><a href="../contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="../" class="btn-header-tools"><i class="fas fa-th"></i> All 15+ Tools</a>
+        <button class="mobile-menu-btn" aria-label="Open mobile menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item"><a href="../">Home</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item"><a href="../#calculators">Calculators</a></li>
+        <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">Unit Converter</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <span class="tool-badge"><i class="fas fa-balance-scale"></i> Real-Time Multi-Unit Engine</span>
+      <h1>Universal Online Unit Converter</h1>
+      <p>Convert metrics between international and imperial measurement standards with mathematical precision.</p>
+    </section>
+
+    <!-- Category Selector Chips -->
+    <div class="category-chips" role="tablist">
+      <button class="cat-chip active" data-cat="length"><i class="fas fa-ruler"></i> Length</button>
+      <button class="cat-chip" data-cat="mass"><i class="fas fa-weight-hanging"></i> Weight / Mass</button>
+      <button class="cat-chip" data-cat="temperature"><i class="fas fa-thermometer-half"></i> Temperature</button>
+      <button class="cat-chip" data-cat="area"><i class="fas fa-vector-square"></i> Area</button>
+      <button class="cat-chip" data-cat="volume"><i class="fas fa-cube"></i> Volume</button>
+      <button class="cat-chip" data-cat="speed"><i class="fas fa-tachometer-alt"></i> Speed</button>
+      <button class="cat-chip" data-cat="data"><i class="fas fa-database"></i> Digital Storage</button>
+    </div>
+
+    <!-- Converter Cockpit -->
+    <section class="converter-cockpit" aria-label="Unit Converter Cockpit">
+      <div class="conversion-dual-row">
+        <!-- From Box -->
+        <div class="unit-input-card">
+          <label for="val-from">From</label>
+          <input type="number" id="val-from" class="input-val-box" value="1" step="any">
+          <select id="sel-from" class="unit-select"></select>
+        </div>
+
+        <!-- Swap Button -->
+        <div style="text-align: center;">
+          <button id="btn-swap-units" class="btn-swap" aria-label="Swap units">
+            <i class="fas fa-exchange-alt"></i>
+          </button>
+        </div>
+
+        <!-- To Box -->
+        <div class="unit-input-card">
+          <label for="val-to">To</label>
+          <input type="number" id="val-to" class="input-val-box" value="0" step="any">
+          <select id="sel-to" class="unit-select"></select>
+        </div>
+      </div>
+
+      <!-- Formula Result Banner -->
+      <div class="formula-banner">
+        <div>Formula: <span id="formula-text" class="formula-text">1 Meter = 3.28084 Feet</span></div>
+        <button id="btn-copy-result" class="btn-palette" style="padding: 6px 12px; font-size: 0.85rem;">
+          <i class="fas fa-copy"></i> Copy Value
+        </button>
+      </div>
+    </section>
+
+    <!-- SEO Information -->
+    <section class="seo-content-section">
+      <div class="seo-content-grid">
+        <div class="seo-main">
+          <h2>Precision Unit Conversions Across Metric and Imperial Systems</h2>
+          <p>
+            From engineering blueprints to international recipes, converting units accurately prevents costly mathematical errors. 
+            <strong>SHAHRIYAR TOOLS Unit Converter</strong> calculates reciprocal conversions instantly with formula transparency and IEEE 754 precision.
+          </p>
+          <h3>Common Unit Conversions</h3>
+          <p>
+            - <strong>1 Kilometer (km)</strong> = 0.621371 Miles (mi)<br>
+            - <strong>1 Kilogram (kg)</strong> = 2.20462 Pounds (lbs)<br>
+            - <strong>0° Celsius</strong> = 32° Fahrenheit (F) = 273.15 Kelvin (K)<br>
+            - <strong>1 Gigabyte (GB)</strong> = 1,024 Megabytes (MB)
+          </p>
+        </div>
+        <aside class="seo-sidebar">
+          <div class="sidebar-card privacy-badge-card">
+            <h3><i class="fas fa-calculator" style="color: var(--color-success);"></i> Pure Math</h3>
+            <p>Every calculation runs locally in JavaScript without network requests. Quick, lightweight, and responsive.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© <span class="current-year">2026</span> <strong>SHAHRIYAR TOOLS</strong>. Created by <a href="https://shahriyarsojibhasan.top/" target="_blank" rel="noopener">Shahriyar Sojib Hasan</a>.</div>
+        <div>Universal High Precision Mathematics.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const catChips = document.querySelectorAll('.cat-chip');
+      const valFrom = document.getElementById('val-from');
+      const selFrom = document.getElementById('sel-from');
+      const valTo = document.getElementById('val-to');
+      const selTo = document.getElementById('sel-to');
+      const btnSwap = document.getElementById('btn-swap-units');
+      const formulaText = document.getElementById('formula-text');
+      const btnCopyResult = document.getElementById('btn-copy-result');
+
+      let currentCat = 'length';
+
+      const unitData = {
+        length: {
+          base: 'm',
+          units: {
+            'm': { name: 'Meters (m)', factor: 1 },
+            'km': { name: 'Kilometers (km)', factor: 1000 },
+            'cm': { name: 'Centimeters (cm)', factor: 0.01 },
+            'mm': { name: 'Millimeters (mm)', factor: 0.001 },
+            'mi': { name: 'Miles (mi)', factor: 1609.344 },
+            'yd': { name: 'Yards (yd)', factor: 0.9144 },
+            'ft': { name: 'Feet (ft)', factor: 0.3048 },
+            'in': { name: 'Inches (in)', factor: 0.0254 }
+          }
+        },
+        mass: {
+          base: 'kg',
+          units: {
+            'kg': { name: 'Kilograms (kg)', factor: 1 },
+            'g': { name: 'Grams (g)', factor: 0.001 },
+            'mg': { name: 'Milligrams (mg)', factor: 0.000001 },
+            'lb': { name: 'Pounds (lbs)', factor: 0.45359237 },
+            'oz': { name: 'Ounces (oz)', factor: 0.028349523125 },
+            'ton': { name: 'Metric Tonnes (t)', factor: 1000 }
+          }
+        },
+        temperature: {
+          special: true,
+          units: {
+            'c': { name: 'Celsius (°C)' },
+            'f': { name: 'Fahrenheit (°F)' },
+            'k': { name: 'Kelvin (K)' }
+          }
+        },
+        area: {
+          base: 'sqm',
+          units: {
+            'sqm': { name: 'Square Meters (m²)', factor: 1 },
+            'sqkm': { name: 'Square Kilometers (km²)', factor: 1000000 },
+            'sqft': { name: 'Square Feet (ft²)', factor: 0.092903 },
+            'acre': { name: 'Acres (ac)', factor: 4046.86 },
+            'hectare': { name: 'Hectares (ha)', factor: 10000 }
+          }
+        },
+        volume: {
+          base: 'l',
+          units: {
+            'l': { name: 'Liters (L)', factor: 1 },
+            'ml': { name: 'Milliliters (mL)', factor: 0.001 },
+            'gal': { name: 'US Gallons (gal)', factor: 3.78541 },
+            'qt': { name: 'US Quarts (qt)', factor: 0.946353 },
+            'cup': { name: 'Cups', factor: 0.24 },
+            'cum': { name: 'Cubic Meters (m³)', factor: 1000 }
+          }
+        },
+        speed: {
+          base: 'mps',
+          units: {
+            'mps': { name: 'Meters per second (m/s)', factor: 1 },
+            'kmh': { name: 'Kilometers per hour (km/h)', factor: 0.277778 },
+            'mph': { name: 'Miles per hour (mph)', factor: 0.44704 },
+            'knot': { name: 'Knots (kn)', factor: 0.514444 }
+          }
+        },
+        data: {
+          base: 'b',
+          units: {
+            'b': { name: 'Bytes (B)', factor: 1 },
+            'kb': { name: 'Kilobytes (KB)', factor: 1024 },
+            'mb': { name: 'Megabytes (MB)', factor: 1048576 },
+            'gb': { name: 'Gigabytes (GB)', factor: 1073741824 },
+            'tb': { name: 'Terabytes (TB)', factor: 1099511627776 }
+          }
+        }
+      };
+
+      catChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          catChips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          currentCat = chip.dataset.cat;
+          populateSelects();
+          convertFrom();
+        });
+      });
+
+      function populateSelects() {
+        const cat = unitData[currentCat];
+        const keys = Object.keys(cat.units);
+
+        let html = '';
+        keys.forEach(k => {
+          html += `<option value="${k}">${cat.units[k].name}</option>`;
+        });
+
+        selFrom.innerHTML = html;
+        selTo.innerHTML = html;
+
+        if (keys.length > 1) {
+          selTo.selectedIndex = 1;
+        }
+      }
+
+      btnSwap.addEventListener('click', () => {
+        const temp = selFrom.value;
+        selFrom.value = selTo.value;
+        selTo.value = temp;
+        convertFrom();
+      });
+
+      valFrom.addEventListener('input', convertFrom);
+      selFrom.addEventListener('change', convertFrom);
+      selTo.addEventListener('change', convertFrom);
+
+      valTo.addEventListener('input', () => {
+        const cat = unitData[currentCat];
+        const v = parseFloat(valTo.value);
+        if (isNaN(v)) {
+          valFrom.value = '';
+          return;
+        }
+
+        if (cat.special && currentCat === 'temperature') {
+          valFrom.value = convertTemp(v, selTo.value, selFrom.value);
+        } else {
+          const fromFactor = cat.units[selFrom.value].factor;
+          const toFactor = cat.units[selTo.value].factor;
+          const inBase = v * toFactor;
+          const res = inBase / fromFactor;
+          valFrom.value = parseFloat(res.toFixed(6));
+        }
+      });
+
+      function convertFrom() {
+        const cat = unitData[currentCat];
+        const v = parseFloat(valFrom.value);
+        if (isNaN(v)) {
+          valTo.value = '';
+          return;
+        }
+
+        let result = 0;
+        if (cat.special && currentCat === 'temperature') {
+          result = convertTemp(v, selFrom.value, selTo.value);
+          formulaText.textContent = `${v} ${cat.units[selFrom.value].name} = ${result} ${cat.units[selTo.value].name}`;
+        } else {
+          const fromFactor = cat.units[selFrom.value].factor;
+          const toFactor = cat.units[selTo.value].factor;
+          const inBase = v * fromFactor;
+          result = inBase / toFactor;
+          valTo.value = parseFloat(result.toFixed(6));
+
+          const singleFactor = (fromFactor / toFactor);
+          formulaText.textContent = `1 ${cat.units[selFrom.value].name} = ${parseFloat(singleFactor.toFixed(6))} ${cat.units[selTo.value].name}`;
+        }
+        valTo.value = result;
+      }
+
+      function convertTemp(val, from, to) {
+        let inCelsius = val;
+        if (from === 'f') inCelsius = (val - 32) * (5 / 9);
+        if (from === 'k') inCelsius = val - 273.15;
+
+        let out = inCelsius;
+        if (to === 'f') out = (inCelsius * (9 / 5)) + 32;
+        if (to === 'k') out = inCelsius + 273.15;
+
+        return parseFloat(out.toFixed(2));
+      }
+
+      btnCopyResult.addEventListener('click', () => {
+        window.copyText(valTo.value, 'Result copied!');
+      });
+
+      // Initial populate
+      populateSelects();
+      convertFrom();
+
+    })();
+  </script>
+</body>
+</html>

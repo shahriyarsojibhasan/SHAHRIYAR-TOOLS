@@ -1,0 +1,97 @@
+# SHAHRIYAR TOOLS (tools.shahriyarsojibhasan.top)
+> Free, privacy-first, client-side developer, design, and daily productivity web utilities.
+> Developed by Shahriyar Sojib Hasan (https://shahriyarsojibhasan.top/).
+
+## Overview
+SHAHRIYAR TOOLS is a specialized suite of browser-native web tools designed for speed, zero-latency execution, and complete data privacy. Every file processing operation (including image compression, image format conversion, PDF manipulation, and password generation) executes strictly client-side via modern Web APIs (Canvas API, Web Crypto API, Web Streams) without uploading sensitive user data to any external server.
+
+## Platform Identity & Architecture
+- Website: https://tools.shahriyarsojibhasan.top/
+- Developer & Owner: Shahriyar Sojib Hasan (https://shahriyarsojibhasan.top/)
+- Brand: SHAHRIAR LABS / Personal Developer Ecosystem
+- Repository: https://github.com/shahriyarsojibhasan/SHAHRIYAR-TOOLS
+- Hosting: GitHub Pages with custom domain and full HTTPS
+- Architecture: Pure client-side HTML5, CSS3, ES6 JavaScript, Zero-Server Processing
+
+## Public Tool Directory
+
+### 1. Passbook Studio
+- URL: https://tools.shahriyarsojibhasan.top/passbook/
+- Description: Bengali customer ledger & passbook creator featuring 12 security themes, duplex booklet printing, 3D preview, and Adobe Illustrator / Photoshop vector export.
+- Key Capabilities: Bangla ledger, debit/credit transactions, duplex print, vector export.
+
+### 2. Reunion Poster Studio
+- URL: https://tools.shahriyarsojibhasan.top/reunionposter/
+- Description: Event and batch reunion poster generator with 8 layout styles, pan & zoom cropping, multi-aspect ratio rendering, and 4K export.
+- Key Capabilities: Image grid arranger, live typography styling, color themes, 4K download.
+
+### 3. Image Compressor
+- URL: https://tools.shahriyarsojibhasan.top/image-compressor/
+- Description: In-browser image compressor for JPG, PNG, and WebP with an interactive before/after split slider, customizable compression quality, batch processing, and exact size reduction metrics.
+- Key Capabilities: Client-side compression, privacy preservation, split comparison, batch download.
+
+### 4. Image Converter
+- URL: https://tools.shahriyarsojibhasan.top/image-converter/
+- Description: Batch image format converter supporting JPG, PNG, WebP, GIF, and BMP with dimension scaling, quality controls, and instant download.
+- Key Capabilities: In-browser format transcoding, batch conversion, resolution controls.
+
+### 5. PDF Toolkit
+- URL: https://tools.shahriyarsojibhasan.top/pdf-tools/
+- Description: Client-side PDF utility for merging multiple PDF documents, splitting pages by range, rotating pages, and extracting specific sheets into new documents.
+- Key Capabilities: Merge, split, rotate, extract pages, 100% private in-browser pdf-lib processing.
+
+### 6. QR Code Generator
+- URL: https://tools.shahriyarsojibhasan.top/qr-code-generator/
+- Description: High-resolution QR code generator supporting URLs, plain text, Wi-Fi configuration credentials, vCard contacts, emails, and SMS with custom colors and logo embedding.
+- Key Capabilities: PNG/SVG export, Wi-Fi QR, vCard QR, custom styling, error correction selection.
+
+### 7. Word Counter & Text Analyzer
+- URL: https://tools.shahriyarsojibhasan.top/word-counter/
+- Description: Distraction-free writing workspace providing real-time word count, character count, sentence count, paragraph count, reading time estimation, and keyword density breakdown.
+- Key Capabilities: Live text analytics, reading level indicator, top keyword density, case conversion.
+
+### 8. JSON Formatter & Validator
+- URL: https://tools.shahriyarsojibhasan.top/json-formatter/
+- Description: Developer IDE-styled JSON beautifier and validator featuring line-numbered editor, syntax error detection with line/column pointers, minification, tree-view inspector, and file download.
+- Key Capabilities: JSON validation, indentation control, minification, tree view, copy & download.
+
+### 9. Password Generator
+- URL: https://tools.shahriyarsojibhasan.top/password-generator/
+- Description: Cryptographically secure password and passphrase generator leveraging the Web Crypto API with custom character sets, entropy estimation, and crack-time metrics.
+- Key Capabilities: High entropy, Web Crypto API random values, zero server persistence, customizable symbols.
+
+### 10. Color Palette Studio
+- URL: https://tools.shahriyarsojibhasan.top/color-palette/
+- Description: Creative color laboratory featuring harmonic palette generation (Complementary, Analogous, Triadic), CSS gradient generator, WCAG AA/AAA contrast checker, and export to CSS variables or JSON.
+- Key Capabilities: Palette harmonies, contrast compliance checker, gradient generator, HEX/RGB/HSL conversion.
+
+### 11. Unit Converter
+- URL: https://tools.shahriyarsojibhasan.top/unit-converter/
+- Description: Real-time unit converter covering Length, Weight/Mass, Temperature, Area, Volume, Speed, Time, Digital Storage, Energy, and Pressure with mathematical formula explanations.
+- Key Capabilities: Dual synchronized inputs, swap direction, formula transparency, high precision.
+
+### 12. Age Calculator
+- URL: https://tools.shahriyarsojibhasan.top/age-calculator/
+- Description: Chronological age calculator displaying precise years, months, days, hours, and live-ticking seconds, alongside next birthday countdowns, total days lived, and astrological signs.
+- Key Capabilities: Exact calendar calculations, leap-year handling, countdown timer, life milestones.
+
+### 13. Invoice Generator
+- URL: https://tools.shahriyarsojibhasan.top/invoice-generator/
+- Description: Professional business invoicing tool with logo upload, customizable line items, tax and discount calculations, multi-currency support, and print-ready PDF export.
+- Key Capabilities: Invoicing, tax and discounts, print stylesheet, vector PDF export, local draft saving.
+
+### 14. Markdown Editor
+- URL: https://tools.shahriyarsojibhasan.top/markdown-editor/
+- Description: Split-screen Markdown workspace with synchronized scrolling, rich formatting toolbar, live HTML preview, and one-click export to Markdown or styled HTML.
+- Key Capabilities: Real-time Markdown parsing, syntax highlighting, table generation, export options.
+
+### 15. Text Case Converter
+- URL: https://tools.shahriyarsojibhasan.top/text-case-converter/
+- Description: Typographic text transformation utility converting text into UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, kebab-case, snake_case, and CONSTANT_CASE with whitespace cleanup.
+- Key Capabilities: Multi-case conversion, whitespace cleaners, character statistics, 1-click clipboard copy.
+
+## Informational & Legal Pages
+- About: https://tools.shahriyarsojibhasan.top/about/
+- Contact: https://tools.shahriyarsojibhasan.top/contact/
+- Privacy Policy: https://tools.shahriyarsojibhasan.top/privacy/
+- Terms of Use: https://tools.shahriyarsojibhasan.top/terms/
