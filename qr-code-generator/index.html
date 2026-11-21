@@ -39,8 +39,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/common.css">
 
-  <!-- QR Code Library CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <!-- QR Code Engine (Local Bundle + CDN Fallback) -->
+  <script src="../assets/vendor/qrcode.min.js"></script>
+  <script>
+    if (typeof QRCode === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.1/qrcode.min.js"><\/script>');
+    }
+  </script>
 
   <style>
     :root {
@@ -856,7 +861,8 @@
         };
 
         if (typeof QRCode === 'undefined') {
-          console.warn('QRCode library not ready yet');
+          console.warn('QRCode library initializing, retrying...');
+          setTimeout(generateQR, 100);
           return;
         }
 
