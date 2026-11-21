@@ -2302,6 +2302,70 @@
             z-index: 11;
         }
 
+        /* 📱 RESPONSIVE MOBILE & TABLET LAYOUT */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 6px 8px !important;
+                flex-wrap: wrap !important;
+                gap: 6px !important;
+                height: auto !important;
+            }
+            #app-body {
+                height: calc(100vh - 84px) !important;
+            }
+            #leftSidebar, #rightSidebar {
+                position: fixed !important;
+                top: 52px !important;
+                bottom: 0 !important;
+                width: 290px !important;
+                max-width: 85vw !important;
+                min-width: 0 !important;
+                z-index: 50 !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7) !important;
+                transition: transform 0.25s ease-in-out, opacity 0.2s ease !important;
+            }
+            #leftSidebar {
+                left: 0 !important;
+            }
+            #rightSidebar {
+                right: 0 !important;
+            }
+            #leftSidebar.collapsed {
+                transform: translateX(-100%) !important;
+                width: 290px !important;
+                min-width: 0 !important;
+                display: none !important;
+            }
+            #rightSidebar.collapsed {
+                transform: translateX(100%) !important;
+                width: 290px !important;
+                min-width: 0 !important;
+                display: none !important;
+            }
+            #centerCanvas {
+                width: 100vw !important;
+                padding: 8px 4px !important;
+                overflow-x: auto !important;
+            }
+            #book-stage {
+                padding: 10px 4px !important;
+            }
+            #book-stage-inner {
+                max-width: 95vw !important;
+                transform-origin: top center !important;
+            }
+            .canvas-floating-bar {
+                left: 8px !important;
+                right: 8px !important;
+                transform: none !important;
+                bottom: 10px !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                justify-content: flex-start !important;
+                max-width: calc(100vw - 16px) !important;
+            }
+        }
+
         @media print {
 
             html,
@@ -7290,6 +7354,12 @@
         }
 
         window.onload = function () {
+            if (window.innerWidth <= 768) {
+                const sb = document.getElementById('leftSidebar');
+                if (sb && !sb.classList.contains('collapsed')) {
+                    toggleLeftSidebar();
+                }
+            }
             const initScale = (customConfig.coverImgScale !== undefined && customConfig.coverImgScale !== null) ? customConfig.coverImgScale : 1.0;
             document.documentElement.style.setProperty('--cover-img-scale', initScale);
             document.documentElement.style.setProperty('--cover-img-y', (customConfig.coverImgY || 0) + 'px');

@@ -211,10 +211,28 @@
     }
 
     @media (max-width: 768px) {
+      .converter-cockpit {
+        padding: 1.25rem 0.85rem;
+      }
+      .category-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;
+        gap: 6px;
+      }
+      .cat-chip {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 0.82rem;
+      }
       .conversion-dual-row {
         grid-template-columns: 1fr;
+        gap: 1rem;
       }
       .btn-swap {
+        margin: 0 auto;
         transform: rotate(90deg);
       }
       .btn-swap:hover {

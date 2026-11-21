@@ -251,6 +251,33 @@
     @media (max-width: 860px) {
       .qr-workspace {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .qr-card {
+        padding: 1.25rem 0.85rem;
+      }
+      .type-switcher {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        gap: 6px;
+      }
+      .type-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 0.82rem;
+      }
+      .qr-preview-container {
+        padding: 1.5rem 1rem;
+      }
+      .qr-export-group {
+        flex-direction: column;
+      }
+      .btn-export-png, .btn-export-svg {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>

@@ -173,7 +173,7 @@
     /* Tools Grid */
     .directory-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
       gap: 1.75rem;
       margin-bottom: 4rem;
     }
@@ -320,14 +320,58 @@
     }
 
     @media (max-width: 768px) {
+      .hero-section {
+        padding: 2.5rem 0.5rem 1.75rem;
+      }
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
       }
       .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        margin-bottom: 1.75rem;
+      }
+      .search-container {
+        margin-bottom: 1.5rem;
+      }
+      .search-input {
+        font-size: 1rem;
+        padding: 13px 18px 13px 44px;
+      }
+      .search-icon {
+        left: 14px;
+        font-size: 1rem;
+      }
+      .filter-tabs {
+        gap: 6px;
+        margin-bottom: 2rem;
+      }
+      .filter-tab {
+        font-size: 0.8rem;
+        padding: 6px 12px;
       }
       .directory-grid {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+      }
+      .tool-grid-card {
+        padding: 1.25rem;
+      }
+      .tool-card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.35rem;
+      }
+      .tool-card-title {
+        font-size: 1.15rem;
+      }
+      .trust-banner {
+        padding: 1.5rem 1rem;
+        margin: 2.5rem 0;
+      }
+      .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
   </style>

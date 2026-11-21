@@ -265,14 +265,33 @@
 
     @media (max-width: 768px) {
       .invoice-paper {
-        padding: 1.5rem;
+        padding: 1.25rem 0.85rem;
       }
       .invoice-header-row, .billing-grid {
         grid-template-columns: 1fr;
         flex-direction: column;
+        gap: 1.25rem;
+      }
+      .calc-row {
+        justify-content: stretch;
       }
       .calc-box {
         width: 100%;
+      }
+      .invoice-actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .actions-left, .actions-right {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0.5rem;
+      }
+      .btn-tool {
+        flex: 1;
+        justify-content: center;
       }
     }
   </style>
@@ -439,20 +458,22 @@
       </div>
 
       <!-- Items Table -->
-      <table class="invoice-table">
-        <thead>
-          <tr>
-            <th style="width: 50%;">Description</th>
-            <th style="width: 15%; text-align: center;">Qty</th>
-            <th style="width: 15%; text-align: right;">Rate</th>
-            <th style="width: 15%; text-align: right;">Amount</th>
-            <th style="width: 5%; text-align: center;"></th>
-          </tr>
-        </thead>
-        <tbody id="items-tbody">
-          <!-- Rows will be injected by JS -->
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="invoice-table" style="min-width: 520px;">
+          <thead>
+            <tr>
+              <th style="width: 45%;">Description</th>
+              <th style="width: 15%; text-align: center;">Qty</th>
+              <th style="width: 18%; text-align: right;">Rate</th>
+              <th style="width: 17%; text-align: right;">Amount</th>
+              <th style="width: 5%; text-align: center;"></th>
+            </tr>
+          </thead>
+          <tbody id="items-tbody">
+            <!-- Rows will be injected by JS -->
+          </tbody>
+        </table>
+      </div>
 
       <button id="btn-add-item" class="btn-tool" style="margin-top: 8px;">
         <i class="fas fa-plus"></i> Add Line Item

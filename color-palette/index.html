@@ -246,15 +246,28 @@
     }
 
     @media (max-width: 860px) {
+      .palette-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0.85rem;
+      }
+      .toolbar-left, .toolbar-right {
+        width: 100%;
+        justify-content: stretch;
+      }
+      .btn-palette {
+        flex: 1;
+        justify-content: center;
+      }
       .swatch-display-grid {
         grid-template-columns: 1fr;
         height: auto;
       }
       .swatch-col {
-        height: 120px;
+        height: 90px;
         flex-direction: row;
         justify-content: space-between;
-        padding: 1rem 1.5rem;
+        padding: 0.75rem 1.25rem;
       }
       .color-sub-tools {
         grid-template-columns: 1fr;

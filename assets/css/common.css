@@ -75,6 +75,9 @@ html {
   background-color: var(--bg-main);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -83,6 +86,9 @@ body {
   flex-direction: column;
   background-color: var(--bg-main);
   color: var(--text-main);
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 img, svg, picture {
@@ -92,6 +98,7 @@ img, svg, picture {
 
 button, input, select, textarea {
   font: inherit;
+  max-width: 100%;
 }
 
 a {
@@ -122,6 +129,19 @@ a {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.25rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* --------------------------------------------------------------------------
@@ -682,11 +702,37 @@ a {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    height: auto;
+  }
+  .header-inner {
+    height: 60px;
+  }
+  .brand-link {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+  .brand-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
   .nav-links {
     display: none;
   }
+  .btn-header-tools {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
   .mobile-menu-btn {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .mobile-nav {
+    top: 60px;
   }
   .footer-top {
     grid-template-columns: 1fr;
@@ -695,5 +741,30 @@ a {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    gap: 0.75rem;
+  }
+  .toast-container {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+  .toast {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    height: 56px;
+  }
+  .mobile-nav {
+    top: 56px;
+  }
+  .btn-header-tools span:not(.tools-icon) {
+    display: none;
+  }
+  .btn-header-tools {
+    padding: 6px 10px;
   }
 }

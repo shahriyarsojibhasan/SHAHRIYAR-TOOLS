@@ -188,6 +188,33 @@
       transform: none;
       box-shadow: none;
     }
+
+    @media (max-width: 768px) {
+      .pdf-workspace {
+        padding: 1.25rem 0.85rem;
+      }
+      .pdf-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.75rem;
+        gap: 8px;
+      }
+      .pdf-tab-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 8px 14px;
+        font-size: 0.88rem;
+      }
+      .pdf-dropzone {
+        padding: 2rem 1rem;
+      }
+      .btn-pdf-action {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 
   <!-- Schema.org Structured Data -->
